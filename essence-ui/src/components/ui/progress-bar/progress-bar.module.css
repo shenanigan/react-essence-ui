@@ -1,0 +1,24 @@
+.value-bar {
+	background-color: var(--theme-color);
+	height: var(--bar-height);
+	-webkit-transition: 0.2s;
+	transition:
+		all var(--transition-duration),
+		width 0.2s;
+}
+
+.bkg-bar {
+	margin: var(--gutter-margin-y) var(--gutter-margin-x);
+	position: relative;
+	display: flex;
+}
+
+.bkg-bar::before {
+	content: '';
+	width: 100%;
+	background: var(--theme-color);
+	height: var(--bar-height);
+	opacity: 0.3;
+	position: absolute;
+	transition: var(--transition-duration);
+}

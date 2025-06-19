@@ -1,0 +1,44 @@
+.input {
+	border: 2px solid var(--primary-color);
+	background: var(--primary-bkg-color);
+	padding: var(--input-padding);
+	margin: var(--gutter-margin-y) 0;
+	font-size: var(--h4-font-size);
+	color: var(--primary-color);
+	border-radius: 0px;
+	height: var(--field-height);
+}
+
+.input:focus-visible {
+	outline: 0px;
+}
+
+.input:focus {
+	border-color: var(--theme-color);
+}
+
+.input[disabled=''],
+.input[disabled='true'] {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.theme-light .input[disabled=''],
+.theme-light .input[disabled='true'] {
+	background-color: #ddd;
+}
+
+.theme-dark .input[disabled=''],
+.theme-dark .input[disabled='true'] {
+	background-color: #333;
+}
+
+.input[show-error] {
+	border-color: #ff0000aa;
+}
+
+@media only screen and (max-width: 568px) {
+	.input {
+		width: 100%;
+	}
+}

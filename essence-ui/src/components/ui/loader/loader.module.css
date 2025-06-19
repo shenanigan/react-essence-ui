@@ -1,0 +1,112 @@
+.loader-bar {
+	display: flex;
+	background-color: transparent;
+	height: var(--loader-dot-size);
+	margin: var(0px) var(--gutter-margin-x);
+	width: calc(100% - 2 * var(--gutter-margin-x));
+	overflow: hidden;
+	position: relative;
+	transition: var(--transition-duration);
+	min-width: 320px;
+}
+
+.loader-dot {
+	height: var(--loader-dot-size);
+	width: var(--loader-dot-size);
+	background-color: var(--theme-color);
+	border-radius: var(--loader-dot-size);
+	position: absolute;
+	top: 0;
+	left: -16px;
+	animation-duration: 5s;
+	animation-timing-function: cubic-bezier(0.26, 0.83, 0.72, 0.17);
+	animation-iteration-count: infinite;
+	transform-origin: 0px 0px;
+	margin-left: 0%;
+}
+
+.loader-bar span:nth-child(1) {
+	animation-name: loader-dot-1;
+}
+
+.loader-bar span:nth-child(2) {
+	animation-name: loader-dot-2;
+}
+
+.loader-bar span:nth-child(3) {
+	animation-name: loader-dot-3;
+}
+
+.loader-bar span:nth-child(4) {
+	animation-name: loader-dot-4;
+}
+
+.loader-bar span:nth-child(5) {
+	animation-name: loader-dot-5;
+}
+
+@keyframes loader-dot-1 {
+	from {
+		left: -16px;
+	}
+
+	75%,
+	to {
+		left: 105%;
+	}
+}
+
+@keyframes loader-dot-2 {
+	from,
+	5% {
+		left: -16px;
+	}
+
+	80%,
+	to {
+		left: 105%;
+	}
+}
+
+@keyframes loader-dot-3 {
+	from,
+	10% {
+		left: -16px;
+	}
+
+	85%,
+	to {
+		left: 105%;
+	}
+}
+
+@keyframes loader-dot-4 {
+	from,
+	15% {
+		left: -16px;
+	}
+
+	90%,
+	to {
+		left: 105%;
+	}
+}
+
+@keyframes loader-dot-5 {
+	0%,
+	20% {
+		left: -16px;
+	}
+
+	95%,
+	to {
+		left: 105%;
+	}
+}
+
+@media (max-width: 568px) {
+	.loader-dot {
+		animation-duration: 4s;
+		animation-timing-function: cubic-bezier(0.41, 0.76, 0.59, 0.24);
+	}
+}

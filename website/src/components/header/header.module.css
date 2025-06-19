@@ -1,0 +1,23 @@
+.bg-FF6D6A {
+	background-color: #ff6d6a;
+}
+
+.bg-8BD3E6 {
+	background-color: #8bd3e6;
+}
+
+.bg-EFBE7D {
+	background-color: #efbe7d;
+}
+
+.bg-B1A2CA {
+	background-color: #b1a2ca;
+}
+
+.bg-6495EC {
+	background-color: #6495ec;
+}
+
+.header-border-bottom {
+	border-bottom: 2px solid var(--theme-color);
+}

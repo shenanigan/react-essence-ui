@@ -1,0 +1,18 @@
+.keep-together {
+	white-space: nowrap;
+}
+
+li {
+	cursor: pointer;
+	font-size: 24px;
+}
+
+li.active {
+	color: var(--theme-color);
+}
+
+li.disabled {
+	color: var(--primary-color);
+	opacity: 0.5;
+	cursor: not-allowed;
+}

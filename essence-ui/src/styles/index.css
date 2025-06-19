@@ -1,0 +1,125 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@font-face {
+	font-family: 'Segoe WP';
+	src: url('@essence-ui/assets/fonts/SegoeWP.ttf');
+	font-display: swap;
+}
+* {
+	font-family: var(--font-family);
+}
+
+:root {
+	--hex-bkg-color: 255, 255, 255;
+	--hex-primary-color: 0, 0, 0;
+	--hex-secondary-bkg-color: 255, 255, 255;
+
+	--primary-color: rgb(var(--hex-primary-color));
+	--primary-bkg-color: rgb(var(--hex-bkg-color));
+	--secondary-bkg-color: rgb(var(--hex-secondary-bkg-color));
+	--theme-color: rgb(255, 115, 115);
+
+	--font-family: 'Segoe WP';
+
+	--input-padding: 6px 10px;
+
+	--transition-duration: 0.4s;
+
+	/* The loader dots */
+	--loader-dot-size: 6px;
+
+	/* The bar heights for loader, slider, progress bar and any such bars needed */
+	--bar-height: 16px;
+
+	/* Button padding */
+	--button-padding: 6px 50px;
+
+	/* Field height */
+	--field-height: 48px;
+
+	/* Typography */
+	--h1-font-size: 72px;
+	--h2-font-size: 48px;
+	--h3-font-size: 36px;
+	--h4-font-size: 20px;
+	--h5-font-size: 18px;
+	--h6-font-size: 16px;
+	--subtitle-1-font-size: 24px;
+	--subtitle-2-font-size: 18px;
+	--body-1-font-size: 18px;
+	--body-2-font-size: 16px;
+	--caption-font-size: 16px;
+
+	/* Hub */
+	--hub-title-height: 139px;
+
+	/* Picker Option Size of the square */
+	--picker-option-size: 160;
+
+	--gutter-margin-x: 16px;
+	--gutter-margin-y: 15px;
+
+	/* Outlet Panel */
+	--gutter-margin-outlet-x: 60px;
+	--gutter-margin-outlet-y: 0px;
+}
+
+@layer base {
+	button:not([disabled]),
+	[role='button']:not([disabled]) {
+		cursor: pointer;
+	}
+}
+
+.theme-size-small {
+	--gutter-margin-x: 12px;
+	--h4-font-size: 16px;
+	--input-padding: 2px 8px;
+	--loader-dot-size: 4px;
+	--bar-height: 12px;
+	--button-padding: 0px 35px 2px;
+}
+
+.theme-size-large {
+	--gutter-margin-x: 20px;
+	--h4-font-size: 24px;
+	--input-padding: 12px 18px;
+	--loader-dot-size: 10px;
+	--bar-height: 20px;
+	--button-padding: 8px 50px;
+}
+
+.theme-color-blue {
+	--theme-color: rgb(115, 200, 255);
+}
+
+.theme-color-begonia {
+	--theme-color: rgb(255, 115, 115);
+}
+
+.theme-color-yellow {
+	--theme-color: rgb(255, 255, 115);
+}
+
+.theme-color-green {
+	--theme-color: rgb(115, 255, 115);
+}
+
+.theme-color-violet {
+	--theme-color: rgb(115, 115, 255);
+}
+
+.theme-color-pink {
+	--theme-color: rgb(255, 115, 255);
+}
+
+.theme-light {
+	--primary-color: black;
+	--primary-bkg-color: white;
+}
+
+.theme-dark {
+	--primary-color: white;
+	--primary-bkg-color: black;
+}

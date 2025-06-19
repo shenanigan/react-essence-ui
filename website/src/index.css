@@ -1,0 +1,33 @@
+@import 'tailwindcss';
+@source './src';
+@source '@essence-ui';
+@import '@essence-ui/styles/index.css';
+@import 'tw-animate-css';
+
+ul {
+	display: block;
+	list-style-type: disc;
+	margin-block-start: 1em;
+	margin-block-end: 1em;
+	margin-inline-start: 0px;
+	margin-inline-end: 0px;
+	padding-inline-start: 40px;
+	unicode-bidi: isolate;
+}
+
+.theme-light .docs-markdown code {
+	background-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+.theme-dark .docs-markdown code {
+	background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.docs-markdown h1:not(:first-of-type) {
+	margin-top: 50px;
+}
+
+.docs-markdown p {
+	font-size: 20px;
+	line-height: 28px;
+}

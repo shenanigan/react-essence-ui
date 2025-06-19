@@ -1,0 +1,17 @@
+{
+	"name": "essence-ui-mono-repo",
+	"version": "1.0.0",
+	"scripts": {
+		"website": "npm run --prefix website dev",
+		"build": "npm run --prefix website build",
+		"pack": "npm --prefix @ess1ence-ui pack"
+	},
+	"author": "Arjav Dave",
+	"license": "ISC",
+	"type": "module",
+	"description": "Essence UI Mono Repo",
+	"workspaces": [
+		"website",
+		"@essence-ui"
+	]
+}

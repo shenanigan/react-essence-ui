@@ -1,0 +1,12 @@
+.clickable {
+	perspective: 1px;
+	cursor: pointer;
+	display: flex;
+	width: fit-content;
+	width: -moz-fit-content;
+}
+
+.disabled {
+	cursor: not-allowed;
+	opacity: 0.5;
+}
