@@ -10,6 +10,8 @@ import { SwitchPage } from './pages/switch/switch-page';
 import { TextAreaPage } from './pages/text-area/text-area-page';
 import { CheckBoxPage } from './pages/check-box/check-box-page';
 import { RadioPage } from './pages/radio/radio-page';
+import { RangePage } from './pages/range/range-page';
+import { AlertPage } from './pages/alert/alert-page';
 
 export default function AppRoutes() {
 	return (
@@ -25,6 +27,8 @@ export default function AppRoutes() {
 					<Route path="text-area" element={<TextAreaPage />} />
 					<Route path="check-box" element={<CheckBoxPage />} />
 					<Route path="radio" element={<RadioPage />} />
+					<Route path="range" element={<RangePage />} />
+					<Route path="alert" element={<AlertPage />} />
 				</Route>
 			</Route>
 		</Routes>

@@ -1,6 +1,6 @@
 @import 'tailwindcss';
 @source './src';
-@source '@essence-ui';
+@source '../../essence-ui/src/*';
 @import '@essence-ui/styles/index.css';
 @import 'tw-animate-css';
 

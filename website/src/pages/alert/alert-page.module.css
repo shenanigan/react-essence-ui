@@ -1,0 +1,4 @@
+.custom-button-theme {
+	--theme-color: skyblue;
+	text-transform: uppercase;
+}

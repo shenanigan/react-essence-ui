@@ -7,9 +7,8 @@ export const RadioPage = () => {
 		name: 'Essence',
 	};
 	const radioCode = `<Radio text="Hello World" />`;
-	const disabledRadioCode = `<Radio disabled={true} text="Hello World" />`;
+	const disabledRadioCode = `<Radio disabled text="Hello World" />`;
 	const customRadioCode = `<Radio className="custom-radio-theme" text="Hello World" />`;
-	const defaultCheckedRadioCode = `<Radio text="Hello World" defaultChecked />`;
 	const customStyle = `.custom-radio-theme {
     --theme-color: green;
 }`;
