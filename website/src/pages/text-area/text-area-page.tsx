@@ -5,7 +5,7 @@ import styles from './text-area-page.module.css';
 
 export const TextAreaPage = () => {
 	const inputCode = `<TextArea placeholder="sample placeholder" />`;
-	const customInputCode = `<TextArea placeholder="sample placeholder" className="custom-text-area-theme" />`;
+	const customInputCode = `<TextArea placeholder="sample placeholder" className={styles['custom-text-area-theme']} />`;
 	const disabledInputCode = `<TextArea placeholder="sample placeholder" disabled />`;
 	const customStyle = `.custom-text-area-theme {
     --theme-color: green;
@@ -39,7 +39,7 @@ export const TextAreaPage = () => {
 
 			<p className="mt-3">To change the theme color of the input apply a custom class as below.</p>
 
-			<CodeBlock fileName="sample.tsx" code={customInputCode} language="html"></CodeBlock>
+			<CodeBlock fileName="sample.tsx" code={customInputCode} language="tsx"></CodeBlock>
 
 			<p>In your css file</p>
 			<CodeBlock fileName="sample.css" code={customStyle} language="css"></CodeBlock>

@@ -24,22 +24,24 @@ function Switch({ onCheckedChange, defaultChecked, ...props }: SwitchProps) {
 	};
 
 	return (
-		<Clickable {...props} onEnterOrSpaceKeyDown={handleChange} onClick={onClick}>
-			<div className={cn(styles['switch'])}>
-				<input
-					className={styles['switch-input']}
-					tabIndex={-1}
-					type="checkbox"
-					checked={isChecked}
-					onChange={handleChange}
-					value={isChecked ? '1' : '0'}
-				/>
-				<div className={styles['slider']}>
-					<span className={styles['inner']}></span>
+		<div className={cn(styles['switch'], props.className)}>
+			<div>{props.text}</div>
+			<Clickable {...props} className="" onEnterOrSpaceKeyDown={handleChange} onClick={onClick}>
+				<div className={styles['switch-container']}>
+					<input
+						className={styles['switch-input']}
+						tabIndex={-1}
+						type="checkbox"
+						checked={isChecked}
+						onChange={handleChange}
+						value={isChecked ? '1' : '0'}
+					/>
+					<div className={styles['slider']}>
+						<span className={styles['inner']}></span>
+					</div>
 				</div>
-				<div>{props.text}</div>
-			</div>
-		</Clickable>
+			</Clickable>
+		</div>
 	);
 }
 

@@ -12,6 +12,10 @@ import { CheckBoxPage } from './pages/check-box/check-box-page';
 import { RadioPage } from './pages/radio/radio-page';
 import { RangePage } from './pages/range/range-page';
 import { AlertPage } from './pages/alert/alert-page';
+import { DatePickerPage } from './pages/date-picker/date-picker-page';
+import { TimePickerPage } from './pages/time-picker/time-picker-page';
+import { PanoramaPage } from './pages/panorama/panorama-page';
+import { PivotPage } from './pages/pivot/pivot-page';
 
 export default function AppRoutes() {
 	return (
@@ -29,6 +33,10 @@ export default function AppRoutes() {
 					<Route path="radio" element={<RadioPage />} />
 					<Route path="range" element={<RangePage />} />
 					<Route path="alert" element={<AlertPage />} />
+					<Route path="date-picker" element={<DatePickerPage />} />
+					<Route path="time-picker" element={<TimePickerPage />} />
+					<Route path="panorama" element={<PanoramaPage />} />
+					<Route path="pivot" element={<PivotPage />} />
 				</Route>
 			</Route>
 		</Routes>

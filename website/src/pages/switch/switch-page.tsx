@@ -9,7 +9,7 @@ export const SwitchPage = () => {
 	};
 	const switchCode = `<Switch text="Hello World" />`;
 	const disabledSwitchCode = `<Switch disabled={true} text="Hello World" />`;
-	const customSwitchCode = `<Switch className="custom-switch-theme">Hello World</Switch>`;
+	const customSwitchCode = `<Switch className={styles['custom-switch-theme']} text="Hello World" />`;
 	const defaultCheckedSwitchCode = `<Switch text="Hello World" defaultChecked />`;
 	const customStyle = `.custom-switch-theme {
     --theme-color: green;
@@ -17,7 +17,9 @@ export const SwitchPage = () => {
 	return (
 		<div className="docs-markdown">
 			<div className="text-3xl font-bold">Demo</div>
-			<Switch className="mt-3" text="Hello World" />
+			<div className="flex justify-center">
+				<Switch className="mt-3" text="Hello World" />
+			</div>
 
 			<div className="text-2xl font-bold mt-8">Import the component</div>
 			<CodeBlock
@@ -46,7 +48,7 @@ export const SwitchPage = () => {
 
 			<div className="text-3xl font-bold mt-8">Theming</div>
 			<p className="mt-3">To change the color of the button on hover apply a custom class as below.</p>
-			<CodeBlock fileName="sample.tsx" code={customSwitchCode} language="html"></CodeBlock>
+			<CodeBlock fileName="sample.tsx" code={customSwitchCode} language="tsx"></CodeBlock>
 
 			<p>In your css file</p>
 			<CodeBlock fileName="sample.css" code={customStyle} language="css"></CodeBlock>

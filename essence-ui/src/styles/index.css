@@ -3,7 +3,7 @@
 
 @font-face {
 	font-family: 'Segoe WP';
-	src: url('@essence-ui/assets/fonts/SegoeWP.ttf');
+	src: url('@essence-ui/assets/fonts/SegoeWPLight.ttf');
 	font-display: swap;
 }
 * {
@@ -51,8 +51,8 @@
 	--body-2-font-size: 16px;
 	--caption-font-size: 16px;
 
-	/* Hub */
-	--hub-title-height: 139px;
+	/* Panorama */
+	--panorama-title-height: 120px;
 
 	/* Picker Option Size of the square */
 	--picker-option-size: 160;
@@ -115,11 +115,21 @@
 }
 
 .theme-light {
-	--primary-color: black;
-	--primary-bkg-color: white;
+	--hex-bkg-color: 255, 255, 255;
+	--hex-primary-color: 0, 0, 0;
+	--hex-secondary-bkg-color: 255, 255, 255;
+	--primary-color: rgb(var(--hex-primary-color));
+	--primary-bkg-color: rgb(var(--hex-bkg-color));
 }
 
 .theme-dark {
-	--primary-color: white;
-	--primary-bkg-color: black;
+	--hex-bkg-color: 0, 0, 0;
+	--hex-primary-color: 255, 255, 255;
+	--hex-secondary-bkg-color: 0, 0, 0;
+	--primary-color: rgb(var(--hex-primary-color));
+	--primary-bkg-color: rgb(var(--hex-bkg-color));
+}
+
+::-webkit-scrollbar {
+	display: none;
 }

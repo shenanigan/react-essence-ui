@@ -10,7 +10,7 @@ export const RangePage = () => {
 	};
 	const rangeCode = `<Range />`;
 	const disabledRangeCode = `<Range disabled />`;
-	const customRangeCode = `<Range className="custom-range-theme" />`;
+	const customRangeCode = `<Range className={styles['custom-range-theme']} />`;
 	const customStyle = `.custom-range-theme {
     --theme-color: green;
 }`;
@@ -43,7 +43,7 @@ export const RangePage = () => {
 
 			<div className="text-3xl font-bold mt-8">Theming</div>
 			<p className="mt-3">To change the color of the button on hover apply a custom class as below.</p>
-			<CodeBlock fileName="sample.tsx" code={customRangeCode} language="html"></CodeBlock>
+			<CodeBlock fileName="sample.tsx" code={customRangeCode} language="tsx"></CodeBlock>
 
 			<p>In your css file</p>
 			<CodeBlock fileName="sample.css" code={customStyle} language="css"></CodeBlock>

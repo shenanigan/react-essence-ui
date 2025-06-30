@@ -8,7 +8,7 @@ export const RadioPage = () => {
 	};
 	const radioCode = `<Radio text="Hello World" />`;
 	const disabledRadioCode = `<Radio disabled text="Hello World" />`;
-	const customRadioCode = `<Radio className="custom-radio-theme" text="Hello World" />`;
+	const customRadioCode = `<Radio className={styles['custom-radio-theme']} text="Hello World" />`;
 	const customStyle = `.custom-radio-theme {
     --theme-color: green;
 }`;
@@ -16,7 +16,7 @@ export const RadioPage = () => {
 		<div className="docs-markdown">
 			<div className="text-3xl font-bold">Demo</div>
 
-			<RadioGroup name="radio-group-1" defaultValue="hello" className="mt-3 flex flex-col gap-2">
+			<RadioGroup name="radio-group-1	" defaultValue="hello" className="mt-3 flex flex-col gap-2">
 				<Radio text="Hello" value="hello" />
 				<Radio text="World" value="world" />
 				<Radio text="Hello World" value="hello-world" />
@@ -53,7 +53,7 @@ export const RadioPage = () => {
 
 			<div className="text-3xl font-bold mt-8">Theming</div>
 			<p className="mt-3">To change the color of the button on hover apply a custom class as below.</p>
-			<CodeBlock fileName="sample.tsx" code={customRadioCode} language="html"></CodeBlock>
+			<CodeBlock fileName="sample.tsx" code={customRadioCode} language="tsx"></CodeBlock>
 
 			<p>In your css file</p>
 			<CodeBlock fileName="sample.css" code={customStyle} language="css"></CodeBlock>

@@ -31,3 +31,11 @@ ul {
 	font-size: 20px;
 	line-height: 28px;
 }
+
+.theme-light .panorama {
+	background-image: url('https://static.vecteezy.com/system/resources/previews/017/646/920/non_2x/flower-garden-bokeh-soft-light-abstract-background-eps-10-illustration-bokeh-particles-background-decoration-vector.jpg');
+}
+
+.theme-dark .panorama {
+	background-image: url('https://wallpapershome.com/images/pages/pic_h/26426.jpg');
+}

@@ -5,7 +5,7 @@ import styles from './input-page.module.css';
 
 export const InputPage = () => {
 	const inputCode = `<Input placeholder="sample placeholder" />`;
-	const customInputCode = `<Input placeholder="sample placeholder" className="custom-input-theme" />`;
+	const customInputCode = `<Input placeholder="sample placeholder" className={styles['custom-input-theme']} />`;
 	const disabledInputCode = `<Input placeholder="sample placeholder" disabled />`;
 	const customStyle = `.custom-input-theme {
     --theme-color: green;
@@ -38,7 +38,7 @@ export const InputPage = () => {
 
 			<p className="mt-3">To change the theme color of the input apply a custom class as below.</p>
 
-			<CodeBlock fileName="sample.tsx" code={customInputCode} language="html"></CodeBlock>
+			<CodeBlock fileName="sample.tsx" code={customInputCode} language="tsx"></CodeBlock>
 
 			<p>In your css file</p>
 			<CodeBlock fileName="sample.css" code={customStyle} language="css"></CodeBlock>

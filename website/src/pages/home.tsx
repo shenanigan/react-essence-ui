@@ -1,8 +1,15 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { Header } from '../components/header/header';
 import { NavComponents } from '../components/nav-components/nav-components';
+import { useEffect } from 'react';
 
 function Home() {
+	const navigate = useNavigate();
+	useEffect(() => {
+		if (window.location.pathname === '/') {
+			navigate('/getting-started');
+		}
+	}, [navigate]);
 	return (
 		<div style={{ background: 'var(--primary-bkg-color)', color: 'var(--primary-color)', minHeight: '100vh' }}>
 			<Header />

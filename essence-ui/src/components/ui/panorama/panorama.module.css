@@ -1,0 +1,61 @@
+.panorama-container {
+	display: block;
+	position: relative;
+	height: 100%;
+	overflow-x: hidden;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+::-webkit-scrollbar {
+	display: none; /* Safari and Chrome */
+}
+
+.title {
+	margin-left: var(--gutter-margin-x);
+	font-size: var(--h1-font-size);
+	text-transform: lowercase;
+	white-space: nowrap;
+}
+
+.container {
+	display: flex;
+	height: calc(100% - var(--panorama-title-height));
+	overflow-x: scroll;
+	scroll-snap-type: x mandatory;
+	overflow-y: auto;
+}
+
+.dots-container {
+	display: flex;
+	gap: 10px;
+	width: 100%;
+	justify-content: center;
+	position: absolute;
+	bottom: 0px;
+	padding: 12px 0px;
+	background-color: rgba(var(--hex-bkg-color), 0.5);
+}
+
+.dots {
+	cursor: pointer;
+	height: 10px;
+	width: 10px;
+	border-radius: 5px;
+	background-color: rgba(var(--hex-primary-color), 0.8);
+	opacity: 0.5;
+}
+
+.dots.active {
+	opacity: 1;
+}
+
+@media (max-width: 568px) {
+	.title {
+		/* -webkit-transform: translateZ(-2px) scale(3);
+		transform: translateZ(-2px) scale(3); */
+		margin-left: 16px;
+		min-width: 450px;
+	}
+}

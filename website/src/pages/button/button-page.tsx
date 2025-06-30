@@ -12,10 +12,9 @@ export const ButtonPage = () => {
 	const textButtonCode = `<Button>Hello World</Button>`;
 	const disabledButtonCode = `<Button disabled>Hello World</Button>`;
 	const iconButtonCode = `<Button><FontAwesomeIcon icon={faCoffee} className="me-2" />Hello World</Button>`;
-	const customButtonCode = `<Button className="custom-button-theme">Hello World</Button>`;
+	const customButtonCode = `<Button className={styles['custom-button-theme']}>Hello World</Button>`;
 	const customStyle = `.custom-button-theme {
     --theme-color: skyblue;
-	text-transform: uppercase;
 }`;
 	return (
 		<div className="docs-markdown">
@@ -63,7 +62,7 @@ export const ButtonPage = () => {
 
 			<p className="mt-3">To change the color of the button on hover apply a custom class as below.</p>
 
-			<CodeBlock fileName="sample.tsx" code={customButtonCode} language="html"></CodeBlock>
+			<CodeBlock fileName="sample.tsx" code={customButtonCode} language="tsx"></CodeBlock>
 
 			<p>In your css file</p>
 			<CodeBlock fileName="sample.css" code={customStyle} language="css"></CodeBlock>

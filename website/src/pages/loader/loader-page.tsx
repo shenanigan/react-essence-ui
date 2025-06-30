@@ -5,7 +5,7 @@ import styles from './loader-page.module.css';
 
 export const LoaderPage = () => {
 	const loaderCode = `<Loader />`;
-	const customLoaderCode = `<Loader className="custom-loader-theme" />`;
+	const customLoaderCode = `<Loader className={styles['custom-loader-theme']} />`;
 	const customStyle = `.custom-loader-theme {
     --theme-color: green;
 }`;
@@ -33,7 +33,7 @@ export const LoaderPage = () => {
 
 			<p className="mt-3">To change the color of the loader apply a custom class as below.</p>
 
-			<CodeBlock fileName="sample.tsx" code={customLoaderCode} language="html"></CodeBlock>
+			<CodeBlock fileName="sample.tsx" code={customLoaderCode} language="tsx"></CodeBlock>
 
 			<p>In your css file</p>
 			<CodeBlock fileName="sample.css" code={customStyle} language="css"></CodeBlock>

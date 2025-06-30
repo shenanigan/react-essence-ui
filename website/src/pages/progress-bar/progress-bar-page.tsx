@@ -6,7 +6,7 @@ import styles from './progress-bar-page.module.css';
 
 export const ProgressBarPage = () => {
 	const progressBarCode = `<ProgressBar value={value} />`;
-	const customProgressBarCode = `<ProgressBar value={value} className="custom-progress-bar-theme" />`;
+	const customProgressBarCode = `<ProgressBar value={value} className={styles['custom-progress-bar-theme']} />`;
 	const customStyle = `.custom-progress-bar-theme {
     --theme-color: green;
 }`;
@@ -43,7 +43,7 @@ export const ProgressBarPage = () => {
 
 			<p className="mt-3">To change the color of the progress bar apply a custom class as below.</p>
 
-			<CodeBlock fileName="sample.tsx" code={customProgressBarCode} language="html"></CodeBlock>
+			<CodeBlock fileName="sample.tsx" code={customProgressBarCode} language="tsx"></CodeBlock>
 
 			<p>In your css file</p>
 			<CodeBlock fileName="sample.css" code={customStyle} language="css"></CodeBlock>

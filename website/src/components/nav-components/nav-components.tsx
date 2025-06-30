@@ -54,32 +54,28 @@ export const NavComponents = () => {
 			path: '/components/date-picker',
 			name: 'Date Picker',
 		},
+		{
+			path: '/components/panorama',
+			name: 'Panorama',
+		},
+		{
+			path: '/components/pivot',
+			name: 'Pivot',
+		},
 	];
 
 	const comingSoonComponents = [
 		{
-			path: '/components/icon-button',
-			name: 'Icon Button',
+			path: '/components/list-picker',
+			name: 'List Picker',
 		},
 		{
-			path: '/components/dropdown',
-			name: 'Dropdown',
+			path: '/components/stack-panel',
+			name: 'Stack Panel',
 		},
 		{
-			path: '/components/autocomplete',
-			name: 'Autocomplete',
-		},
-		{
-			path: '/components/hub',
-			name: 'Hub',
-		},
-		{
-			path: '/components/pivot-page',
-			name: 'Pivot Page',
-		},
-		{
-			path: '/components/accordian',
-			name: 'Accordian',
+			path: '/components/context-menu',
+			name: 'Context Menu',
 		},
 		{
 			path: '/components/tiles',
@@ -92,6 +88,10 @@ export const NavComponents = () => {
 		{
 			path: '/components/contacts-picker',
 			name: 'Contacts Picker',
+		},
+		{
+			path: '/components/calendar',
+			name: 'Calendar',
 		},
 	];
 
@@ -121,10 +121,7 @@ export const NavComponents = () => {
 				<li className={styles['disabled']}>Coming soon...</li>
 				<ul>
 					{comingSoonComponents.map(component => (
-						<li
-							key={component.path}
-							className={styles['disabled']}
-							onClick={() => handleClick(component.path)}>
+						<li key={component.path} className={styles['disabled']}>
 							{component.name}
 						</li>
 					))}

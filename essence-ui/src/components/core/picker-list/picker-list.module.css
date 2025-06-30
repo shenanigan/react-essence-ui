@@ -1,0 +1,25 @@
+.scroller {
+	scroll-snap-type: both mandatory;
+	display: grid;
+	gap: 0vh;
+	overflow: scroll;
+	height: 100%;
+	padding-inline-start: 5px;
+	margin-block-start: 0px;
+	margin-block-end: 0px;
+	padding-inline-end: 5px;
+	overflow: scroll;
+}
+
+.list-item:first-child {
+	margin-top: calc(50vh - (var(--picker-option-size) / 2) * 1px);
+}
+
+.list-item:last-child {
+	margin-bottom: calc(50vh - (var(--picker-option-size) / 2) * 1px) !important;
+}
+
+.list-item {
+	scroll-snap-align: center;
+	list-style: none;
+}

@@ -1,0 +1,70 @@
+.picker-option {
+	transition:
+		opacity 0.3s,
+		background 0.3s;
+	width: calc(var(--picker-option-size) * 1px - 10px);
+	height: calc(var(--picker-option-size) * 1px - 10px);
+	margin-bottom: 10px;
+	justify-content: flex-end;
+	display: flex;
+	flex-direction: column;
+	padding: 15px;
+	border: 1px solid grey;
+	opacity: 0.5;
+}
+
+.active {
+	background: var(--theme-color);
+	opacity: 1 !important;
+	border: 1px solid var(--theme-color);
+}
+
+.scrolling {
+	background: transparent;
+	opacity: 0.5;
+	border: 1px solid grey;
+}
+
+.hovering {
+	opacity: 0.5;
+}
+
+.picker-option-title {
+	font-size: 58px;
+	font-weight: bold;
+	color: gray;
+}
+
+.active .picker-option-title {
+	color: var(--primary-bkg-color);
+}
+
+.active.scrolling .picker-option-title {
+	color: gray;
+}
+
+.picker-option-sub-title {
+	font-size: 16px;
+	font-weight: normal;
+	color: gray;
+}
+
+.active .picker-option-sub-title {
+	color: var(--primary-bkg-color);
+}
+
+@media (max-width: 568px) {
+	.picker-option {
+		padding: 8px;
+	}
+
+	.picker-option-title {
+		font-size: 24px;
+		font-weight: bold;
+	}
+
+	.picker-option-sub-title {
+		font-size: 12px;
+		font-weight: normal;
+	}
+}
