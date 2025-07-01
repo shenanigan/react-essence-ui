@@ -23,7 +23,9 @@ export interface TileProps extends React.ComponentProps<'div'> {
 	onMoveNext?: () => void;
 	onDelete?: () => void;
 	onShowControls?: () => void;
+	onLongPress?: () => void;
 	showControls?: boolean;
+	canShowControls?: boolean;
 	animationDuration?: number;
 	colSpan?: 0.5 | 1 | 2 | 3 | 4;
 	onSizeChanged?: (colSpan: 0.5 | 1 | 2 | 3 | 4) => void;
@@ -43,7 +45,9 @@ function Tile({
 	onMovePrevious,
 	onMoveNext,
 	onDelete,
+	canShowControls = false,
 	deleteAlertProps,
+	onLongPress,
 	...props
 }: TileProps) {
 	const tileRef = React.useRef<HTMLButtonElement>(null);
@@ -74,9 +78,12 @@ function Tile({
 		};
 	}, [isRotated, animationDuration, displayControls]);
 
-	const onLongPress = () => {
-		onShowControls?.();
-		setDisplayControls(true);
+	const onLongPressed = () => {
+		if (canShowControls) {
+			onShowControls?.();
+			setDisplayControls(true);
+		}
+		onLongPress?.();
 	};
 
 	const onExpandClicked = () => {
@@ -128,7 +135,7 @@ function Tile({
 				onClick={onClick}
 				ref={tileRef}
 				animate={!displayControls}
-				onLongPress={onLongPress}>
+				onLongPress={onLongPressed}>
 				<div className="w-full h-full relative">
 					{displayControls && (
 						<div className={styles['controls']}>

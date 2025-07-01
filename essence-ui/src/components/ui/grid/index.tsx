@@ -117,6 +117,7 @@ function Grid({
 						onMoveNext={() => onMoveNext(tile.key)}
 						onDelete={() => onDelete(tile.key)}
 						onShowControls={() => onShowControls(tile.key)}
+						canShowControls={tile.canShowControls ?? true}
 					/>,
 				);
 				if (grid.props.children.length === 1) {
@@ -140,6 +141,7 @@ function Grid({
 						onMoveNext={() => onMoveNext(tile.key)}
 						onDelete={() => onDelete(tile.key)}
 						onShowControls={() => onShowControls(tile.key)}
+						canShowControls={tile.canShowControls ?? true}
 					/>
 				);
 			}
