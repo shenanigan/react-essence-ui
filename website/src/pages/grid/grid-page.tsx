@@ -80,7 +80,6 @@ export const GridPage = () => {
 						),
 						colSpan: 4,
 						key: 3,
-						canShowControls: false,
 					},
 					{
 						frontTile: (
@@ -93,6 +92,7 @@ export const GridPage = () => {
 								Back Tile 4
 							</div>
 						),
+						key: 4,
 					},
 					{
 						frontTile: (
