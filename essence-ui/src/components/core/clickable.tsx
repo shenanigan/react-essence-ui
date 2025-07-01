@@ -6,17 +6,16 @@ import { cn } from '../../lib/utils.ts';
 function Clickable({
 	onEnterOrSpaceKeyDown,
 	onLongPress,
-	animate = true,
 	...props
 }: PropsWithChildren<
 	React.ComponentProps<'button'> & {
 		onEnterOrSpaceKeyDown?: (e: React.KeyboardEvent<HTMLButtonElement>) => void;
 		onLongPress?: () => void;
-		animate?: boolean;
 	}
 >) {
 	const ref = React.useRef<HTMLButtonElement>(null);
 	const [pressTimer, setPressTimer] = React.useState<number | null>(null);
+	const [isLongPressed, setIsLongPressed] = React.useState(false);
 	const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
 		if (e.key === 'Enter' || e.key === ' ') {
 			e.preventDefault();
@@ -29,15 +28,17 @@ function Clickable({
 		props?.onKeyDown?.(e);
 		setPressTimer(
 			window.setTimeout(() => {
+				setIsLongPressed(true);
 				onLongPress?.();
 			}, 1000),
 		);
 	};
 	const handleMouseDown = (event: React.MouseEvent<HTMLElement>) => {
-		if (props?.disabled || !animate) return;
+		if (props?.disabled) return;
 		event.preventDefault();
 		setPressTimer(
 			window.setTimeout(() => {
+				setIsLongPressed(true);
 				onLongPress?.();
 			}, 700),
 		);
@@ -47,25 +48,25 @@ function Clickable({
 	const handleMouseUp = (event: React.MouseEvent<HTMLElement>) => {
 		if (props?.disabled) return;
 		event.preventDefault();
-		transformScale(event.currentTarget, 1);
-		if (!animate) {
-			transformRotation(event.currentTarget as HTMLElement, 0, 0);
-			return;
+		if (isLongPressed) {
+			setIsLongPressed(false);
 		}
+		transformScale(event.currentTarget, 1);
+		transformRotation(event.currentTarget as HTMLElement, 0, 0);
 		if (pressTimer) {
 			clearTimeout(pressTimer);
 		}
 	};
 
 	const handleMouseLeave = (event: React.MouseEvent<HTMLElement>) => {
-		if (props?.disabled || !animate) return;
+		if (props?.disabled) return;
 		event.preventDefault();
 		transformScale(event.currentTarget, 1);
 		transformRotation(event.currentTarget as HTMLElement, 0, 0);
 	};
 
 	const handleMouseMove = ($event: React.MouseEvent<HTMLElement>) => {
-		if (props?.disabled || !animate) return;
+		if (props?.disabled) return;
 
 		$event.preventDefault();
 		if (pressTimer) {
@@ -125,6 +126,7 @@ function Clickable({
 			transformRotation($event.currentTarget as HTMLElement, finalXRotation, finalYRotation);
 		}
 	};
+
 	if (React.isValidElement(props.children)) {
 		return (
 			<button

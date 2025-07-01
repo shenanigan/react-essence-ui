@@ -1,13 +1,15 @@
-.tile-container {
+.clickable-container {
+	width: 100%;
+	height: 100%;
 	padding: calc(var(--gutter-margin-y) / 2);
+}
+.tile-container {
 	position: relative;
 }
-
 .tile {
 	cursor: pointer;
 	background-color: var(--theme-color);
-	color: var(--primary-bkg-color);
-	position: relative;
+	color: var(--primary-color);
 	transform-style: preserve-3d;
 	transition: transform 0.6s ease-in-out;
 	width: 100%;
@@ -19,68 +21,61 @@
 }
 
 .front-tile {
-	display: flex;
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	backface-visibility: hidden;
 	transform: rotateX(0deg);
 }
 
 .back-tile {
-	display: flex;
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	backface-visibility: hidden;
 	transform: rotateX(180deg);
 }
 
 .front-tile,
 .back-tile {
+	display: flex;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
 	justify-content: center;
 	align-items: center;
 }
 
 .control {
-	position: absolute;
-	font-size: 30px;
+	font-size: 20px;
 	padding: 7px;
+	cursor: pointer;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 5px;
 }
 
-.control.move-previous-control {
-	top: -28px;
-	left: -20px;
+.control .expand-control {
+	transform: rotate(-90deg);
 }
 
-.control.move-next-control {
-	bottom: -26px;
-	left: -20px;
-}
-
-.control.delete-control {
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-}
-
-.control.expand-control {
-	bottom: -26px;
-	right: -20px;
+.control .collapse-control {
 	transform: rotate(90deg);
 }
 
-.control.close-control {
-	top: -28px;
-	right: -20px;
+.controls {
+	cursor: pointer;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 100%;
+	background-color: rgba(var(--hex-bkg-color), 0.8);
+	color: var(--primary-color);
+	z-index: 100;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	flex-wrap: wrap;
 }
 
-.controls {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(var(--hex-bkg-color), 0.5);
-	z-index: 100;
+.delete-and-close-controls {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }

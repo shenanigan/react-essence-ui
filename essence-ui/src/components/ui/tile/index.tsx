@@ -7,18 +7,18 @@ import Clickable from '@essence-ui/components/core/clickable';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-	faCircleChevronLeft,
-	faCircleChevronRight,
 	faTrash,
-	faUpRightAndDownLeftFromCenter,
-	faCircleXmark,
+	faCircleArrowRight,
+	faCircleArrowLeft,
+	faAnglesDown,
+	faXmark,
 } from '@fortawesome/free-solid-svg-icons';
 import { Alert, type AlertProps } from '../alert';
 
 export interface TileProps extends React.ComponentProps<'div'> {
 	frontTile: React.ReactNode;
 	backTile: React.ReactNode;
-	onClick?: () => void;
+	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
 	onMovePrevious?: () => void;
 	onMoveNext?: () => void;
 	onDelete?: () => void;
@@ -50,7 +50,7 @@ function Tile({
 	onLongPress,
 	...props
 }: TileProps) {
-	const tileRef = React.useRef<HTMLButtonElement>(null);
+	const tileRef = React.useRef<HTMLDivElement>(null);
 	const frontTileRef = React.useRef<HTMLDivElement>(null);
 	const backTileRef = React.useRef<HTMLDivElement>(null);
 	const [isRotated, setIsRotated] = React.useState(false);
@@ -86,7 +86,9 @@ function Tile({
 		onLongPress?.();
 	};
 
-	const onExpandClicked = () => {
+	const onExpandClicked = (e: React.MouseEvent<HTMLElement>) => {
+		e.stopPropagation();
+		e.preventDefault();
 		if (colSpan === 4) {
 			onSizeChanged?.(0.5);
 		} else if (colSpan === 0.5) {
@@ -100,15 +102,21 @@ function Tile({
 		}
 	};
 
-	const onMovePreviousClicked = () => {
+	const onMovePreviousClicked = (e: React.MouseEvent<HTMLElement>) => {
+		e.stopPropagation();
+		e.preventDefault();
 		onMovePrevious?.();
 	};
 
-	const onMoveNextClicked = () => {
+	const onMoveNextClicked = (e: React.MouseEvent<HTMLElement>) => {
+		e.stopPropagation();
+		e.preventDefault();
 		onMoveNext?.();
 	};
 
-	const onDeleteClicked = () => {
+	const onDeleteClicked = (e: React.MouseEvent<HTMLElement>) => {
+		e.stopPropagation();
+		e.preventDefault();
 		if (deleteAlertProps) {
 			setShowDeleteAlert(true);
 		} else {
@@ -116,7 +124,8 @@ function Tile({
 		}
 	};
 
-	const onHideControls = () => {
+	const onHideControls = (e: React.MouseEvent<HTMLElement>) => {
+		e.stopPropagation();
 		setDisplayControls(false);
 	};
 
@@ -125,41 +134,78 @@ function Tile({
 		onDelete?.();
 	};
 
+	const onClicked = (e: React.MouseEvent<HTMLElement>) => {
+		e.stopPropagation();
+		console.log('onClicked', displayControls);
+		if (displayControls) {
+			onHideControls(e);
+		} else {
+			onClick?.(e);
+		}
+	};
+
+	const onCollapseClicked = (e: React.MouseEvent<HTMLElement>) => {
+		e.stopPropagation();
+		e.preventDefault();
+		if (colSpan === 4) {
+			onSizeChanged?.(3);
+		} else if (colSpan === 0.5) {
+			onSizeChanged?.(4);
+		} else if (colSpan === 1) {
+			onSizeChanged?.(0.5);
+		} else if (colSpan === 2) {
+			onSizeChanged?.(1);
+		} else if (colSpan === 3) {
+			onSizeChanged?.(2);
+		}
+	};
+
+	const onCloseClicked = () => {};
 	return (
-		<>
+		<div ref={tileRef} className={cn(styles['tile-container'], className)}>
 			{showDeleteAlert && deleteAlertProps && (
 				<Alert {...deleteAlertProps} onOk={onDeleteConfirmed} onDismiss={() => setShowDeleteAlert(false)} />
 			)}
-			<Clickable
-				className={cn(styles['tile-container'], className)}
-				onClick={onClick}
-				ref={tileRef}
-				animate={!displayControls}
-				onLongPress={onLongPressed}>
-				<div className="w-full h-full relative">
-					{displayControls && (
-						<div className={styles['controls']}>
-							<div
-								className={cn(styles['control'], styles['move-previous-control'])}
-								onClick={onMovePreviousClicked}>
-								<FontAwesomeIcon icon={faCircleChevronLeft} />
-							</div>
-							<div
-								className={cn(styles['control'], styles['move-next-control'])}
-								onClick={onMoveNextClicked}>
-								<FontAwesomeIcon icon={faCircleChevronRight} />
-							</div>
-							<div className={cn(styles['control'], styles['delete-control'])} onClick={onDeleteClicked}>
-								<FontAwesomeIcon icon={faTrash} />
-							</div>
-							<div className={cn(styles['control'], styles['expand-control'])} onClick={onExpandClicked}>
-								<FontAwesomeIcon icon={faUpRightAndDownLeftFromCenter} />
-							</div>
-							<div className={cn(styles['control'], styles['close-control'])} onClick={onHideControls}>
-								<FontAwesomeIcon icon={faCircleXmark} />
-							</div>
+			{displayControls && (
+				<div className={styles['controls']} onClick={onHideControls}>
+					<div
+						className={cn(styles['control'], styles['move-previous-control'])}
+						onClick={onMovePreviousClicked}>
+						<FontAwesomeIcon icon={faCircleArrowLeft} />
+						<div style={{ fontSize: '10px' }}>Move</div>
+					</div>
+					<div className={cn(styles['control'], styles['move-next-control'])} onClick={onMoveNextClicked}>
+						<FontAwesomeIcon icon={faCircleArrowRight} />
+						<div style={{ fontSize: '10px' }}>Move</div>
+					</div>
+
+					{colSpan > 0.5 && (
+						<div className={cn(styles['control'])} onClick={onCollapseClicked}>
+							<FontAwesomeIcon icon={faAnglesDown} className={styles['collapse-control']} />
+							<div style={{ fontSize: '10px' }}>Collapse</div>
 						</div>
 					)}
+					{colSpan < 4 && (
+						<div className={cn(styles['control'])} onClick={onExpandClicked}>
+							<FontAwesomeIcon icon={faAnglesDown} className={styles['expand-control']} />
+							<div style={{ fontSize: '10px' }}>Expand</div>
+						</div>
+					)}
+					<div className={cn(styles['control'], styles['delete-control'])} onClick={onDeleteClicked}>
+						<FontAwesomeIcon icon={faTrash} />
+						<div style={{ fontSize: '10px' }}>Delete</div>
+					</div>
+
+					{colSpan === 0.5 && (
+						<div className={cn(styles['control'])} onClick={onCloseClicked}>
+							<FontAwesomeIcon icon={faXmark} className={styles['close-control']} />
+							<div style={{ fontSize: '10px' }}>Close</div>
+						</div>
+					)}
+				</div>
+			)}
+			<Clickable className={styles['clickable-container']} onClick={onClicked} onLongPress={onLongPressed}>
+				<div className="w-full h-full relative">
 					<div {...props} className={cn(styles['tile'], isRotated && styles['rotated'])}>
 						<div ref={frontTileRef} className={styles['front-tile']}>
 							{frontTile}
@@ -170,7 +216,7 @@ function Tile({
 					</div>
 				</div>
 			</Clickable>
-		</>
+		</div>
 	);
 }
 
