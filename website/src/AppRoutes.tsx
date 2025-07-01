@@ -16,6 +16,8 @@ import { DatePickerPage } from './pages/date-picker/date-picker-page';
 import { TimePickerPage } from './pages/time-picker/time-picker-page';
 import { PanoramaPage } from './pages/panorama/panorama-page';
 import { PivotPage } from './pages/pivot/pivot-page';
+import { TilePage } from './pages/tile/tile-page';
+import { GridPage } from './pages/grid/grid-page';
 
 export default function AppRoutes() {
 	return (
@@ -37,6 +39,8 @@ export default function AppRoutes() {
 					<Route path="time-picker" element={<TimePickerPage />} />
 					<Route path="panorama" element={<PanoramaPage />} />
 					<Route path="pivot" element={<PivotPage />} />
+					<Route path="tile" element={<TilePage />} />
+					<Route path="grid" element={<GridPage />} />
 				</Route>
 			</Route>
 		</Routes>

@@ -62,6 +62,14 @@ export const NavComponents = () => {
 			path: '/components/pivot',
 			name: 'Pivot',
 		},
+		{
+			path: '/components/tile',
+			name: 'Tile',
+		},
+		{
+			path: '/components/grid',
+			name: 'Grid',
+		},
 	];
 
 	const comingSoonComponents = [
@@ -76,14 +84,6 @@ export const NavComponents = () => {
 		{
 			path: '/components/context-menu',
 			name: 'Context Menu',
-		},
-		{
-			path: '/components/tiles',
-			name: 'Tiles',
-		},
-		{
-			path: '/components/grid',
-			name: 'Grid',
 		},
 		{
 			path: '/components/contacts-picker',

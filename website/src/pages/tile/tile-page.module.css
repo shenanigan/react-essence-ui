@@ -1,0 +1,7 @@
+.custom-tile-theme {
+	--theme-color: green;
+}
+
+.custom-tile-theme-flipped {
+	--theme-color: red;
+}
