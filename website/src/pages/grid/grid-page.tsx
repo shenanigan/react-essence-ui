@@ -78,7 +78,7 @@ export const GridPage = () => {
 								Back Tile 3
 							</div>
 						),
-						colSpan: 4,
+						colSpan: 2,
 						key: 3,
 					},
 					{
