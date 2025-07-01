@@ -23,7 +23,7 @@ export const TilePage = () => {
 				}}
 				animationDuration={2500}
 				rowSpan={2}
-				columnSpan={1}
+				colSpan={1}
 			/>
 
 			<div className="text-2xl font-bold mt-8">Import the component</div>

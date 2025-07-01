@@ -13,21 +13,50 @@ export const GridPage = () => {
 		<Tile frontTile="Front Tile" backTile="Back Tile" />
 		<Tile frontTile="Front Tile" backTile="Back Tile" />
 	</Grid>`;
+	const deleteAlertProps = {
+		message: 'Are you sure you want to delete this nice tile?',
+		okButton: 'Delete',
+		dismissButton: 'Cancel',
+	};
 
 	return (
 		<div className="docs-markdown">
 			<div className="text-3xl font-bold">Demo</div>
 			<Grid
 				className={'mt-3'}
+				onTileSizeChanged={(key, colSpan, tiles) => {
+					console.log('onTileSizeChanged', key, colSpan, tiles);
+				}}
+				onTileMovePrevious={(key, tiles) => {
+					console.log('onTileMovePrevious', key, tiles);
+				}}
+				onTileMoveNext={(key, tiles) => {
+					console.log('onTileMoveNext', key, tiles);
+				}}
+				onTileDelete={(key, tiles) => {
+					console.log('onTileDelete', key, tiles);
+				}}
 				tiles={[
-					{ frontTile: 'Front Tile 1', backTile: 'Back Tile 1', columnSpan: 1 },
-					{ frontTile: 'Front Tile 2', backTile: 'Back Tile 2', columnSpan: 3 },
-					{ frontTile: 'Front Tile 3', backTile: 'Back Tile 3', columnSpan: 0.5 },
-					{ frontTile: 'Front Tile 4', backTile: 'Back Tile 4', columnSpan: 0.5 },
-					{ frontTile: 'Front Tile 5', backTile: 'Back Tile 5', columnSpan: 0.5 },
-					{ frontTile: 'Front Tile 6', backTile: 'Back Tile 6', columnSpan: 0.5 },
-					{ frontTile: 'Front Tile 7', backTile: 'Back Tile 7', columnSpan: 2 },
-					{ frontTile: 'Front Tile 8', backTile: 'Back Tile 8', columnSpan: 1 },
+					{
+						frontTile: 'Front Tile 1',
+						backTile: 'Back Tile 1',
+						colSpan: 1,
+						key: 1,
+						deleteAlertProps: deleteAlertProps,
+					},
+					{
+						frontTile: 'Front Tile 2',
+						backTile: 'Back Tile 2',
+						colSpan: 3,
+						key: 2,
+						deleteAlertProps: deleteAlertProps,
+					},
+					{ frontTile: 'Front Tile 3', backTile: 'Back Tile 3', colSpan: 0.5, key: 3 },
+					{ frontTile: 'Front Tile 4', backTile: 'Back Tile 4', colSpan: 0.5, key: 4 },
+					{ frontTile: 'Front Tile 5', backTile: 'Back Tile 5', colSpan: 0.5, key: 5 },
+					{ frontTile: 'Front Tile 6', backTile: 'Back Tile 6', colSpan: 0.5, key: 6 },
+					{ frontTile: 'Front Tile 7', backTile: 'Back Tile 7', colSpan: 2, key: 7 },
+					{ frontTile: 'Front Tile 8', backTile: 'Back Tile 8', colSpan: 1, key: 8 },
 				]}></Grid>
 
 			<div className="text-2xl font-bold mt-8">Import the component</div>
@@ -41,8 +70,8 @@ export const GridPage = () => {
 			<Grid
 				className={styles['custom-grid-theme']}
 				tiles={[
-					{ frontTile: 'Front Tile', backTile: 'Back Tile' },
-					{ frontTile: 'Front Tile', backTile: 'Back Tile' },
+					{ frontTile: 'Front Tile', backTile: 'Back Tile', key: 1 },
+					{ frontTile: 'Front Tile', backTile: 'Back Tile', key: 2 },
 				]}></Grid>
 
 			<div className="text-3xl font-bold mt-8">About</div>
@@ -62,8 +91,8 @@ export const GridPage = () => {
 			<Grid
 				className={styles['custom-grid-theme']}
 				tiles={[
-					{ frontTile: 'Front Tile', backTile: 'Back Tile' },
-					{ frontTile: 'Front Tile', backTile: 'Back Tile' },
+					{ frontTile: 'Front Tile', backTile: 'Back Tile', key: 1 },
+					{ frontTile: 'Front Tile', backTile: 'Back Tile', key: 2 },
 				]}></Grid>
 			<p className="mt-10">
 				For changing the overall theme for all elements, check the <Link to="/theme">Theme</Link> section.

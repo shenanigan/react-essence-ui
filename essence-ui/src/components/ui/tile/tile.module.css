@@ -1,5 +1,6 @@
 .tile-container {
 	padding: calc(var(--gutter-margin-y) / 2);
+	position: relative;
 }
 
 .tile {
@@ -39,4 +40,47 @@
 .back-tile {
 	justify-content: center;
 	align-items: center;
+}
+
+.control {
+	position: absolute;
+	font-size: 30px;
+	padding: 7px;
+}
+
+.control.move-previous-control {
+	top: -28px;
+	left: -20px;
+}
+
+.control.move-next-control {
+	bottom: -26px;
+	left: -20px;
+}
+
+.control.delete-control {
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.control.expand-control {
+	bottom: -26px;
+	right: -20px;
+	transform: rotate(90deg);
+}
+
+.control.close-control {
+	top: -28px;
+	right: -20px;
+}
+
+.controls {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(var(--hex-bkg-color), 0.5);
+	z-index: 100;
 }

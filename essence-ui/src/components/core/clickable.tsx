@@ -5,10 +5,18 @@ import { cn } from '../../lib/utils.ts';
 
 function Clickable({
 	onEnterOrSpaceKeyDown,
+	onLongPress,
+	animate = true,
 	...props
 }: PropsWithChildren<
-	React.ComponentProps<'button'> & { onEnterOrSpaceKeyDown?: (e: React.KeyboardEvent<HTMLButtonElement>) => void }
+	React.ComponentProps<'button'> & {
+		onEnterOrSpaceKeyDown?: (e: React.KeyboardEvent<HTMLButtonElement>) => void;
+		onLongPress?: () => void;
+		animate?: boolean;
+	}
 >) {
+	const ref = React.useRef<HTMLButtonElement>(null);
+	const [pressTimer, setPressTimer] = React.useState<number | null>(null);
 	const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
 		if (e.key === 'Enter' || e.key === ' ') {
 			e.preventDefault();
@@ -19,10 +27,20 @@ function Clickable({
 			}, 100);
 		}
 		props?.onKeyDown?.(e);
+		setPressTimer(
+			window.setTimeout(() => {
+				onLongPress?.();
+			}, 1000),
+		);
 	};
 	const handleMouseDown = (event: React.MouseEvent<HTMLElement>) => {
-		if (props?.disabled) return;
+		if (props?.disabled || !animate) return;
 		event.preventDefault();
+		setPressTimer(
+			window.setTimeout(() => {
+				onLongPress?.();
+			}, 700),
+		);
 		transformScale(event.currentTarget, 0.98);
 	};
 
@@ -30,18 +48,29 @@ function Clickable({
 		if (props?.disabled) return;
 		event.preventDefault();
 		transformScale(event.currentTarget, 1);
+		if (!animate) {
+			transformRotation(event.currentTarget as HTMLElement, 0, 0);
+			return;
+		}
+		if (pressTimer) {
+			clearTimeout(pressTimer);
+		}
 	};
 
 	const handleMouseLeave = (event: React.MouseEvent<HTMLElement>) => {
-		if (props?.disabled) return;
+		if (props?.disabled || !animate) return;
 		event.preventDefault();
 		transformScale(event.currentTarget, 1);
 		transformRotation(event.currentTarget as HTMLElement, 0, 0);
 	};
 
 	const handleMouseMove = ($event: React.MouseEvent<HTMLElement>) => {
-		if (props?.disabled) return;
+		if (props?.disabled || !animate) return;
+
 		$event.preventDefault();
+		if (pressTimer) {
+			clearTimeout(pressTimer);
+		}
 		transformRotation($event.currentTarget as HTMLElement, 0, 0);
 
 		if ($event.currentTarget) {
@@ -99,6 +128,7 @@ function Clickable({
 	if (React.isValidElement(props.children)) {
 		return (
 			<button
+				ref={ref}
 				{...props}
 				data-slot="button"
 				tabIndex={props?.disabled ? -1 : 0}

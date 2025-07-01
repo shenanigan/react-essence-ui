@@ -5,14 +5,14 @@ export interface AlertInfo {
 	show: boolean;
 	message: string;
 }
-interface Props extends React.ComponentProps<'button'> {
+export interface AlertProps extends React.ComponentProps<'button'> {
 	message: string;
 	okButton: string;
 	dismissButton?: string;
 	onOk?: React.MouseEventHandler<HTMLButtonElement>;
 	onDismiss?: React.MouseEventHandler<HTMLButtonElement | HTMLDivElement>;
 }
-function Alert({ onOk, onDismiss, message, okButton, dismissButton, ...props }: Props) {
+function Alert({ onOk, onDismiss, message, okButton, dismissButton, ...props }: AlertProps) {
 	return (
 		<>
 			<div className={styles.overlay} onClick={onDismiss} />
