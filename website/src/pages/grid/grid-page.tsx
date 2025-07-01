@@ -38,31 +38,118 @@ export const GridPage = () => {
 				}}
 				tiles={[
 					{
-						frontTile: 'Front Tile 1',
-						backTile: 'Back Tile 1',
+						frontTile: (
+							<div className="text-2xl font-bold bg-blue-100 h-full w-full flex items-center justify-center">
+								Front Tile 1
+							</div>
+						),
+						backTile: (
+							<div className="text-2xl font-bold bg-orange-100 h-full w-full flex items-center justify-center">
+								Back Tile 1
+							</div>
+						),
 						colSpan: 1,
 						key: 1,
 						deleteAlertProps: deleteAlertProps,
 					},
 					{
-						frontTile: 'Front Tile 2',
-						backTile: 'Back Tile 2',
+						frontTile: (
+							<div className="text-2xl font-bold bg-red-100 h-full w-full flex items-center justify-center">
+								Front Tile 2
+							</div>
+						),
+						backTile: (
+							<div className="text-2xl font-bold bg-blue-100 h-full w-full flex items-center justify-center">
+								Back Tile 2
+							</div>
+						),
 						colSpan: 3,
 						key: 2,
 						deleteAlertProps: deleteAlertProps,
 					},
 					{
-						frontTile: 'Front Tile 3',
-						backTile: 'Back Tile 3',
-						colSpan: 0.5,
+						frontTile: (
+							<div className="text-2xl font-bold bg-purple-100 h-full w-full flex items-center justify-center">
+								Front Tile 3
+							</div>
+						),
+						backTile: (
+							<div className="text-2xl font-bold bg-red-100 h-full w-full flex items-center justify-center">
+								Back Tile 3
+							</div>
+						),
+						colSpan: 4,
 						key: 3,
 						canShowControls: false,
 					},
-					{ frontTile: 'Front Tile 4', backTile: 'Back Tile 4', colSpan: 0.5, key: 4 },
-					{ frontTile: 'Front Tile 5', backTile: 'Back Tile 5', colSpan: 0.5, key: 5 },
-					{ frontTile: 'Front Tile 6', backTile: 'Back Tile 6', colSpan: 0.5, key: 6 },
-					{ frontTile: 'Front Tile 7', backTile: 'Back Tile 7', colSpan: 2, key: 7 },
-					{ frontTile: 'Front Tile 8', backTile: 'Back Tile 8', colSpan: 1, key: 8 },
+					{
+						frontTile: (
+							<div className="text-2xl font-bold bg-orange-100 h-full w-full flex items-center justify-center">
+								Front Tile 4
+							</div>
+						),
+						backTile: (
+							<div className="text-2xl font-bold bg-purple-100 h-full w-full flex items-center justify-center">
+								Back Tile 4
+							</div>
+						),
+					},
+					{
+						frontTile: (
+							<div className="text-2xl font-bold bg-fuchsia-100 h-full w-full flex items-center justify-center">
+								Front Tile 5
+							</div>
+						),
+						backTile: (
+							<div className="text-2xl font-bold bg-pink-100 h-full w-full flex items-center justify-center">
+								Back Tile 5
+							</div>
+						),
+						colSpan: 0.5,
+						key: 5,
+					},
+					{
+						frontTile: (
+							<div className="text-2xl font-bold bg-amber-100 h-full w-full flex items-center justify-center">
+								Front Tile 6
+							</div>
+						),
+						backTile: (
+							<div className="text-2xl font-bold bg-fuchsia-200 h-full w-full flex items-center justify-center">
+								Back Tile 6
+							</div>
+						),
+						colSpan: 0.5,
+						key: 6,
+					},
+					{
+						frontTile: (
+							<div className="text-2xl font-bold bg-green-100 h-full w-full flex items-center justify-center">
+								Front Tile 7
+							</div>
+						),
+						backTile: (
+							<div className="text-2xl font-bold bg-gray-200 h-full w-full flex items-center justify-center">
+								Back Tile 7
+							</div>
+						),
+						colSpan: 0.5,
+						key: 7,
+					},
+					{
+						frontTile: (
+							<div className="text-2xl font-bold bg-gray-100 h-full w-full flex items-center justify-center">
+								Front Tile 8
+							</div>
+						),
+						backTile: (
+							<div className="text-2xl font-bold bg-green-100 h-full w-full flex items-center justify-center">
+								Back Tile 8
+							</div>
+						),
+						colSpan: 0.5,
+						key: 8,
+					},
 				]}></Grid>
 
 			<div className="text-2xl font-bold mt-8">Import the component</div>

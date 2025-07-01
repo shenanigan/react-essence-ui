@@ -11,26 +11,22 @@ export const TilePage = () => {
     --theme-color: green;
 }`;
 
-	const deleteAlertProps = {
-		message: 'Are you sure you want to delete this nice tile?',
-		okButton: 'Delete',
-		dismissButton: 'Cancel',
-	};
-
 	return (
 		<div className="docs-markdown">
 			<div className="text-3xl font-bold">Demo</div>
 			<Tile
-				frontTile={<div className="text-2xl font-bold">Front Tile</div>}
-				backTile={<div className="text-2xl font-bold">Back Tile</div>}
-				className="mt-3"
-				onClick={() => {
-					console.log('clicked');
-				}}
+				frontTile={
+					<div className="text-2xl font-bold bg-blue-500 h-full w-full flex items-center justify-center">
+						Front Tile
+					</div>
+				}
+				backTile={
+					<div className="text-2xl font-bold bg-red-500 h-full w-full flex items-center justify-center">
+						Back Tile
+					</div>
+				}
+				className={styles['tile-container']}
 				animationDuration={2500}
-				colSpan={1}
-				deleteAlertProps={deleteAlertProps}
-				canShowControls={false}
 			/>
 
 			<div className="text-2xl font-bold mt-8">Import the component</div>

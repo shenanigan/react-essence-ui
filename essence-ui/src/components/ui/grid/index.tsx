@@ -2,16 +2,16 @@ import * as React from 'react';
 
 import { cn } from '../../../lib/utils';
 import styles from './grid.module.css';
-import { Tile, type TileProps } from '../tile';
+import { GridTile, type GridTileProps } from '../grid-tile';
 import { useCallback } from 'react';
 import type { Key } from 'react';
 
 export interface GridProps extends React.ComponentProps<'div'> {
-	tiles: TileProps[];
-	onTileSizeChanged?: (key: Key | null | undefined, colSpan: 0.5 | 1 | 2 | 3 | 4, tiles?: TileProps[]) => void;
-	onTileMovePrevious?: (key: Key | null | undefined, tiles?: TileProps[]) => void;
-	onTileMoveNext?: (key: Key | null | undefined, tiles?: TileProps[]) => void;
-	onTileDelete?: (key: Key | null | undefined, tiles?: TileProps[]) => void;
+	tiles: GridTileProps[];
+	onTileSizeChanged?: (key: Key | null | undefined, colSpan: 0.5 | 1 | 2 | 3 | 4, tiles?: GridTileProps[]) => void;
+	onTileMovePrevious?: (key: Key | null | undefined, tiles?: GridTileProps[]) => void;
+	onTileMoveNext?: (key: Key | null | undefined, tiles?: GridTileProps[]) => void;
+	onTileDelete?: (key: Key | null | undefined, tiles?: GridTileProps[]) => void;
 }
 
 function Grid({
@@ -24,7 +24,7 @@ function Grid({
 	...props
 }: GridProps) {
 	const gridRef = React.useRef<HTMLDivElement>(null);
-	const [tilesState, setTilesState] = React.useState<TileProps[]>(tiles);
+	const [tilesState, setTilesState] = React.useState<GridTileProps[]>(tiles);
 
 	const onSizeChanged = useCallback(
 		(key: Key | null | undefined, colSpan: 0.5 | 1 | 2 | 3 | 4) => {
@@ -105,7 +105,7 @@ function Grid({
 					});
 				}
 				grid.props.children.push(
-					<Tile
+					<GridTile
 						{...tile}
 						key={tile.key}
 						className={styles['tile-no-padding']}
@@ -130,7 +130,7 @@ function Grid({
 					children: [],
 				});
 				return (
-					<Tile
+					<GridTile
 						{...tile}
 						key={tile.key}
 						onSizeChanged={colSpan => {

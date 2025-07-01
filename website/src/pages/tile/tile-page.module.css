@@ -1,3 +1,10 @@
+.tile-container {
+	width: 200px !important;
+	height: 200px !important;
+	margin-top: var(--gutter-margin-y);
+	background-color: lightgray;
+}
+
 .custom-tile-theme {
 	--theme-color: green;
 }
