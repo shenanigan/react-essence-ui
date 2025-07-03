@@ -1,18 +1,26 @@
 import * as React from 'react';
 
-import { cn } from '../../../lib/utils';
-import styles from './tile.module.css';
+import { cn } from '../../../../lib/utils';
+import styles from './tile-container.module.css';
 import { useEffect } from 'react';
 import Clickable from '@essence-ui/components/core/clickable';
 
-export interface TileProps extends React.ComponentProps<'div'> {
+export interface TileContainerProps extends React.ComponentProps<'div'> {
 	frontTile: React.ReactNode;
 	backTile: React.ReactNode;
 	animationDuration?: number;
 	onLongPress?: () => void;
 }
 
-function Tile({ className, frontTile, backTile, onClick, animationDuration = 2500, onLongPress, ...props }: TileProps) {
+function TileContainer({
+	className,
+	frontTile,
+	backTile,
+	onClick,
+	animationDuration = 2500,
+	onLongPress,
+	...props
+}: TileContainerProps) {
 	const frontTileRef = React.useRef<HTMLDivElement>(null);
 	const backTileRef = React.useRef<HTMLDivElement>(null);
 	const [isRotated, setIsRotated] = React.useState(false);
@@ -45,4 +53,4 @@ function Tile({ className, frontTile, backTile, onClick, animationDuration = 250
 	);
 }
 
-export { Tile };
+export { TileContainer };

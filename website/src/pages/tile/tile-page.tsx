@@ -1,7 +1,7 @@
 import { CodeBlock } from '../../components/code-block/code-block';
 import { Link } from 'react-router-dom';
 import styles from './tile-page.module.css';
-import { Tile } from '@essence-ui/components/ui/tile';
+import { TileContainer } from '@essence-ui/components/ui/tile/tile-container';
 
 export const TilePage = () => {
 	const tileCode = `<Tile frontTile="Front Tile" backTile="Back Tile" />`;
@@ -14,7 +14,7 @@ export const TilePage = () => {
 	return (
 		<div className="docs-markdown">
 			<div className="text-3xl font-bold">Demo</div>
-			<Tile
+			<TileContainer
 				frontTile={
 					<div className="text-2xl font-bold bg-blue-500 h-full w-full flex items-center justify-center">
 						Front Tile
@@ -37,7 +37,7 @@ export const TilePage = () => {
 
 			<div className="text-2xl font-bold mt-8">Disabled Input</div>
 			<CodeBlock fileName="sample.tsx" code={disabledTileCode} language="html"></CodeBlock>
-			<Tile frontTile="Front Tile" backTile="Back Tile" className="mt-3" />
+			<TileContainer frontTile="Front Tile" backTile="Back Tile" className="mt-3" />
 
 			<div className="text-3xl font-bold mt-8">About</div>
 			<p className="mt-3">
@@ -53,7 +53,7 @@ export const TilePage = () => {
 
 			<p>In your css file</p>
 			<CodeBlock fileName="sample.css" code={customStyle} language="css"></CodeBlock>
-			<Tile frontTile="Front Tile" backTile="Back Tile" className={styles['custom-tile-theme']} />
+			<TileContainer frontTile="Front Tile" backTile="Back Tile" className={styles['custom-tile-theme']} />
 			<p className="mt-10">
 				For changing the overall theme for all elements, check the <Link to="/theme">Theme</Link> section.
 			</p>

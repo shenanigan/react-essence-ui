@@ -1,0 +1,53 @@
+.tile {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: var(--gutter-margin-y) var(--gutter-margin-x);
+	background-color: var(--theme-color);
+}
+
+.info-container {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	justify-content: space-between;
+	color: var(--primary-color);
+	font-size: var(--subtitle-1-font-size);
+	font-weight: var(--font-weight-bold);
+}
+
+.icon {
+	width: auto;
+	height: 80%;
+	object-fit: contain;
+}
+
+.icon-container {
+	height: 80%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-grow: 1;
+}
+
+.smallest.tile {
+	display: flex;
+	flex-direction: row;
+	gap: calc(var(--gutter-margin-x) / 4);
+	align-items: center;
+}
+
+.smallest .icon {
+	height: 85%;
+}
+
+.smallest .badge-container {
+	height: 100%;
+}
+
+.smallest .badge {
+	font-size: var(--subtitle-1-font-size);
+	font-weight: var(--font-weight-bold);
+}

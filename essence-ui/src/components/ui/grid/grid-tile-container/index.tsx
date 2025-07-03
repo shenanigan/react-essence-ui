@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { cn } from '../../../lib/utils';
-import styles from './tile.module.css';
-import { useEffect } from 'react';
+import { cn } from '../../../../lib/utils';
+import styles from './grid-tile-container.module.css';
+import { useEffect, useLayoutEffect } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -12,11 +12,12 @@ import {
 	faAnglesDown,
 	faXmark,
 } from '@fortawesome/free-solid-svg-icons';
-import { Alert, type AlertProps } from '../alert';
-import type { TileProps } from '../tile';
-import { Tile } from '../tile';
+import { Alert, type AlertProps } from '../../alert';
+import { TileContainer, type TileContainerProps } from '../../tile/tile-container';
+import { useVariantContext } from '../../tile/context/variant-context';
 
-export interface GridTileProps extends TileProps {
+export interface GridTileProps extends TileContainerProps {
+	tileHeight?: number;
 	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
 	onMovePrevious?: () => void;
 	onMoveNext?: () => void;
@@ -28,9 +29,21 @@ export interface GridTileProps extends TileProps {
 	colSpan?: 0.5 | 1 | 2 | 3 | 4;
 	onSizeChanged?: (colSpan: 0.5 | 1 | 2 | 3 | 4) => void;
 	deleteAlertProps?: AlertProps;
+	frontTile: React.ReactNode;
+	backTile: React.ReactNode;
 }
+const sizeVariantMap: Record<0.5 | 1 | 2 | 3 | 4, 'smallest' | 'smaller' | 'medium' | 'larger' | 'largest'> = {
+	0.5: 'smallest',
+	1: 'smaller',
+	2: 'medium',
+	3: 'larger',
+	4: 'largest',
+};
+
+const sizeArray: (0.5 | 1 | 2 | 3 | 4)[] = [0.5, 1, 2, 3, 4];
 
 function GridTile({
+	tileHeight,
 	onClick,
 	showControls = false,
 	onShowControls,
@@ -42,52 +55,28 @@ function GridTile({
 	canShowControls = false,
 	deleteAlertProps,
 	onLongPress,
+	frontTile,
+	backTile,
 	...props
 }: GridTileProps) {
 	const [displayControls, setDisplayControls] = React.useState(showControls);
 	const [showDeleteAlert, setShowDeleteAlert] = React.useState(false);
-	const [style, setStyle] = React.useState<React.CSSProperties>({});
+	const ref = React.useRef<HTMLDivElement>(null);
 
-	useEffect(() => {
-		// TODO: Not sure how but this works.
-		if (colSpan === 4) {
-			setStyle({
-				width: `calc(25%  * ${colSpan})`,
-				aspectRatio: `${colSpan} / ${1}`,
-				position: 'relative',
-			});
-		} else if (colSpan === 1) {
-			setStyle({
-				width: `calc(25%  * ${colSpan} - (var(--gutter-margin-y) / 2))`,
-				aspectRatio: `${colSpan} / ${1}`,
-				position: 'relative',
-			});
-		} else if (colSpan === 2) {
-			setStyle({
-				width: `calc(25%  * ${colSpan} - (var(--gutter-margin-y) / 4))`,
-				aspectRatio: `${colSpan} / ${1}`,
-				position: 'relative',
-			});
-		} else if (colSpan === 3) {
-			setStyle({
-				width: `calc(25%  * ${colSpan} - (var(--gutter-margin-y) / 16))`,
-				aspectRatio: `${colSpan} / ${1}`,
-				position: 'relative',
-			});
-		} else if (colSpan >= 1) {
-			setStyle({
-				width: `calc(25%  * ${colSpan} - (var(--gutter-margin-y) / 4))`,
-				aspectRatio: `${colSpan} / ${1}`,
-				position: 'relative',
-			});
-		} else {
-			setStyle({
-				width: `calc(50% -  (var(--gutter-margin-y) / 4))`,
-				height: `calc(50% -  (var(--gutter-margin-y) / 4))`,
-				position: 'relative',
-			});
+	const { setVariant } = useVariantContext();
+
+	useLayoutEffect(() => {
+		setVariant(sizeVariantMap[colSpan]);
+
+		const span = colSpan === 0.5 ? 1 : colSpan;
+		if (ref.current) {
+			ref.current.style.gridColumn = `span ${span}`;
+			ref.current.style.position = 'relative';
+			if (tileHeight) {
+				ref.current.style.height = `${tileHeight}px`;
+			}
 		}
-	}, [colSpan]);
+	}, [colSpan, setVariant, tileHeight]);
 
 	useEffect(() => {
 		setDisplayControls(showControls);
@@ -104,17 +93,13 @@ function GridTile({
 	const onExpandClicked = (e: React.MouseEvent<HTMLElement>) => {
 		e.stopPropagation();
 		e.preventDefault();
-		if (colSpan === 4) {
-			onSizeChanged?.(0.5);
-		} else if (colSpan === 0.5) {
-			onSizeChanged?.(1);
-		} else if (colSpan === 1) {
-			onSizeChanged?.(2);
-		} else if (colSpan === 2) {
-			onSizeChanged?.(3);
-		} else if (colSpan === 3) {
-			onSizeChanged?.(4);
+		const currentIndex = sizeArray.indexOf(colSpan);
+		if (currentIndex === sizeArray.length - 1) {
+			return;
 		}
+		const nextSize = sizeArray[currentIndex + 1];
+		setVariant(sizeVariantMap[nextSize]);
+		onSizeChanged?.(nextSize);
 	};
 
 	const onMovePreviousClicked = (e: React.MouseEvent<HTMLElement>) => {
@@ -161,22 +146,18 @@ function GridTile({
 	const onCollapseClicked = (e: React.MouseEvent<HTMLElement>) => {
 		e.stopPropagation();
 		e.preventDefault();
-		if (colSpan === 4) {
-			onSizeChanged?.(3);
-		} else if (colSpan === 0.5) {
-			onSizeChanged?.(4);
-		} else if (colSpan === 1) {
-			onSizeChanged?.(0.5);
-		} else if (colSpan === 2) {
-			onSizeChanged?.(1);
-		} else if (colSpan === 3) {
-			onSizeChanged?.(2);
+		const currentIndex = sizeArray.indexOf(colSpan);
+		if (currentIndex === 0) {
+			return;
 		}
+		const nextSize = sizeArray[currentIndex - 1];
+		setVariant(sizeVariantMap[nextSize]);
+		onSizeChanged?.(nextSize);
 	};
 
 	const onCloseClicked = () => {};
 	return (
-		<div style={style}>
+		<div ref={ref}>
 			{showDeleteAlert && deleteAlertProps && (
 				<Alert {...deleteAlertProps} onOk={onDeleteConfirmed} onDismiss={() => setShowDeleteAlert(false)} />
 			)}
@@ -218,11 +199,12 @@ function GridTile({
 					)}
 				</div>
 			)}
-			<Tile
+			<TileContainer
 				{...props}
+				frontTile={frontTile}
+				backTile={backTile}
 				onClick={onClicked}
 				onLongPress={onLongPressed}
-				style={{ width: '100%', height: '100%' }}
 			/>
 		</div>
 	);
