@@ -5,7 +5,7 @@ import styles from './mail-tile.module.css';
 import { useVariantContext } from '../context/variant-context';
 
 export interface MailTileProps extends React.ComponentProps<'div'> {
-	badge: number | string;
+	badge?: number | string;
 	subject: string;
 	preview: string;
 	iconUrl: string;
@@ -19,7 +19,7 @@ function MailTile({ className, badge, subject, preview, iconUrl, ...props }: Mai
 					<div {...props} className={cn(styles['tile'], styles['smallest'], className)}>
 						<img src={iconUrl} alt={subject} className={styles['icon']} />
 						<div className={styles['badge-container']}>
-							<div className={styles['badge']}>{badge}</div>
+							{badge && <div className={styles['badge']}>{badge}</div>}
 						</div>
 					</div>
 				);
@@ -33,7 +33,7 @@ function MailTile({ className, badge, subject, preview, iconUrl, ...props }: Mai
 						</div>
 						<div className={styles['icon-container']}>
 							<img src={iconUrl} alt={subject} className={styles['icon']} />
-							<div className={styles['badge']}>{badge}</div>
+							{badge && <div className={styles['badge']}>{badge}</div>}
 						</div>
 					</div>
 				);

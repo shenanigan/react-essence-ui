@@ -70,13 +70,13 @@ export const NavComponents = () => {
 			path: '/components/grid',
 			name: 'Grid',
 		},
-	];
-
-	const comingSoonComponents = [
 		{
 			path: '/components/list-picker',
 			name: 'List Picker',
 		},
+	];
+
+	const comingSoonComponents = [
 		{
 			path: '/components/stack-panel',
 			name: 'Stack Panel',

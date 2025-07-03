@@ -14,15 +14,14 @@
 
 .action-bar {
 	color: var(--primary-bkg-color);
-	padding: 10px;
+	padding: calc(var(--gutter-margin-y) / 2) var(--gutter-margin-x);
 	display: flex;
 	justify-content: center;
 	gap: 15px;
 	position: absolute;
 	bottom: env(safe-area-inset-bottom);
 	width: 100%;
-	background: gray;
-	height: 56px;
+	background: rgba(var(--hex-primary-color), 0.3);
 }
 
 .action-icon {

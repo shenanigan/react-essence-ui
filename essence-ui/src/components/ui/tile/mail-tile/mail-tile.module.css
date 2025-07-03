@@ -63,7 +63,12 @@
 	height: 100%;
 }
 
-.smallest .badge {
+.badge {
 	font-size: var(--subtitle-1-font-size);
 	font-weight: var(--font-weight-bold);
+	color: var(--primary-color);
+}
+
+.smallest .badge {
+	font-size: var(--subtitle-1-font-size);
 }
