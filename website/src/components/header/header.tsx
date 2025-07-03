@@ -61,12 +61,11 @@ export function Header() {
 						key={color}
 						onClick={() => setColor(color)}></div>
 				))}
-				<div className="flex items-center ms-3">
-					Theme:
+				<div className="flex items-center ms-5">
 					<Switch
 						className="ms-3"
 						text={isLightTheme ? 'Light' : 'Dark'}
-						checked={isLightTheme}
+						defaultChecked={isLightTheme}
 						onCheckedChange={toggleTheme}
 					/>
 				</div>
