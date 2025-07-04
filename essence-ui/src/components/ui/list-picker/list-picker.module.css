@@ -39,6 +39,6 @@
 	right: 2px;
 	top: 50%;
 	transform: translateY(-50%);
-	padding: var(--gutter-margin-x);
+	padding: calc(var(--gutter-margin-x) / 2);
 	background: var(--primary-bkg-color);
 }
