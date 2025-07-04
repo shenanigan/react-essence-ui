@@ -60,17 +60,19 @@ function ListPicker({ options, onOptionSelected, className, ...props }: ListPick
 			<div className={styles['input-container']}>
 				<Input
 					{...props}
-					style={{ cursor: 'pointer', width: '100%' }}
+					style={{ width: '100%' }}
 					onFocus={openPicker}
 					value={selectedOption.title}
 					readOnly
 					inputMode="none"
 				/>
-				<FontAwesomeIcon
-					className={styles['chevron-icon']}
-					icon={faChevronDown}
-					onClick={openPickerViaChevron}
-				/>
+				{!props.disabled && (
+					<FontAwesomeIcon
+						className={styles['chevron-icon']}
+						icon={faChevronDown}
+						onClick={openPickerViaChevron}
+					/>
+				)}
 			</div>
 			{!hidePicker && (
 				<PickerOverlay onAccept={onAccept} onReject={reject} showAcceptButton={false}>
