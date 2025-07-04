@@ -6,7 +6,6 @@
 	font-size: var(--h4-font-size);
 	color: var(--primary-color);
 	border-radius: 0px;
-	height: var(--field-height);
 }
 
 .input:focus-visible {

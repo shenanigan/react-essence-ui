@@ -79,6 +79,7 @@
 	--loader-dot-size: 4px;
 	--bar-height: 12px;
 	--button-padding: 0px 35px 2px;
+	--field-height: 32px;
 }
 
 .theme-size-large {
@@ -88,6 +89,7 @@
 	--loader-dot-size: 10px;
 	--bar-height: 20px;
 	--button-padding: 8px 50px;
+	--field-height: 64px;
 }
 
 .theme-color-blue {

@@ -60,7 +60,7 @@ function ListPicker({ options, onOptionSelected, className, ...props }: ListPick
 			<div className={styles['input-container']}>
 				<Input
 					{...props}
-					style={{ width: '100%' }}
+					style={{ width: '100%', cursor: props.disabled ? 'not-allowed' : 'pointer' }}
 					onFocus={openPicker}
 					value={selectedOption.title}
 					readOnly

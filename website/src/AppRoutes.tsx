@@ -19,6 +19,7 @@ import { PivotPage } from './pages/pivot/pivot-page';
 import { TilePage } from './pages/tile/tile-page';
 import { GridPage } from './pages/grid/grid-page';
 import { ListPickerPage } from './pages/list-picker/list-picker-page';
+import { StackPanelPage } from './pages/stack-panel/stack-panel-page';
 
 export default function AppRoutes() {
 	return (
@@ -43,6 +44,7 @@ export default function AppRoutes() {
 					<Route path="tile" element={<TilePage />} />
 					<Route path="grid" element={<GridPage />} />
 					<Route path="list-picker" element={<ListPickerPage />} />
+					<Route path="stack-panel" element={<StackPanelPage />} />
 				</Route>
 			</Route>
 		</Routes>
