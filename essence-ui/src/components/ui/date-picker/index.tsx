@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import styles from './date-picker.module.css';
 import { PickerList } from '@essence-ui/components/core/picker-list/picker-list';
 import { PickerOverlay } from '@essence-ui/components/core/picker-overlay/picker-overlay';
 import type { IPickerOption } from '@essence-ui/components/core/model/i-picker-option';
@@ -12,10 +11,6 @@ interface DatePickerProps extends React.ComponentProps<typeof Input> {
 	maxDate?: Date;
 	onClose?(): void;
 	onAccept?(date: Date): void;
-}
-
-interface DatePickerOption extends IPickerOption {
-	value: number;
 }
 
 function DatePicker({ date, minDate, maxDate, onClose, onAccept, className, ...props }: DatePickerProps) {
@@ -32,18 +27,18 @@ function DatePicker({ date, minDate, maxDate, onClose, onAccept, className, ...p
 
 	// const dayNames = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
-	const [dateOption, setDateOption] = useState<DatePickerOption>({ index: 0, title: '', value: 1 });
-	const [monthOption, setMonthOption] = useState<DatePickerOption>({
+	const [dateOption, setDateOption] = useState<IPickerOption>({ index: 0, title: '', value: 1 });
+	const [monthOption, setMonthOption] = useState<IPickerOption>({
 		index: 0,
 		title: '',
 		subtitle: '',
 		value: 0,
 	});
-	const [yearOption, setYearOption] = useState<DatePickerOption>({ index: 0, title: '', value: 0 });
+	const [yearOption, setYearOption] = useState<IPickerOption>({ index: 0, title: '', value: 0 });
 
-	const [dates, setDates] = useState<DatePickerOption[]>([]);
-	const [months, setMonths] = useState<DatePickerOption[]>([]);
-	const [years, setYears] = useState<DatePickerOption[]>([]);
+	const [dates, setDates] = useState<IPickerOption[]>([]);
+	const [months, setMonths] = useState<IPickerOption[]>([]);
+	const [years, setYears] = useState<IPickerOption[]>([]);
 
 	const accept = () => {
 		setHidePicker(true);
@@ -69,11 +64,14 @@ function DatePicker({ date, minDate, maxDate, onClose, onAccept, className, ...p
 	const _checkdate = useCallback(() => {
 		let numberOfDays = 31;
 		const thirtyOneDaysMonths = [1, 3, 5, 7, 8, 10, 12];
-		const isThirtyOneDaysMonth = thirtyOneDaysMonths.includes(monthOption.value);
+		const isThirtyOneDaysMonth = thirtyOneDaysMonths.includes(Number(monthOption.value));
 		if (isThirtyOneDaysMonth) {
 			numberOfDays = 31;
 		} else if (monthOption.value == 2 && yearOption.value) {
-			if ((yearOption.value % 4 == 0 && yearOption.value % 100 != 0) || yearOption.value % 400 == 0) {
+			if (
+				(Number(yearOption.value) % 4 == 0 && Number(yearOption.value) % 100 != 0) ||
+				Number(yearOption.value) % 400 == 0
+			) {
 				numberOfDays = 29;
 			} else {
 				numberOfDays = 28;
@@ -81,7 +79,7 @@ function DatePicker({ date, minDate, maxDate, onClose, onAccept, className, ...p
 		} else {
 			numberOfDays = 30;
 		}
-		const localDates: DatePickerOption[] = [];
+		const localDates: IPickerOption[] = [];
 
 		for (let index = 1; index <= numberOfDays; index++) {
 			localDates.push({
@@ -94,8 +92,8 @@ function DatePicker({ date, minDate, maxDate, onClose, onAccept, className, ...p
 	}, [monthOption, yearOption]);
 
 	const _updateOptions = useCallback((minDate: Date, maxDate: Date) => {
-		const years: DatePickerOption[] = [];
-		const months: DatePickerOption[] = [];
+		const years: IPickerOption[] = [];
+		const months: IPickerOption[] = [];
 		for (let index: number = maxDate.getFullYear(); index >= minDate.getFullYear(); index--) {
 			years.push({
 				index: maxDate.getFullYear() - index,
@@ -159,29 +157,29 @@ function DatePicker({ date, minDate, maxDate, onClose, onAccept, className, ...p
 		}
 	}, [dateOption, dates, internalDate, maxDateState, monthOption, months, yearOption, years]);
 
-	const onDateChange = ($event: DatePickerOption) => {
+	const onDateChange = ($event: IPickerOption) => {
 		const date = $event;
 		setDateOption(date);
-		internalDate.setDate(date.value);
+		internalDate.setDate(Number(date.value));
 		setInternalDate(internalDate);
 	};
 
-	const onMonthChange = ($event: DatePickerOption) => {
+	const onMonthChange = ($event: IPickerOption) => {
 		const month = $event;
 		internalDate.setMonth(month.index);
 		setInternalDate(internalDate);
 		setMonthOption(month);
 	};
 
-	const onYearChange = ($event: DatePickerOption) => {
+	const onYearChange = ($event: IPickerOption) => {
 		const year = $event;
-		internalDate.setFullYear(year.value);
+		internalDate.setFullYear(Number(year.value));
 		setInternalDate(internalDate);
 		setYearOption(year);
 	};
 
 	return (
-		<div className={cn(styles.container, className)}>
+		<div className={cn(className)}>
 			<Input
 				onFocus={openDatePicker}
 				value={currentDate.toISOString().replace(/T.*/, '').split('-').reverse().join('-')}
@@ -191,28 +189,16 @@ function DatePicker({ date, minDate, maxDate, onClose, onAccept, className, ...p
 			/>
 			{!hidePicker && (
 				<PickerOverlay onAccept={accept} onReject={reject}>
-					<div className={styles['picker-container']}>
-						<PickerList
-							id="date-picker-days-id"
-							value={dateOption}
-							onChange={onDateChange}
-							options={dates}
-						/>
+					<PickerList id="date-picker-days-id" value={dateOption} onChange={onDateChange} options={dates} />
 
-						<PickerList
-							id="date-picker-months-id"
-							value={monthOption}
-							onChange={onMonthChange}
-							options={months}
-						/>
+					<PickerList
+						id="date-picker-months-id"
+						value={monthOption}
+						onChange={onMonthChange}
+						options={months}
+					/>
 
-						<PickerList
-							id="date-picker-years-id"
-							value={yearOption}
-							onChange={onYearChange}
-							options={years}
-						/>
-					</div>
+					<PickerList id="date-picker-years-id" value={yearOption} onChange={onYearChange} options={years} />
 				</PickerOverlay>
 			)}
 		</div>

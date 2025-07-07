@@ -12,7 +12,7 @@ export const SwitchPage = () => {
 	const customSwitchCode = `<Switch className={styles['custom-switch-theme']} text="Hello World" />`;
 	const defaultCheckedSwitchCode = `<Switch text="Hello World" defaultChecked />`;
 	const customStyle = `.custom-switch-theme {
-    --theme-color: green;
+    --color-theme: green;
 }`;
 	return (
 		<div className="docs-markdown">

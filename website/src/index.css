@@ -4,6 +4,10 @@
 @import '@essence-ui/styles/index.css';
 @import 'tw-animate-css';
 
+* {
+	font-family: var(--font-family);
+}
+
 ul {
 	display: block;
 	list-style-type: disc;

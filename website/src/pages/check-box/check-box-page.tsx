@@ -12,7 +12,7 @@ export const CheckBoxPage = () => {
 	const customCheckBoxCode = `<CheckBox className={styles['custom-check-box-theme']} text="Hello World" />`;
 	const defaultCheckedCheckBoxCode = `<CheckBox text="Hello World" defaultChecked />`;
 	const customStyle = `.custom-check-box-theme {
-    --theme-color: green;
+    --color-theme: green;
 }`;
 	return (
 		<div className="docs-markdown">

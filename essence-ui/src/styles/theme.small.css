@@ -1,0 +1,24 @@
+.theme-size-small {
+	--gutter-margin-x: 12px;
+	--loader-dot-size: 4px;
+	--bar-height: 12px;
+	--field-height: 32px;
+	--panorama-title-height: 100px;
+
+	/* Typography */
+	--h1-font-size: 72px;
+	--h2-font-size: 48px;
+	--h3-font-size: 36px;
+	--h4-font-size: 28px;
+	--h5-font-size: 20px;
+	--h6-font-size: 16px;
+	--subtitle-1-font-size: 14px;
+	--subtitle-2-font-size: 12px;
+	--body-1-font-size: 14px;
+	--body-2-font-size: 12px;
+	--caption-font-size: 10px;
+	--overline-font-size: 8px;
+
+	--gutter-margin-x: 12px;
+	--gutter-margin-y: 12px;
+}

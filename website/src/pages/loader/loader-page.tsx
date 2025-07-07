@@ -7,7 +7,7 @@ export const LoaderPage = () => {
 	const loaderCode = `<Loader />`;
 	const customLoaderCode = `<Loader className={styles['custom-loader-theme']} />`;
 	const customStyle = `.custom-loader-theme {
-    --theme-color: green;
+    --color-theme: green;
 }`;
 	return (
 		<div className="docs-markdown">

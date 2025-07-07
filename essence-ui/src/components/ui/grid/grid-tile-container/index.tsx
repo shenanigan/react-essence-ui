@@ -62,21 +62,40 @@ function GridTile({
 	const [displayControls, setDisplayControls] = React.useState(showControls);
 	const [showDeleteAlert, setShowDeleteAlert] = React.useState(false);
 	const ref = React.useRef<HTMLDivElement>(null);
+	const [isMobile, setIsMobile] = React.useState(false);
+	const [colSpanState, setColSpanState] = React.useState(colSpan);
+
+	useEffect(() => {
+		const handleResize = () => {
+			setIsMobile(window.innerWidth < 768);
+		};
+
+		setIsMobile(window.innerWidth < 768);
+		window.addEventListener('resize', handleResize);
+		return () => window.removeEventListener('resize', handleResize);
+	}, []);
+
+	useEffect(() => {
+		if (isMobile) {
+			setColSpanState(Math.min(colSpan, 2) as 0.5 | 1 | 2);
+		} else {
+			setColSpanState(colSpan);
+		}
+	}, [colSpan, isMobile]);
 
 	const { setVariant } = useVariantContext();
 
 	useLayoutEffect(() => {
-		setVariant(sizeVariantMap[colSpan]);
+		setVariant(sizeVariantMap[colSpanState]);
 
-		const span = colSpan === 0.5 ? 1 : colSpan;
 		if (ref.current) {
-			ref.current.style.gridColumn = `span ${span}`;
+			ref.current.style.gridColumn = `span ${colSpanState}`;
 			ref.current.style.position = 'relative';
 			if (tileHeight) {
 				ref.current.style.height = `${tileHeight}px`;
 			}
 		}
-	}, [colSpan, setVariant, tileHeight]);
+	}, [colSpanState, setVariant, tileHeight, isMobile]);
 
 	useEffect(() => {
 		setDisplayControls(showControls);
@@ -93,11 +112,17 @@ function GridTile({
 	const onExpandClicked = (e: React.MouseEvent<HTMLElement>) => {
 		e.stopPropagation();
 		e.preventDefault();
-		const currentIndex = sizeArray.indexOf(colSpan);
+
+		const currentIndex = sizeArray.indexOf(colSpanState);
 		if (currentIndex === sizeArray.length - 1) {
 			return;
 		}
+
 		const nextSize = sizeArray[currentIndex + 1];
+		if (isMobile && nextSize === 3) {
+			return;
+		}
+
 		setVariant(sizeVariantMap[nextSize]);
 		onSizeChanged?.(nextSize);
 	};
@@ -146,7 +171,7 @@ function GridTile({
 	const onCollapseClicked = (e: React.MouseEvent<HTMLElement>) => {
 		e.stopPropagation();
 		e.preventDefault();
-		const currentIndex = sizeArray.indexOf(colSpan);
+		const currentIndex = sizeArray.indexOf(colSpanState);
 		if (currentIndex === 0) {
 			return;
 		}
@@ -174,13 +199,13 @@ function GridTile({
 						<div style={{ fontSize: '10px' }}>Move</div>
 					</div>
 
-					{colSpan > 0.5 && (
+					{colSpanState > 0.5 && (
 						<div className={cn(styles['control'])} onClick={onCollapseClicked}>
 							<FontAwesomeIcon icon={faAnglesDown} className={styles['collapse-control']} />
 							<div style={{ fontSize: '10px' }}>Collapse</div>
 						</div>
 					)}
-					{colSpan < 4 && (
+					{((!isMobile && colSpanState < 4) || (isMobile && colSpanState < 2)) && (
 						<div className={cn(styles['control'])} onClick={onExpandClicked}>
 							<FontAwesomeIcon icon={faAnglesDown} className={styles['expand-control']} />
 							<div style={{ fontSize: '10px' }}>Expand</div>
@@ -191,7 +216,7 @@ function GridTile({
 						<div style={{ fontSize: '10px' }}>Delete</div>
 					</div>
 
-					{colSpan === 0.5 && (
+					{colSpanState === 0.5 && (
 						<div className={cn(styles['control'])} onClick={onCloseClicked}>
 							<FontAwesomeIcon icon={faXmark} className={styles['close-control']} />
 							<div style={{ fontSize: '10px' }}>Close</div>

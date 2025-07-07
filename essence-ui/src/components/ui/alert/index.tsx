@@ -1,5 +1,5 @@
 import { Button } from '@essence-ui/components/ui/button';
-import styles from './alert.module.css';
+import { cn } from '@essence-ui/lib/utils';
 
 export interface AlertInfo {
 	show: boolean;
@@ -15,10 +15,10 @@ export interface AlertProps extends React.ComponentProps<'button'> {
 function Alert({ onOk, onDismiss, message, okButton, dismissButton, ...props }: AlertProps) {
 	return (
 		<>
-			<div className={styles.overlay} onClick={onDismiss} />
-			<div className={styles.alert}>
-				<div className={styles['txt-message']}>{message}</div>
-				<div className={styles['buttons-container']}>
+			<div className={'alert-overlay'} onClick={onDismiss} />
+			<div className={'alert'}>
+				<div className={cn('message', 'h5')}>{message}</div>
+				<div className={'alert-buttons-container'}>
 					{dismissButton && (
 						<Button {...props} onClick={onDismiss}>
 							{dismissButton}

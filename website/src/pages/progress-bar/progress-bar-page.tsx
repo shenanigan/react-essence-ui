@@ -8,7 +8,7 @@ export const ProgressBarPage = () => {
 	const progressBarCode = `<ProgressBar value={value} />`;
 	const customProgressBarCode = `<ProgressBar value={value} className={styles['custom-progress-bar-theme']} />`;
 	const customStyle = `.custom-progress-bar-theme {
-    --theme-color: green;
+    --color-theme: green;
 }`;
 	const [value, setValue] = useState(10);
 	useEffect(() => {

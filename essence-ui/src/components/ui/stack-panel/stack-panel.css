@@ -1,0 +1,23 @@
+.stack-panel-item {
+	color: var(--color-primary);
+	cursor: pointer;
+	padding: calc(var(--gutter-margin-y) / 2) var(--gutter-margin-x);
+	max-height: var(--field-height);
+}
+
+.stack-panel-item:hover {
+	color: var(--color-theme);
+}
+
+.stack-panel-input-container {
+	interpolate-size: allow-keywords;
+	border: 2px solid var(--color-primary);
+	max-height: var(--field-height);
+	transition: max-height 0.3s ease-in-out;
+	overflow-y: clip;
+}
+
+.stack-panel-input-container.active {
+	max-height: fit-content;
+	transition: max-height 0.3s ease-in-out;
+}

@@ -2,7 +2,6 @@
 	display: flex;
 	background-color: transparent;
 	height: var(--loader-dot-size);
-	margin: var(0px) var(--gutter-margin-x);
 	width: calc(100% - 2 * var(--gutter-margin-x));
 	overflow: hidden;
 	position: relative;
@@ -13,7 +12,7 @@
 .loader-dot {
 	height: var(--loader-dot-size);
 	width: var(--loader-dot-size);
-	background-color: var(--theme-color);
+	background-color: var(--color-theme);
 	border-radius: var(--loader-dot-size);
 	position: absolute;
 	top: 0;

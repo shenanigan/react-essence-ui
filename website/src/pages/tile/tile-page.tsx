@@ -8,7 +8,7 @@ export const TilePage = () => {
 	const customTileCode = `<Tile frontTile="Front Tile" backTile="Back Tile" className={styles['custom-tile-theme']} />`;
 	const disabledTileCode = `<Tile frontTile="Front Tile" backTile="Back Tile" disabled />`;
 	const customStyle = `.custom-tile-theme {
-    --theme-color: green;
+    --color-theme: green;
 }`;
 
 	return (

@@ -1,0 +1,18 @@
+.button {
+	background-color: var(--bg-color-primary);
+	color: var(--color-primary);
+	border: 2px solid var(--color-primary);
+	padding: calc(var(--gutter-margin-y) / 3) calc(var(--gutter-margin-x) * 3);
+	text-transform: lowercase;
+}
+
+.button:hover {
+	background-color: var(--color-theme);
+}
+
+.button:hover[disabled],
+.button:hover[disabled],
+.button[disabled],
+.button[disabled] {
+	background-color: var(--bg-color-primary);
+}

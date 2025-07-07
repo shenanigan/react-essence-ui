@@ -1,5 +1,4 @@
 import { useCallback, useRef, useState } from 'react';
-import styles from './pivot.module.css';
 import { cn } from '@essence-ui/lib/utils';
 
 interface PivotItem {
@@ -65,14 +64,14 @@ export default function Pivot({ title, pivotItems, index, ...props }: PivotProps
 	};
 
 	return (
-		<div className={cn(styles['pivot-container'], props.className)}>
-			<div className={styles['pivot-title']}>{title}</div>
-			<div ref={pivotTitleRef} className={styles['title-container']}>
+		<div className={cn('pivot-container', props.className)}>
+			<div className={cn('pivot-title', 'subtitle-1')}>{title}</div>
+			<div ref={pivotTitleRef} className={'pivot-title-container'}>
 				{pivotItems.map((pivotItem, i) => {
 					return (
 						<div
 							key={i}
-							className={cn(styles['title'], i === currentIndex && styles['active-title'])}
+							className={cn('pivot-page-title', i === currentIndex && 'active-title', 'h3')}
 							onClick={() => {
 								onTitleClick(i);
 							}}>
@@ -81,16 +80,16 @@ export default function Pivot({ title, pivotItems, index, ...props }: PivotProps
 					);
 				})}
 			</div>
-			<div ref={componentContainer} className={styles.container} onScroll={onScroll}>
+			<div ref={componentContainer} className={'pivot-content-container'} onScroll={onScroll}>
 				{pivotItems.map((pivotItem, i) => {
 					return (
-						<div className={styles.content} key={i}>
+						<div className={'pivot-content'} key={i}>
 							{pivotItem.child}
 						</div>
 					);
 				})}
 			</div>
-			<div className={styles['dots-container']}>
+			<div className={'pivot-dots-container'}>
 				{pivotItems.map((_, i) => {
 					return (
 						<div
@@ -98,7 +97,7 @@ export default function Pivot({ title, pivotItems, index, ...props }: PivotProps
 							onClick={() => {
 								onTitleClick(i);
 							}}>
-							<div className={`${styles.dots} ${i === currentIndex ? styles.active : ''}`}></div>
+							<div className={cn('pivot-dots', i === currentIndex && 'active')}></div>
 						</div>
 					);
 				})}

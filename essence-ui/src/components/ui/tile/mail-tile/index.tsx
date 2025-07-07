@@ -19,7 +19,7 @@ function MailTile({ className, badge, subject, preview, iconUrl, ...props }: Mai
 					<div {...props} className={cn(styles['tile'], styles['smallest'], className)}>
 						<img src={iconUrl} alt={subject} className={styles['icon']} />
 						<div className={styles['badge-container']}>
-							{badge && <div className={styles['badge']}>{badge}</div>}
+							{badge && <div className={cn(styles['badge'], 'h5')}>{badge}</div>}
 						</div>
 					</div>
 				);
@@ -28,10 +28,10 @@ function MailTile({ className, badge, subject, preview, iconUrl, ...props }: Mai
 				return (
 					<div {...props} className={cn(styles['tile'], className)}>
 						<div className={styles['preview-container']}>
-							<div className={styles['subject']}>{subject}</div>
-							<div className={styles['preview']}>{preview}</div>
+							<div className={cn(styles['subject'], 'h4')}>{subject}</div>
+							<div className={cn(styles['preview'], 'subtitle-1')}>{preview}</div>
 						</div>
-						<div className={styles['icon-container']}>
+						<div className={cn(styles['icon-container'], 'h5')}>
 							<img src={iconUrl} alt={subject} className={styles['icon']} />
 							{badge && <div className={styles['badge']}>{badge}</div>}
 						</div>

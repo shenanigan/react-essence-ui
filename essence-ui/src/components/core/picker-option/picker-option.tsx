@@ -1,5 +1,6 @@
 import type { IPickerOption } from '@essence-ui/components/core/model/i-picker-option';
 import styles from './picker-option.module.css';
+import { cn } from '@essence-ui/lib/utils';
 
 interface Props {
 	option: IPickerOption;
@@ -18,8 +19,8 @@ function PickerOption({ option, isActive, isScrolling, isHovering, onClick }: Pr
 			className={`${styles['picker-option']} ${isActive ? styles.active : ''} ${
 				isScrolling ? styles.scrolling : ''
 			} ${isHovering ? styles.hovering : ''}`}>
-			<div className={styles['picker-option-title']}>{option.title}</div>
-			<div className={styles['picker-option-sub-title']}>{option.subtitle}</div>
+			<div className={cn(styles['picker-option-title'], 'h3')}>{option.title}</div>
+			<div className={cn(styles['picker-option-sub-title'], 'subtitle-1')}>{option.subtitle}</div>
 		</div>
 	);
 }

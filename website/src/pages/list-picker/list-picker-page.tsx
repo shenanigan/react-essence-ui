@@ -113,7 +113,7 @@ export const ListPickerPage = () => {
 	return (
 		<div className="docs-markdown">
 			<div className="text-3xl font-bold">Demo</div>
-			<ListPicker options={options} onOptionSelected={option => console.log(option)} />
+			<ListPicker className="mt-3" options={options} onOptionSelected={option => console.log(option)} />
 
 			<div className="text-2xl font-bold mt-8">Import the component</div>
 			<CodeBlock

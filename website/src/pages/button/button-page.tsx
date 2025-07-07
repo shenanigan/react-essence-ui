@@ -14,7 +14,7 @@ export const ButtonPage = () => {
 	const iconButtonCode = `<Button><FontAwesomeIcon icon={faCoffee} className="me-2" />Hello World</Button>`;
 	const customButtonCode = `<Button className={styles['custom-button-theme']}>Hello World</Button>`;
 	const customStyle = `.custom-button-theme {
-    --theme-color: skyblue;
+    --color-theme: skyblue;
 }`;
 	return (
 		<div className="docs-markdown">

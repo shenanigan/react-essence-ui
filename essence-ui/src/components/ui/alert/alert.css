@@ -1,0 +1,29 @@
+.alert-overlay {
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 999;
+	background-color: rgba(var(--hex-secondary-bkg-color), 0.5);
+}
+
+.alert-buttons-container {
+	display: flex;
+	gap: var(--gutter-margin-y);
+}
+
+.alert {
+	width: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 1000;
+	padding: calc(var(--gutter-margin-y) * 2) calc(var(--gutter-margin-x) * 2);
+	background-color: var(--bg-color-primary);
+}
+
+.alert .message {
+	color: var(--color-primary);
+	margin-bottom: 30px;
+}

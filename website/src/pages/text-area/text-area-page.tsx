@@ -8,7 +8,7 @@ export const TextAreaPage = () => {
 	const customInputCode = `<TextArea placeholder="sample placeholder" className={styles['custom-text-area-theme']} />`;
 	const disabledInputCode = `<TextArea placeholder="sample placeholder" disabled />`;
 	const customStyle = `.custom-text-area-theme {
-    --theme-color: green;
+    --color-theme: green;
 }`;
 
 	return (

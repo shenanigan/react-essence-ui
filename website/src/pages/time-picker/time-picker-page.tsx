@@ -11,13 +11,13 @@ export const TimePickerPage = () => {
 	const disabledTimePickerCode = `<TimePicker date={new Date()} onAccept={date => console.log(date)} disabled />`;
 	const customTimePickerCode = `<TimePicker date={new Date()} onAccept={date => console.log(date)} className={styles['custom-time-picker-theme']} />`;
 	const customStyle = `.custom-time-picker-theme {
-    --theme-color: green;
+    --color-theme: green;
 }`;
 	return (
 		<div className="docs-markdown">
 			<div className="text-3xl font-bold">Demo</div>
 
-			<TimePicker date={new Date()} onAccept={() => {}} />
+			<TimePicker date={new Date()} onAccept={() => {}} className="mt-3" />
 
 			<div className="text-2xl font-bold mt-8">Import the component</div>
 			<CodeBlock

@@ -5,7 +5,7 @@
 	flex-direction: column;
 	justify-content: space-between;
 	padding: var(--gutter-margin-y) var(--gutter-margin-x);
-	background-color: var(--theme-color);
+	background-color: var(--color-theme);
 }
 
 .info-container {
@@ -13,9 +13,7 @@
 	align-items: center;
 	width: 100%;
 	justify-content: space-between;
-	color: var(--primary-color);
-	font-size: var(--subtitle-1-font-size);
-	font-weight: var(--font-weight-bold);
+	color: var(--color-primary);
 }
 
 .icon {
@@ -45,9 +43,4 @@
 
 .smallest .badge-container {
 	height: 100%;
-}
-
-.smallest .badge {
-	font-size: var(--subtitle-1-font-size);
-	font-weight: var(--font-weight-bold);
 }

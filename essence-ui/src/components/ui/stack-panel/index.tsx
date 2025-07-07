@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import styles from './stack-panel.module.css';
 import { Input } from '@essence-ui/components/ui/input';
 import { cn } from '@essence-ui/lib/utils';
 import type { IPickerOption } from '@essence-ui/components/core/model/i-picker-option';
@@ -36,7 +35,7 @@ function StackPanel({ options, onOptionSelected, className, ...props }: StackPan
 
 	return (
 		<div className={cn(className)}>
-			<div className={cn(styles['input-container'], hidePicker ? '' : styles.active)}>
+			<div className={cn('stack-panel-input-container', hidePicker ? '' : 'active')}>
 				<Input
 					{...props}
 					style={{
@@ -60,7 +59,7 @@ function StackPanel({ options, onOptionSelected, className, ...props }: StackPan
 						onClick={() => {
 							selectOption(option);
 						}}>
-						<div className={styles['list-item']}>{option.title}</div>
+						<div className={cn('stack-panel-item', 'subtitle-1')}>{option.title}</div>
 					</Clickable>
 				))}
 			</div>

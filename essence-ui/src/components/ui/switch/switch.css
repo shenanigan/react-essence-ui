@@ -1,0 +1,114 @@
+.switch {
+	position: relative;
+	height: 34px;
+	color: var(--color-primary);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: calc(var(--gutter-margin-x));
+}
+
+.switch-input + .switch-slider > .inner {
+	opacity: 0;
+}
+
+.switch-input:checked + .switch-slider > .inner {
+	opacity: 1;
+	background: var(--color-theme);
+	position: absolute;
+	transition: var(--transition-duration);
+	width: 62px;
+	height: 17px;
+	left: 4px;
+	top: 4px;
+}
+
+.theme-size-small .switch-input:checked + .switch-slider > .inner {
+	width: 52px;
+	height: 12px;
+	top: 4px;
+}
+
+.theme-size-large .switch-input:checked + .switch-slider > .inner {
+	width: 73px;
+	height: 22px;
+	top: 4px;
+	left: 4px;
+}
+
+.switch .switch-input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.switch-slider {
+	width: 70px;
+	height: 25px;
+	background-color: var(--bg-color-primary);
+	border: 2px solid var(--color-primary);
+}
+
+.theme-size-small .switch-slider {
+	width: 60px;
+	height: 20px;
+	margin-right: 8px;
+}
+
+.theme-size-large .switch-slider {
+	width: 80px;
+	height: 30px;
+	margin-right: 16px;
+}
+
+.switch-slider:before {
+	position: absolute;
+	content: '';
+	height: 33px;
+	width: 23px;
+	left: 3px;
+	top: -4px;
+	background-color: var(--color-primary);
+	transition: var(--transition-duration);
+	border-right: 3px solid var(--bg-color-primary);
+}
+
+.theme-size-small .switch-slider:before {
+	height: 26px;
+	width: 20px;
+	top: -3px;
+}
+
+.theme-size-large .switch-slider:before {
+	height: 36px;
+	width: 26px;
+	top: -3px;
+}
+
+.switch-input:focus + .switch-slider {
+	box-shadow: 0 0 1px var(--color-primary);
+}
+
+.switch-input:checked + .switch-slider:before {
+	-webkit-transform: translateX(42px);
+	-ms-transform: translateX(42px);
+	transform: translateX(42px);
+	border-left: 3px solid var(--bg-color-primary);
+	z-index: 1;
+}
+
+.theme-size-small .switch-input:checked + .switch-slider:before {
+	-webkit-transform: translateX(38px);
+	-ms-transform: translateX(38px);
+	transform: translateX(38px);
+}
+
+.theme-size-large .switch-input:checked + .switch-slider:before {
+	-webkit-transform: translateX(50px);
+	-ms-transform: translateX(50px);
+	transform: translateX(50px);
+}
+
+.switch-container {
+	display: flex;
+}

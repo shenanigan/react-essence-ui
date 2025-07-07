@@ -1,8 +1,4 @@
-.container {
-	display: flex;
-}
-
-.picker-container {
+.list-picker-container {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
@@ -14,31 +10,30 @@
 	width: 100%;
 }
 
-.list-item {
-	font-size: var(--h3-font-size);
-	color: var(--primary-color);
+.list-picker-item {
+	color: var(--color-primary);
 	cursor: pointer;
 }
 
 @media (max-width: 768px) {
-	.picker-container {
+	.list-picker-container {
 		align-items: flex-start;
 		justify-content: flex-start;
 	}
 }
-.input-container {
+.list-picker-input-container {
 	position: relative;
 	width: 100%;
 }
 
-.chevron-icon {
+.list-picker-chevron-icon {
 	font-size: 12px;
-	color: var(--primary-color);
+	color: var(--color-primary);
 	cursor: pointer;
 	position: absolute;
-	right: 2px;
+	right: calc(var(--gutter-margin-x) / 2);
 	top: 50%;
 	transform: translateY(-50%);
 	padding: calc(var(--gutter-margin-x) / 2);
-	background: var(--primary-bkg-color);
+	background: var(--bg-color-primary);
 }

@@ -99,7 +99,7 @@ export const NavComponents = () => {
 		navigate(path);
 	};
 	return (
-		<div className="flex-start w-[250px] mt-8">
+		<div className="flex-start w-[250px] mt-8 hidden md:block">
 			<ul>
 				<li
 					className={`${styles['keep-together']} ${currentPath === '/getting-started' ? styles['active'] : ''}`}

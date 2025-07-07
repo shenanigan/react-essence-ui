@@ -18,7 +18,7 @@ function NotificationTile({ className, badge, title, iconUrl, ...props }: Notifi
 					<div {...props} className={cn(styles['tile'], styles['smallest'], className)}>
 						<img src={iconUrl} alt={title} className={styles['icon']} />
 						<div className={styles['badge-container']}>
-							<div className={styles['badge']}>{badge}</div>
+							<div className={cn(styles['badge'], 'h5')}>{badge}</div>
 						</div>
 					</div>
 				);
@@ -30,8 +30,8 @@ function NotificationTile({ className, badge, title, iconUrl, ...props }: Notifi
 							<img src={iconUrl} alt={title} className={styles['icon']} />
 						</div>
 						<div className={styles['info-container']}>
-							<div className={styles['title']}>{title}</div>
-							<div className={styles['badge']}>{badge}</div>
+							<div className={cn(styles['title'], 'h5')}>{title}</div>
+							<div className={cn(styles['badge'], 'h5')}>{badge}</div>
 						</div>
 					</div>
 				);

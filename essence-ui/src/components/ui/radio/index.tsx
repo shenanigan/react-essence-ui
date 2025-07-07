@@ -1,5 +1,4 @@
 import { createContext, useContext, useState, type ReactNode } from 'react';
-import styles from './radio.module.css';
 import { cn } from '@essence-ui/lib/utils';
 import Clickable from '@essence-ui/components/core/clickable';
 
@@ -18,18 +17,18 @@ function Radio({ value, ...props }: RadioProps) {
 
 	return (
 		<Clickable {...props} onEnterOrSpaceKeyDown={handleChange} onClick={handleChange}>
-			<div className={cn(styles['radio-container'])}>
+			<div className={cn('radio-container')}>
 				<input
 					tabIndex={-1}
 					type="radio"
 					name={name}
 					value={value}
-					className={styles['radio-input']}
+					className={cn('radio-input')}
 					checked={isChecked}
 					onChange={() => setSelected(value)}
 				/>
-				<div className={cn(styles['radio-mark'])}></div>
-				{props.text && <div className={cn(styles['text'])}>{props.text}</div>}
+				<div className={cn('radio-mark')}></div>
+				{props.text && <div className={'h6'}>{props.text}</div>}
 			</div>
 		</Clickable>
 	);
@@ -54,7 +53,7 @@ const RadioGroup = ({ name, defaultValue, children, ...props }: RadioGroupProps)
 
 	return (
 		<RadioGroupContext.Provider value={{ name, selected, setSelected }}>
-			<div role="radiogroup" {...props}>
+			<div role="radiogroup" {...props} className={cn('radio-group', props.className)}>
 				{children}
 			</div>
 		</RadioGroupContext.Provider>

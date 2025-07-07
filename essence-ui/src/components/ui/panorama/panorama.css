@@ -12,14 +12,14 @@
 	display: none; /* Safari and Chrome */
 }
 
-.title {
+.panorama-title {
 	margin-left: var(--gutter-margin-x);
-	font-size: var(--h1-font-size);
 	text-transform: lowercase;
 	white-space: nowrap;
+	font-size: calc(var(--h1-font-size) * 0.8);
 }
 
-.container {
+.panorama-component-container {
 	display: flex;
 	height: calc(100% - var(--panorama-title-height));
 	overflow-x: scroll;
@@ -27,35 +27,32 @@
 	overflow-y: auto;
 }
 
-.dots-container {
+.panorama-dots-container {
 	display: flex;
-	gap: 10px;
+	gap: calc(var(--gutter-margin-x) / 2);
 	width: 100%;
 	justify-content: center;
 	position: absolute;
 	bottom: 0px;
-	padding: 12px 0px;
+	padding: calc(var(--gutter-margin-y) / 2) 0px;
 	background-color: rgba(var(--hex-bkg-color), 0.5);
 }
 
-.dots {
+.panorama-dots {
 	cursor: pointer;
-	height: 10px;
-	width: 10px;
-	border-radius: 5px;
+	height: calc(var(--loader-dot-size) * 1.5);
+	width: calc(var(--loader-dot-size) * 1.5);
+	border-radius: calc(var(--loader-dot-size) * 1.5);
 	background-color: rgba(var(--hex-primary-color), 0.8);
 	opacity: 0.5;
 }
 
-.dots.active {
+.panorama-dots.active {
 	opacity: 1;
 }
 
 @media (max-width: 568px) {
-	.title {
-		/* -webkit-transform: translateZ(-2px) scale(3);
-		transform: translateZ(-2px) scale(3); */
-		margin-left: 16px;
+	.panorama-title {
 		min-width: 450px;
 	}
 }

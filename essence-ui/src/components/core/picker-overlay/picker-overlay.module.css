@@ -1,11 +1,11 @@
 .picker-overlay {
 	position: fixed;
-	right: 0;
-	bottom: 0;
+	top: 0;
+	left: 0;
 	height: 100vh;
 	width: 100vw;
-	background: var(--primary-bkg-color);
-	color: var(--primary-color);
+	background: var(--bg-color-primary);
+	color: var(--color-primary);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -13,7 +13,7 @@
 }
 
 .action-bar {
-	color: var(--primary-bkg-color);
+	color: var(--bg-color-primary);
 	padding: calc(var(--gutter-margin-y) / 2) var(--gutter-margin-x);
 	display: flex;
 	justify-content: center;

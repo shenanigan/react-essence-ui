@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import styles from './list-picker.module.css';
 import { PickerOverlay } from '@essence-ui/components/core/picker-overlay/picker-overlay';
 import { Input } from '@essence-ui/components/ui/input';
 import { cn } from '@essence-ui/lib/utils';
@@ -56,8 +55,8 @@ function ListPicker({ options, onOptionSelected, className, ...props }: ListPick
 	};
 
 	return (
-		<div className={cn(styles.container, className)}>
-			<div className={styles['input-container']}>
+		<div className={cn(className)}>
+			<div className={cn('list-picker-input-container')}>
 				<Input
 					{...props}
 					style={{ width: '100%', cursor: props.disabled ? 'not-allowed' : 'pointer' }}
@@ -68,7 +67,7 @@ function ListPicker({ options, onOptionSelected, className, ...props }: ListPick
 				/>
 				{!props.disabled && (
 					<FontAwesomeIcon
-						className={styles['chevron-icon']}
+						className={cn('list-picker-chevron-icon')}
 						icon={faChevronDown}
 						onClick={openPickerViaChevron}
 					/>
@@ -76,7 +75,7 @@ function ListPicker({ options, onOptionSelected, className, ...props }: ListPick
 			</div>
 			{!hidePicker && (
 				<PickerOverlay onAccept={onAccept} onReject={reject} showAcceptButton={false}>
-					<div className={styles['picker-container']}>
+					<div className={cn('list-picker-container')}>
 						{options.map(option => (
 							<Clickable
 								style={{
@@ -89,7 +88,9 @@ function ListPicker({ options, onOptionSelected, className, ...props }: ListPick
 									setHidePicker(true);
 									window.history.back();
 								}}>
-								{option.displayRow || <div className={styles['list-item']}>{option.title}</div>}
+								{option.displayRow || (
+									<div className={cn('list-picker-item', 'h3')}>{option.title}</div>
+								)}
 							</Clickable>
 						))}
 					</div>

@@ -8,21 +8,21 @@
 	justify-content: flex-end;
 	display: flex;
 	flex-direction: column;
-	padding: 15px;
-	border: 1px solid grey;
+	padding: var(--gutter-margin-y) var(--gutter-margin-x);
+	border: 1px solid rgba(var(--hex-secondary-bkg-color), 0.7);
 	opacity: 0.5;
 }
 
 .active {
-	background: var(--theme-color);
+	background: var(--color-theme);
 	opacity: 1 !important;
-	border: 1px solid var(--theme-color);
+	border: 1px solid var(--color-theme);
 }
 
 .scrolling {
 	background: transparent;
 	opacity: 0.5;
-	border: 1px solid grey;
+	border: 1px solid rgba(var(--hex-secondary-bkg-color), 0.7);
 }
 
 .hovering {
@@ -30,41 +30,35 @@
 }
 
 .picker-option-title {
-	font-size: 58px;
-	font-weight: bold;
-	color: gray;
+	color: rgba(var(--hex-secondary-bkg-color), 0.7);
+	font-weight: 700;
 }
 
 .active .picker-option-title {
-	color: var(--primary-bkg-color);
+	color: var(--bg-color-primary);
 }
 
 .active.scrolling .picker-option-title {
-	color: gray;
+	color: rgba(var(--hex-secondary-bkg-color), 0.7);
 }
 
 .picker-option-sub-title {
-	font-size: 16px;
-	font-weight: normal;
-	color: gray;
+	color: rgba(var(--hex-secondary-bkg-color), 0.7);
+	font-weight: 700;
 }
 
 .active .picker-option-sub-title {
-	color: var(--primary-bkg-color);
+	color: var(--bg-color-primary);
 }
 
 @media (max-width: 568px) {
 	.picker-option {
-		padding: 8px;
+		padding: calc(var(--gutter-margin-y) / 2) calc(var(--gutter-margin-x) / 2);
 	}
-
 	.picker-option-title {
-		font-size: 24px;
-		font-weight: bold;
+		font-size: calc(var(--h5-font-size));
 	}
-
 	.picker-option-sub-title {
-		font-size: 12px;
-		font-weight: normal;
+		font-size: calc(var(--body-2-font-size));
 	}
 }

@@ -19,5 +19,11 @@
 }
 
 .header-border-bottom {
-	border-bottom: 2px solid var(--theme-color);
+	border-bottom: 2px solid var(--color-theme);
+}
+
+@media (max-width: 768px) {
+	.header-container {
+		display: none;
+	}
 }

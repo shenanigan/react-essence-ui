@@ -12,13 +12,13 @@ export const RangePage = () => {
 	const disabledRangeCode = `<Range disabled />`;
 	const customRangeCode = `<Range className={styles['custom-range-theme']} />`;
 	const customStyle = `.custom-range-theme {
-    --theme-color: green;
+    --color-theme: green;
 }`;
 	return (
 		<div className="docs-markdown">
 			<div className="text-3xl font-bold">Demo</div>
 
-			<Range className="w-1/2" />
+			<Range className="w-1/2 mt-3" />
 
 			<div className="text-2xl font-bold mt-8">Import the component</div>
 			<CodeBlock

@@ -10,7 +10,7 @@ export const PivotPage = () => {
 	const disabledDatePickerCode = `<DatePicker date={new Date()} onAccept={date => console.log(date)} disabled />`;
 	const customDatePickerCode = `<DatePicker date={new Date()} onAccept={date => console.log(date)} className={styles['custom-date-picker-theme']} />`;
 	const customStyle = `.custom-date-picker-theme {
-    --theme-color: green;
+    --color-theme: green;
 }`;
 	const pivotItems = [
 		{
@@ -52,7 +52,7 @@ export const PivotPage = () => {
 	return (
 		<div className="docs-markdown">
 			<div className="text-3xl font-bold">Demo</div>
-			<div style={{ width: '25vw', height: '70vh', border: '1px solid var(--theme-color)' }} className="mt-8">
+			<div style={{ width: '25vw', height: '70vh', border: '1px solid var(--color-theme)' }} className="mt-8">
 				<Pivot title={'pivot title'} pivotItems={pivotItems} className="pivot" />
 			</div>
 

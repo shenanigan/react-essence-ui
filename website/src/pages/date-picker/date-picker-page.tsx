@@ -11,13 +11,13 @@ export const DatePickerPage = () => {
 	const disabledDatePickerCode = `<DatePicker date={new Date()} onAccept={date => console.log(date)} disabled />`;
 	const customDatePickerCode = `<DatePicker date={new Date()} onAccept={date => console.log(date)} className={styles['custom-date-picker-theme']} />`;
 	const customStyle = `.custom-date-picker-theme {
-    --theme-color: green;
+    --color-theme: green;
 }`;
 	return (
 		<div className="docs-markdown">
 			<div className="text-3xl font-bold">Demo</div>
 
-			<DatePicker date={new Date()} onAccept={() => {}} />
+			<DatePicker date={new Date()} onAccept={() => {}} className="mt-3" />
 
 			<div className="text-2xl font-bold mt-8">Import the component</div>
 			<CodeBlock

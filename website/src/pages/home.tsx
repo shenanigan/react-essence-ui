@@ -11,10 +11,10 @@ function Home() {
 		}
 	}, [navigate]);
 	return (
-		<div style={{ background: 'var(--primary-bkg-color)', color: 'var(--primary-color)', minHeight: '100vh' }}>
+		<div style={{ background: 'var(--bg-color-primary)', color: 'var(--color-primary)', minHeight: '100vh' }}>
 			<Header />
 			<div className="flex gap-5 mb-5">
-				<div className="d-none d-lg-block">
+				<div className="hidden md:block">
 					<NavComponents />
 				</div>
 

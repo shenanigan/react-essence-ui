@@ -11,7 +11,7 @@
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
-	color: var(--primary-color);
+	color: var(--color-primary);
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -34,8 +34,8 @@
 .checkmark {
 	height: 24px;
 	width: 24px;
-	background-color: var(--primary-bkg-color);
-	border: 2px solid var(--primary-color);
+	background-color: var(--bg-color-primary);
+	border: 2px solid var(--color-primary);
 	flex-shrink: 0;
 }
 
@@ -44,14 +44,6 @@
 	margin-top: 9px;
 }
 
-.content {
-	word-break: break-word;
-	white-space: normal;
-	overflow-wrap: break-word;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-}
 :global(.theme-size-small) .checkmark {
 	height: 20px;
 	width: 20px;
@@ -65,7 +57,7 @@
 /* When the checkbox is checked, add a blue background */
 
 .checkbox input:checked ~ .checkmark {
-	background-color: var(--primary-bkg-color);
+	background-color: var(--bg-color-primary);
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -86,7 +78,7 @@
 	margin-left: 3px;
 	width: 14px;
 	height: 14px;
-	background-color: var(--theme-color);
+	background-color: var(--color-theme);
 }
 
 /* Style the checkmark/indicator */
@@ -112,19 +104,4 @@
 .checkbox-disabled {
 	opacity: 0.5;
 	cursor: not-allowed;
-}
-
-.action-icon {
-	padding: var(--gutter-margin-y) var(--gutter-margin-x);
-	cursor: pointer;
-}
-
-@media (max-width: 568px) {
-	.content {
-		flex-grow: 1;
-	}
-}
-
-.text {
-	font-size: var(--h4-font-size);
 }

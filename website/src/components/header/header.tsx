@@ -22,7 +22,7 @@ export function Header() {
 	const setColor = (color?: string) => {
 		if (color) {
 			setCurrentColor(color);
-			document.body.style.setProperty('--theme-color', `#${color}`);
+			document.body.style.setProperty('--color-theme', `#${color}`);
 		}
 	};
 
@@ -39,7 +39,7 @@ export function Header() {
 	};
 	return (
 		<div
-			className={`flex items-center justify-between p-5 d-none d-lg-flex m-0 mb-lg-3 ${styles['header-border-bottom']}`}>
+			className={` items-center justify-between p-5 hidden md:flex m-0 mb-lg-3 ${styles['header-border-bottom']}`}>
 			<div className="text-3xl">
 				<strong>ESSENCE UI</strong>
 			</div>

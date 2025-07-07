@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import styles from './time-picker.module.css';
 import { PickerList } from '@essence-ui/components/core/picker-list/picker-list';
 import { PickerOverlay } from '@essence-ui/components/core/picker-overlay/picker-overlay';
 import type { IPickerOption } from '@essence-ui/components/core/model/i-picker-option';
@@ -12,10 +11,6 @@ interface TimePickerProps extends React.ComponentProps<typeof Input> {
 	onAccept?(date: Date): void;
 }
 
-interface TimePickerOption extends IPickerOption {
-	value: number;
-}
-
 function TimePicker({ date, onClose, onAccept, className, ...props }: TimePickerProps) {
 	const [currentDate, setCurrentDate] = useState<Date>(
 		date instanceof Date ? date : date ? new Date(date) : new Date(),
@@ -23,13 +18,13 @@ function TimePicker({ date, onClose, onAccept, className, ...props }: TimePicker
 
 	const [hidePicker, setHidePicker] = useState<boolean>(true);
 
-	const [meridiemOption, setMeridiemOption] = useState<TimePickerOption>({ index: 0, title: 'AM', value: 0 });
-	const [hourOption, setHourOption] = useState<TimePickerOption>({ index: 0, title: '12', value: 0 });
-	const [minuteOption, setMinuteOption] = useState<TimePickerOption>({ index: 0, title: '00', value: 0 });
+	const [meridiemOption, setMeridiemOption] = useState<IPickerOption>({ index: 0, title: 'AM', value: 0 });
+	const [hourOption, setHourOption] = useState<IPickerOption>({ index: 0, title: '12', value: 0 });
+	const [minuteOption, setMinuteOption] = useState<IPickerOption>({ index: 0, title: '00', value: 0 });
 
-	const [meridiem, setMeridiem] = useState<TimePickerOption[]>([]);
-	const [hours, setHours] = useState<TimePickerOption[]>([]);
-	const [minutes, setMinutes] = useState<TimePickerOption[]>([]);
+	const [meridiem, setMeridiem] = useState<IPickerOption[]>([]);
+	const [hours, setHours] = useState<IPickerOption[]>([]);
+	const [minutes, setMinutes] = useState<IPickerOption[]>([]);
 
 	useEffect(() => {
 		const hours = [];
@@ -77,16 +72,16 @@ function TimePicker({ date, onClose, onAccept, className, ...props }: TimePicker
 			if (hourOption.value === 12) {
 				date.setHours(0);
 			} else {
-				date.setHours(hourOption.value);
+				date.setHours(Number(hourOption.value));
 			}
 		} else {
 			if (hourOption.value === 12) {
 				date.setHours(12);
 			} else {
-				date.setHours(hourOption.value + 12);
+				date.setHours(Number(hourOption.value) + 12);
 			}
 		}
-		date.setMinutes(minuteOption.value);
+		date.setMinutes(Number(minuteOption.value));
 		setCurrentDate(date);
 		if (onAccept) {
 			onAccept(date);
@@ -105,20 +100,20 @@ function TimePicker({ date, onClose, onAccept, className, ...props }: TimePicker
 		setHidePicker(false);
 	};
 
-	const onMeridiemChange = ($event: TimePickerOption) => {
+	const onMeridiemChange = ($event: IPickerOption) => {
 		setMeridiemOption($event);
 	};
 
-	const onHoursChange = ($event: TimePickerOption) => {
+	const onHoursChange = ($event: IPickerOption) => {
 		setHourOption($event);
 	};
 
-	const onMinutesChange = ($event: TimePickerOption) => {
+	const onMinutesChange = ($event: IPickerOption) => {
 		setMinuteOption($event);
 	};
 
 	return (
-		<div className={cn(styles.container, className)}>
+		<div className={cn(className)}>
 			<Input
 				onFocus={openDatePicker}
 				value={currentDate.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true })}
@@ -128,28 +123,21 @@ function TimePicker({ date, onClose, onAccept, className, ...props }: TimePicker
 			/>
 			{!hidePicker && (
 				<PickerOverlay onAccept={accept} onReject={reject}>
-					<div className={styles['picker-container']}>
-						<PickerList
-							id="date-picker-days-id"
-							value={hourOption}
-							onChange={onHoursChange}
-							options={hours}
-						/>
+					<PickerList id="date-picker-days-id" value={hourOption} onChange={onHoursChange} options={hours} />
 
-						<PickerList
-							id="date-picker-months-id"
-							value={minuteOption}
-							onChange={onMinutesChange}
-							options={minutes}
-						/>
+					<PickerList
+						id="date-picker-months-id"
+						value={minuteOption}
+						onChange={onMinutesChange}
+						options={minutes}
+					/>
 
-						<PickerList
-							id="date-picker-years-id"
-							value={meridiemOption}
-							onChange={onMeridiemChange}
-							options={meridiem}
-						/>
-					</div>
+					<PickerList
+						id="date-picker-years-id"
+						value={meridiemOption}
+						onChange={onMeridiemChange}
+						options={meridiem}
+					/>
 				</PickerOverlay>
 			)}
 		</div>

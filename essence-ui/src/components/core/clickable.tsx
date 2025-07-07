@@ -33,6 +33,11 @@ function Clickable({
 			}, 1000),
 		);
 	};
+	const handleTouchStart = (event: React.TouchEvent<HTMLElement>) => {
+		if (props?.disabled) return;
+		transformScale(event.currentTarget, 0.98);
+	};
+
 	const handleMouseDown = (event: React.MouseEvent<HTMLElement>) => {
 		if (props?.disabled) return;
 		event.preventDefault();
@@ -43,6 +48,12 @@ function Clickable({
 			}, 700),
 		);
 		transformScale(event.currentTarget, 0.98);
+	};
+
+	const handleTouchEnd = (event: React.TouchEvent<HTMLElement>) => {
+		if (props?.disabled) return;
+		transformScale(event.currentTarget, 1);
+		transformRotation(event.currentTarget as HTMLElement, 0, 0);
 	};
 
 	const handleMouseUp = (event: React.MouseEvent<HTMLElement>) => {
@@ -127,6 +138,14 @@ function Clickable({
 		}
 	};
 
+	const handleContextMenu = (event: React.MouseEvent<HTMLElement>) => {
+		setIsLongPressed(true);
+		if (onLongPress) {
+			event.preventDefault();
+			onLongPress();
+		}
+	};
+
 	if (React.isValidElement(props.children)) {
 		return (
 			<button
@@ -142,12 +161,18 @@ function Clickable({
 						onMouseDown?: (e: React.MouseEvent<HTMLElement>) => void;
 						onMouseLeave?: (e: React.MouseEvent<HTMLElement>) => void;
 						onMouseMove?: (e: React.MouseEvent<HTMLElement>) => void;
+						onTouchStart?: (e: React.TouchEvent<HTMLElement>) => void;
+						onTouchEnd?: (e: React.TouchEvent<HTMLElement>) => void;
+						onContextMenu?: (e: React.MouseEvent<HTMLElement>) => void;
 					}>,
 					{
 						onMouseUp: handleMouseUp,
 						onMouseDown: handleMouseDown,
 						onMouseLeave: handleMouseLeave,
 						onMouseMove: handleMouseMove,
+						onTouchStart: handleTouchStart,
+						onTouchEnd: handleTouchEnd,
+						onContextMenu: handleContextMenu,
 					},
 				)}
 			</button>

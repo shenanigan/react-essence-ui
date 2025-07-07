@@ -8,11 +8,11 @@ li {
 }
 
 li.active {
-	color: var(--theme-color);
+	color: var(--color-theme);
 }
 
 li.disabled {
-	color: var(--primary-color);
+	color: var(--color-primary);
 	opacity: 0.5;
 	cursor: not-allowed;
 }

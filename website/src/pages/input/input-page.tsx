@@ -8,7 +8,7 @@ export const InputPage = () => {
 	const customInputCode = `<Input placeholder="sample placeholder" className={styles['custom-input-theme']} />`;
 	const disabledInputCode = `<Input placeholder="sample placeholder" disabled />`;
 	const customStyle = `.custom-input-theme {
-    --theme-color: green;
+    --color-theme: green;
 }`;
 
 	return (

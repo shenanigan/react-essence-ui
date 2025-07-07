@@ -48,6 +48,7 @@ function Grid({
 				measureTileRef.current.style.position = 'relative';
 				const width = measureTileRef.current.getBoundingClientRect().width;
 				setTileHeight(width);
+				measureTileRef.current.style.position = 'absolute';
 			}
 		};
 
@@ -161,7 +162,7 @@ function Grid({
 					});
 				}
 				grid.props.children.push(
-					<VariantProvider>
+					<VariantProvider key={tile.key}>
 						<GridTile
 							{...tile}
 							key={tile.key}
@@ -190,7 +191,7 @@ function Grid({
 					},
 				});
 				return (
-					<VariantProvider>
+					<VariantProvider key={tile.key}>
 						<GridTile
 							{...tile}
 							key={tile.key}

@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Page from '../page';
-import styles from './panorama.module.css';
 import { cn } from '@essence-ui/lib/utils';
 
 interface PanoramaItem {
@@ -69,12 +68,12 @@ export default function Panorama({ title, panoramaItems, index, titleParallax = 
 	};
 
 	return (
-		<div ref={panoramaContainerRef} className={cn(styles['panorama-container'], props.className)}>
-			<div ref={panoramaTitleRef} className={styles.title}>
+		<div ref={panoramaContainerRef} className={cn('panorama-container', props.className)}>
+			<div ref={panoramaTitleRef} className={cn('panorama-title', 'h1')}>
 				{title}
 			</div>
 
-			<div ref={componentContainer} className={styles.container} onScroll={onScroll}>
+			<div ref={componentContainer} className={'panorama-component-container'} onScroll={onScroll}>
 				{panoramaItems.map((panoramaItem, i) => {
 					return (
 						<Page
@@ -88,7 +87,7 @@ export default function Panorama({ title, panoramaItems, index, titleParallax = 
 					);
 				})}
 			</div>
-			<div className={styles['dots-container']}>
+			<div className={'panorama-dots-container'}>
 				{panoramaItems.map((_, i) => {
 					return (
 						<div
@@ -96,7 +95,7 @@ export default function Panorama({ title, panoramaItems, index, titleParallax = 
 							onClick={() => {
 								onTitleClick(i);
 							}}>
-							<div className={`${styles.dots} ${i === currentIndex ? styles.active : ''}`}></div>
+							<div className={cn('panorama-dots', i === currentIndex ? 'active' : '')}></div>
 						</div>
 					);
 				})}

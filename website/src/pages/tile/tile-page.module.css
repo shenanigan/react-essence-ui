@@ -6,9 +6,9 @@
 }
 
 .custom-tile-theme {
-	--theme-color: green;
+	--color-theme: green;
 }
 
 .custom-tile-theme-flipped {
-	--theme-color: red;
+	--color-theme: red;
 }

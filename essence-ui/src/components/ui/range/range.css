@@ -2,13 +2,12 @@
 	-webkit-appearance: none;
 	appearance: none;
 	height: var(--bar-height);
-	background: #888;
+	background: rgba(var(--hex-secondary-bkg-color), 0.3);
 	outline: none;
 	opacity: 1;
 	-webkit-transition: 0.2s;
 	transition: opacity 0.2s;
 	overflow: hidden;
-	margin: var(--gutter-margin-y) var(--gutter-margin-x);
 }
 
 .range-input::-webkit-slider-thumb {
@@ -16,19 +15,19 @@
 	appearance: none;
 	width: 12px;
 	height: var(--bar-height);
-	background: var(--primary-color);
+	background: var(--color-primary);
 	transition: var(--transition-duration);
 	cursor: pointer;
-	box-shadow: -407px 0 0 400px var(--theme-color);
+	box-shadow: -407px 0 0 400px var(--color-theme);
 }
 
 .range-input::-moz-range-thumb {
 	width: 12px;
 	height: var(--bar-height);
-	background: var(--primary-color);
+	background: var(--color-primary);
 	cursor: pointer;
 	transition: var(--transition-duration);
-	box-shadow: -407px 0 0 400px var(--theme-color);
+	box-shadow: -407px 0 0 400px var(--color-theme);
 }
 
 .range-input[disabled='']::-moz-range-thumb,

@@ -10,13 +10,13 @@ export const RadioPage = () => {
 	const disabledRadioCode = `<Radio disabled text="Hello World" />`;
 	const customRadioCode = `<Radio className={styles['custom-radio-theme']} text="Hello World" />`;
 	const customStyle = `.custom-radio-theme {
-    --theme-color: green;
+    --color-theme: green;
 }`;
 	return (
 		<div className="docs-markdown">
 			<div className="text-3xl font-bold">Demo</div>
 
-			<RadioGroup name="radio-group-1	" defaultValue="hello" className="mt-3 flex flex-col gap-2">
+			<RadioGroup name="radio-group-1	" defaultValue="hello" className="mt-3">
 				<Radio text="Hello" value="hello" />
 				<Radio text="World" value="world" />
 				<Radio text="Hello World" value="hello-world" />
