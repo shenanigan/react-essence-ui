@@ -10,6 +10,7 @@
 @import '../components/ui/alert/alert.css';
 @import '../components/ui/time-picker/time-picker.css';
 @import '../components/ui/date-picker/date-picker.css';
+@import '../components/ui/page/page.css';
 @import '../components/ui/panorama/panorama.css';
 @import '../components/ui/pivot/pivot.css';
 @import '../components/ui/list-picker/list-picker.css';

@@ -1,0 +1,16 @@
+.props-table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.props-table th {
+	background-color: rgba(var(--hex-primary-color), 0.2);
+	text-align: center;
+}
+
+.props-table td {
+	padding: 10px;
+	color: var(--color-primary);
+	text-align: center;
+	background-color: rgba(var(--hex-primary-color), 0.1);
+}

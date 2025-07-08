@@ -2,40 +2,40 @@
 	display: none; /* Safari and Chrome */
 }
 
-.title {
-	margin-bottom: var(--gutter-margin-y);
-	text-transform: lowercase;
-	margin-left: var(--gutter-margin-x);
-	cursor: pointer;
-}
-
-.template {
-	margin-left: var(--gutter-margin-x);
-	margin-top: calc(var(--gutter-margin-y) / 2);
-	padding-bottom: var(--gutter-margin-y);
-}
-
-.component {
+.page-component {
 	width: 92%;
 	flex: none;
 	padding-bottom: var(--bottom-navigation-bar-height);
 	scroll-snap-align: start;
 	overflow-y: scroll;
+	height: 100%;
 }
-.component:last-child {
+.page-component:last-child {
 	width: 100%;
+}
+.page-title {
+	margin-bottom: var(--gutter-margin-y);
+	text-transform: lowercase;
+	margin-left: calc(var(--gutter-margin-x) - 2px);
+	cursor: pointer;
+}
+
+.page-template {
+	margin-left: var(--gutter-margin-x);
+	margin-top: calc(var(--gutter-margin-y) / 2);
+	padding-bottom: var(--gutter-margin-y);
 }
 
 @media only screen and (max-width: 568px) {
-	.title {
+	.page-title {
 		margin-left: 16px;
 	}
 
-	.template {
+	.page-template {
 		margin: 0 16px;
 	}
 
-	.component {
+	.page-component {
 		width: 100vw;
 	}
 }

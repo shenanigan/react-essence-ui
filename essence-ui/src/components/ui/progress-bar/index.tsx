@@ -1,13 +1,13 @@
 import { cn } from '@essence-ui/lib/utils';
 
-interface ProgressBarProps extends React.HTMLAttributes<HTMLDivElement> {
+interface ProgressBarProps extends React.ComponentProps<'div'> {
 	value: number;
 }
 
-function ProgressBar({ value, className, ...props }: ProgressBarProps) {
+function ProgressBar(props: ProgressBarProps) {
 	return (
-		<div className={cn('bg-bar', className)} {...props}>
-			<div className={'value-bar'} style={{ width: `${value}%` }}></div>
+		<div {...props} className={cn('bg-bar', props.className)}>
+			<div className={'value-bar'} style={{ width: `${props.value}%` }}></div>
 		</div>
 	);
 }

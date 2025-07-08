@@ -5,6 +5,7 @@ export const NavComponents = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
 	const currentPath = location.pathname;
+
 	const components = [
 		{
 			path: '/components/button',
@@ -55,6 +56,10 @@ export const NavComponents = () => {
 			name: 'Date Picker',
 		},
 		{
+			path: '/components/page',
+			name: 'Page',
+		},
+		{
 			path: '/components/panorama',
 			name: 'Panorama',
 		},
@@ -89,10 +94,6 @@ export const NavComponents = () => {
 			path: '/components/contacts-picker',
 			name: 'Contacts Picker',
 		},
-		{
-			path: '/components/calendar',
-			name: 'Calendar',
-		},
 	];
 
 	const handleClick = (path: string) => {
@@ -106,6 +107,7 @@ export const NavComponents = () => {
 					onClick={() => handleClick('/getting-started')}>
 					Getting Started
 				</li>
+				<li className={styles['disabled']}>Theming (Soon...)</li>
 				<li>Components</li>
 				<ul>
 					{components.map(component => (

@@ -13,7 +13,7 @@
 }
 
 .panorama-title {
-	margin-left: var(--gutter-margin-x);
+	margin-left: calc(var(--gutter-margin-x) - 4px);
 	text-transform: lowercase;
 	white-space: nowrap;
 	font-size: calc(var(--h1-font-size) * 0.8);
@@ -25,6 +25,10 @@
 	overflow-x: scroll;
 	scroll-snap-type: x mandatory;
 	overflow-y: auto;
+}
+
+.panorama-page-title {
+	margin-left: var(--gutter-margin-x);
 }
 
 .panorama-dots-container {

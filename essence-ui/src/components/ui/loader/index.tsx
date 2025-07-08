@@ -1,8 +1,8 @@
 import { cn } from '@essence-ui/lib/utils';
 
-function Loader({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
+function Loader(props: React.ComponentProps<'div'>) {
 	return (
-		<div className={cn('loader-bar', className)} {...props}>
+		<div {...props} className={cn('loader-bar', props.className)}>
 			<span className={'loader-dot'}></span>
 			<span className={'loader-dot'}></span>
 			<span className={'loader-dot'}></span>

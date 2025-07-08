@@ -14,7 +14,7 @@ export const ButtonPage = () => {
 	const iconButtonCode = `<Button><FontAwesomeIcon icon={faCoffee} className="me-2" />Hello World</Button>`;
 	const customButtonCode = `<Button className={styles['custom-button-theme']}>Hello World</Button>`;
 	const customStyle = `.custom-button-theme {
-    --color-theme: skyblue;
+    --color-theme: green;
 }`;
 	return (
 		<div className="docs-markdown">
@@ -29,6 +29,11 @@ export const ButtonPage = () => {
 			<div className="text-2xl font-bold mt-8">Text Button</div>
 			<CodeBlock fileName="sample.tsx" code={textButtonCode} language="html"></CodeBlock>
 			<Button>Hello World</Button>
+
+			<div className="text-3xl font-bold mt-8">Props</div>
+			<p className="mt-3">
+				Button component accepts all the props of <code>React.ComponentProps&lt;'button'&gt;</code>.
+			</p>
 
 			<div className="text-2xl font-bold mt-8">Disabled Button</div>
 			<CodeBlock fileName="sample.tsx" code={disabledButtonCode} language="html"></CodeBlock>
@@ -64,8 +69,8 @@ export const ButtonPage = () => {
 
 			<CodeBlock fileName="sample.tsx" code={customButtonCode} language="tsx"></CodeBlock>
 
-			<p>In your css file</p>
-			<CodeBlock fileName="sample.css" code={customStyle} language="css"></CodeBlock>
+			<p>In your module css file</p>
+			<CodeBlock fileName="sample.module.css" code={customStyle} language="css"></CodeBlock>
 			<Button className={styles['custom-button-theme']}>Hello World</Button>
 			<p className="mt-3">
 				For changing the overall theme for all elements, check the <Link to="/theme">Theme</Link> section.
@@ -74,9 +79,7 @@ export const ButtonPage = () => {
 			<div className="text-3xl font-bold mt-8">Accessiblity</div>
 			<p className="mt-3">
 				{product.name} uses native <code>&lt;button&gt;</code> elements to ensure an accessible experience by
-				default. A <code>&lt;Button&gt;</code> component should be used for any interaction that performs an
-				action on the current page. All standard accessibility best practices for buttons apply to{' '}
-				<code>Button</code>.
+				default. All standard accessibility best practices for buttons apply to <code>Button</code>.
 			</p>
 		</div>
 	);

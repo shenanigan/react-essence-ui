@@ -3,6 +3,7 @@ import { ProgressBar } from '@essence-ui/components/ui/progress-bar';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './progress-bar-page.module.css';
+import { PropsTable } from '../../components/props-table/props-table';
 
 export const ProgressBarPage = () => {
 	const progressBarCode = `<ProgressBar value={value} />`;
@@ -48,6 +49,18 @@ export const ProgressBarPage = () => {
 			<p>In your css file</p>
 			<CodeBlock fileName="sample.css" code={customStyle} language="css"></CodeBlock>
 			<ProgressBar value={value} className={styles['custom-progress-bar-theme']} />
+
+			<div className="text-3xl font-bold mt-8">Props</div>
+			<p className="mt-3">
+				ProgressBar component accepts all the props of <code>React.ComponentProps&lt;'div'&gt;</code>. In
+				addition to that, it accepts the following props.
+			</p>
+			<PropsTable
+				className="mt-8"
+				items={[
+					{ name: 'value', type: 'number', description: 'The value of the progress bar', required: true },
+				]}
+			/>
 			<p className="mt-10">
 				For changing the overall theme for all elements, check the <Link to="/theme">Theme</Link> section.
 			</p>

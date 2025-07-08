@@ -79,6 +79,7 @@ export default function Panorama({ title, panoramaItems, index, titleParallax = 
 						<Page
 							key={i}
 							title={panoramaItem.title}
+							titleClassName={'panorama-page-title h4'}
 							onTitleClick={() => {
 								onTitleClick(i);
 							}}>

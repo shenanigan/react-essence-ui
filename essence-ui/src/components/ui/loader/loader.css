@@ -1,6 +1,5 @@
 .loader-bar {
 	display: flex;
-	background-color: transparent;
 	height: var(--loader-dot-size);
 	width: calc(100% - 2 * var(--gutter-margin-x));
 	overflow: hidden;

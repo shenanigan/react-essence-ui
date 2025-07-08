@@ -1,0 +1,7 @@
+.custom-date-picker-theme {
+	--color-theme: green;
+}
+
+.page {
+	background-color: var(--color-theme);
+}
