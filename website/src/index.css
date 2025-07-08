@@ -8,6 +8,10 @@
 	font-family: var(--font-family);
 }
 
+a {
+	text-decoration: underline;
+}
+
 ul {
 	display: block;
 	list-style-type: disc;

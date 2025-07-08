@@ -32,7 +32,13 @@ export const ButtonPage = () => {
 
 			<div className="text-3xl font-bold mt-8">Props</div>
 			<p className="mt-3">
-				Button component accepts all the props of <code>React.ComponentProps&lt;'button'&gt;</code>.
+				Button component accepts all the props of{' '}
+				<a
+					target="_blank"
+					rel="noreferrer"
+					href="https://react-typescript-cheatsheet.netlify.app/docs/react-types/componentprops">
+					React.ComponentProps&lt;'button'&gt;
+				</a>
 			</p>
 
 			<div className="text-2xl font-bold mt-8">Disabled Button</div>
