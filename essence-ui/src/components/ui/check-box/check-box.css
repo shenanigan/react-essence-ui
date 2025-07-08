@@ -44,12 +44,12 @@
 	margin-top: 9px;
 }
 
-:global(.theme-size-small) .checkmark {
+.theme-size-small .checkmark {
 	height: 20px;
 	width: 20px;
 }
 
-:global(.theme-size-large) .checkmark {
+.theme-size-large .checkmark {
 	height: 28px;
 	width: 28px;
 }
@@ -87,14 +87,14 @@
 	height: 14px;
 }
 
-:global(.theme-size-small) .checkbox .checkmark:after {
+.theme-size-small .checkbox .checkmark:after {
 	width: 12px;
 	height: 12px;
 	margin-top: 2px;
 	margin-left: 2px;
 }
 
-:global(.theme-size-large) .checkbox .checkmark:after {
+.theme-size-large .checkbox .checkmark:after {
 	width: 18px;
 	height: 18px;
 	margin-top: 3px;

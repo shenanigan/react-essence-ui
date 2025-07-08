@@ -1,9 +1,12 @@
 .code-block {
 	background-color: rgba(155, 155, 155, 0.2);
 	margin: 20px 0px;
+	max-width: 100vw;
 }
 
 .code-block-content {
 	margin: 0 !important;
 	border-radius: 0px !important;
+	max-width: 100vw;
+	text-wrap: auto;
 }

@@ -25,11 +25,11 @@ export const TimePickerPage = () => {
 				code="import { TimePicker } from '@essence-ui/components/ui/time-picker/time-picker';"></CodeBlock>
 
 			<div className="text-2xl font-bold mt-8">Use the component</div>
-			<CodeBlock fileName="sample.tsx" code={timePickerCode} language="html"></CodeBlock>
+			<CodeBlock fileName="sample.tsx" code={timePickerCode} language="tsx"></CodeBlock>
 			<TimePicker date={new Date()} onAccept={() => {}} />
 
 			<div className="text-2xl font-bold mt-8">Disabled TimePicker</div>
-			<CodeBlock fileName="sample.tsx" code={disabledTimePickerCode} language="html"></CodeBlock>
+			<CodeBlock fileName="sample.tsx" code={disabledTimePickerCode} language="tsx"></CodeBlock>
 			<TimePicker date={new Date()} onAccept={() => {}} disabled />
 
 			<div className="text-3xl font-bold mt-8">About</div>

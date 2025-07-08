@@ -25,11 +25,11 @@ export const DatePickerPage = () => {
 				code="import { DatePicker } from '@essence-ui/components/ui/date-picker/date-picker';"></CodeBlock>
 
 			<div className="text-2xl font-bold mt-8">Use the component</div>
-			<CodeBlock fileName="sample.tsx" code={datePickerCode} language="html"></CodeBlock>
+			<CodeBlock fileName="sample.tsx" code={datePickerCode} language="tsx"></CodeBlock>
 			<DatePicker date={new Date()} onAccept={() => {}} />
 
 			<div className="text-2xl font-bold mt-8">Disabled DatePicker</div>
-			<CodeBlock fileName="sample.tsx" code={disabledDatePickerCode} language="html"></CodeBlock>
+			<CodeBlock fileName="sample.tsx" code={disabledDatePickerCode} language="tsx"></CodeBlock>
 			<DatePicker date={new Date()} onAccept={() => {}} />
 
 			<div className="text-3xl font-bold mt-8">About</div>

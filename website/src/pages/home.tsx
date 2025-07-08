@@ -18,7 +18,7 @@ function Home() {
 					<NavComponents />
 				</div>
 
-				<div className="grow p-8">
+				<div className="grow p-4 md:p-8">
 					<Outlet />
 				</div>
 			</div>

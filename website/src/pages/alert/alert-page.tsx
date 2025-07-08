@@ -33,6 +33,7 @@ export const AlertPage = () => {
 			</Button>
 			<div className="text-2xl font-bold mt-8">Import the component</div>
 			<CodeBlock
+				language="tsx"
 				fileName="sample.tsx"
 				code="import { Alert } from '@essence-ui/components/ui/alert';"></CodeBlock>
 			<div className="text-2xl font-bold mt-8">Use the component</div>
