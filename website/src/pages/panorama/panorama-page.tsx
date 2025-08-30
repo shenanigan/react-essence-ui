@@ -1,20 +1,20 @@
 import { CodeBlock } from '../../components/code-block/code-block';
-import Panorama from '@essence-ui/components/ui/panorama';
-import { Link } from 'react-router-dom';
-import styles from './panorama-page.module.css';
-import { Button } from '@essence-ui/components/ui/button';
-import { Switch } from '@essence-ui/components/ui/switch';
+import { Panorama } from '@wp-essence-ui/components';
+// import { Link } from 'react-router-dom';
+// import styles from './panorama-page.module.css';
+// import { Button } from '@essence-ui/components/ui/button';
+// import { Switch } from '@essence-ui/components/ui/switch';
 
 export const PanoramaPage = () => {
-	const product = {
-		name: 'Essence',
-	};
-	const datePickerCode = `<DatePicker date={new Date()} onAccept={date => console.log(date)} />`;
-	const disabledDatePickerCode = `<DatePicker date={new Date()} onAccept={date => console.log(date)} disabled />`;
-	const customDatePickerCode = `<DatePicker date={new Date()} onAccept={date => console.log(date)} className={styles['custom-date-picker-theme']} />`;
-	const customStyle = `.custom-date-picker-theme {
-    --color-theme: green;
-}`;
+	// 	const product = {
+	// 		name: 'Essence',
+	// 	};
+	// 	const datePickerCode = `<DatePicker date={new Date()} onAccept={date => console.log(date)} />`;
+	// 	const disabledDatePickerCode = `<DatePicker date={new Date()} onAccept={date => console.log(date)} disabled />`;
+	// 	const customDatePickerCode = `<DatePicker date={new Date()} onAccept={date => console.log(date)} className={styles['custom-date-picker-theme']} />`;
+	// 	const customStyle = `.custom-date-picker-theme {
+	//     --color-theme: green;
+	// }`;
 	const panoramaItems = [
 		{
 			title: 'Page 1',
@@ -60,9 +60,7 @@ export const PanoramaPage = () => {
 			</div>
 
 			<div className="text-2xl font-bold mt-8">Import the component</div>
-			<CodeBlock
-				fileName="sample.tsx"
-				code="import { Panorama } from '@essence-ui/components/ui/panorama';"></CodeBlock>
+			<CodeBlock fileName="sample.tsx" code="import { Panorama } from '@wp-essence-ui/components';"></CodeBlock>
 		</div>
 	);
 };

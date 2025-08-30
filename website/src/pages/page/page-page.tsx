@@ -1,5 +1,5 @@
 import { CodeBlock } from '../../components/code-block/code-block';
-import Page from '@essence-ui/components/ui/page';
+import { Page } from '@wp-essence-ui/components';
 import styles from './page-page.module.css';
 
 export const PagePage = () => {
@@ -13,7 +13,7 @@ export const PagePage = () => {
 			</div>
 
 			<div className="text-2xl font-bold mt-8">Import the component</div>
-			<CodeBlock fileName="sample.tsx" code="import { Page } from '@essence-ui/components/ui/page';"></CodeBlock>
+			<CodeBlock fileName="sample.tsx" code="import { Page } from '@wp-essence-ui/components';"></CodeBlock>
 		</div>
 	);
 };

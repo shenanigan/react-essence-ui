@@ -1,5 +1,5 @@
 import { CodeBlock } from '../../components/code-block/code-block';
-import { TimePicker } from '@essence-ui/components/ui/time-picker';
+import { TimePicker } from '@wp-essence-ui/components';
 import { Link } from 'react-router-dom';
 import styles from './time-picker-page.module.css';
 
@@ -20,9 +20,7 @@ export const TimePickerPage = () => {
 			<TimePicker date={new Date()} onAccept={() => {}} className="mt-3" />
 
 			<div className="text-2xl font-bold mt-8">Import the component</div>
-			<CodeBlock
-				fileName="sample.tsx"
-				code="import { TimePicker } from '@essence-ui/components/ui/time-picker/time-picker';"></CodeBlock>
+			<CodeBlock fileName="sample.tsx" code="import { TimePicker } from '@wp-essence-ui/components';"></CodeBlock>
 
 			<div className="text-2xl font-bold mt-8">Use the component</div>
 			<CodeBlock fileName="sample.tsx" code={timePickerCode} language="tsx"></CodeBlock>

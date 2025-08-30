@@ -1,6 +1,6 @@
 import { CodeBlock } from '../../components/code-block/code-block';
 import { Link } from 'react-router-dom';
-import { StackPanel } from '@essence-ui/components/ui/stack-panel';
+import { StackPanel } from '@wp-essence-ui/components';
 
 export const StackPanelPage = () => {
 	const options = [
@@ -53,9 +53,7 @@ export const StackPanelPage = () => {
 			<StackPanel options={options} onOptionSelected={option => console.log(option)} className="mt-3" />
 
 			<div className="text-2xl font-bold mt-8">Import the component</div>
-			<CodeBlock
-				fileName="sample.tsx"
-				code="import { StackPanel } from '@essence-ui/components/ui/stack-panel';"></CodeBlock>
+			<CodeBlock fileName="sample.tsx" code="import { StackPanel } from '@wp-essence-ui/components';"></CodeBlock>
 
 			<div className="text-2xl font-bold mt-8">Use the component</div>
 			<CodeBlock

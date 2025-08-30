@@ -107,7 +107,7 @@ export const NavComponents = () => {
 					onClick={() => handleClick('/getting-started')}>
 					Getting Started
 				</li>
-				<li className={styles['disabled']}>Theming (Soon...)</li>
+				<li className={styles['disabled']}>Theme (Soon...)</li>
 				<li>Components</li>
 				<ul>
 					{components.map(component => (

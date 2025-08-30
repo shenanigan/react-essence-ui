@@ -8,7 +8,7 @@ interface PageProps extends PropsWithChildren {
 	titleClassName?: string;
 }
 
-export default function Page({ title, onTitleClick, children, className, titleClassName }: PageProps) {
+function Page({ title, onTitleClick, children, className, titleClassName }: PageProps) {
 	return (
 		<div className={cn('page-component', className)}>
 			{title && (
@@ -20,3 +20,5 @@ export default function Page({ title, onTitleClick, children, className, titleCl
 		</div>
 	);
 }
+
+export { Page };

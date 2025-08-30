@@ -1,5 +1,5 @@
 import { CodeBlock } from '../../components/code-block/code-block';
-import { CheckBox } from '@essence-ui/components/ui/check-box';
+import { CheckBox } from '@wp-essence-ui/components';
 import styles from './check-box-page.module.css';
 import { Link } from 'react-router-dom';
 
@@ -20,9 +20,7 @@ export const CheckBoxPage = () => {
 			<CheckBox className="mt-3" text="Hello World" />
 
 			<div className="text-2xl font-bold mt-8">Import the component</div>
-			<CodeBlock
-				fileName="sample.tsx"
-				code="import { CheckBox } from '@essence-ui/components/ui/check-box';"></CodeBlock>
+			<CodeBlock fileName="sample.tsx" code="import { CheckBox } from '@wp-essence-ui/components';"></CodeBlock>
 
 			<div className="text-2xl font-bold mt-8">Use the component</div>
 			<CodeBlock fileName="sample.tsx" code={checkBoxCode} language="html"></CodeBlock>

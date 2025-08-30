@@ -10,7 +10,7 @@ interface PivotProps extends React.ComponentProps<'div'> {
 	index?: number;
 	pivotItems: PivotItem[];
 }
-export default function Pivot({ title, pivotItems, index, ...props }: PivotProps) {
+function Pivot({ title, pivotItems, index, ...props }: PivotProps) {
 	const pivotTitleRef = useRef<HTMLDivElement | null>(null);
 	const componentContainer = useRef<HTMLDivElement | null>(null);
 	const [currentIndex, setCurrentIndex] = useState(index ?? 0);
@@ -105,3 +105,5 @@ export default function Pivot({ title, pivotItems, index, ...props }: PivotProps
 		</div>
 	);
 }
+
+export { Pivot, type PivotProps, type PivotItem };

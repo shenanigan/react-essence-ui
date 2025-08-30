@@ -1,5 +1,5 @@
 import { CodeBlock } from '../../components/code-block/code-block';
-import { Switch } from '@essence-ui/components/ui/switch';
+import { Switch } from '@wp-essence-ui/components';
 import styles from './switch-page.module.css';
 import { Link } from 'react-router-dom';
 
@@ -22,9 +22,7 @@ export const SwitchPage = () => {
 			</div>
 
 			<div className="text-2xl font-bold mt-8">Import the component</div>
-			<CodeBlock
-				fileName="sample.tsx"
-				code="import { Switch } from '@essence-ui/components/ui/switch';"></CodeBlock>
+			<CodeBlock fileName="sample.tsx" code="import { Switch } from '@wp-essence-ui/components';"></CodeBlock>
 
 			<div className="text-2xl font-bold mt-8">Use the component</div>
 			<CodeBlock fileName="sample.tsx" code={switchCode} language="html"></CodeBlock>

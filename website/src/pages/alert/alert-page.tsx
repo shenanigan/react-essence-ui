@@ -1,7 +1,7 @@
 import { CodeBlock } from '../../components/code-block/code-block';
-import { Alert } from '@essence-ui/components/ui/alert';
+import { Alert } from '@wp-essence-ui/components';
 import { useState } from 'react';
-import { Button } from '@essence-ui/components/ui/button';
+import { Button } from '@wp-essence-ui/components';
 
 export const AlertPage = () => {
 	const textButtonCode = `{showAlert && (
@@ -32,10 +32,7 @@ export const AlertPage = () => {
 				Show Alert
 			</Button>
 			<div className="text-2xl font-bold mt-8">Import the component</div>
-			<CodeBlock
-				language="tsx"
-				fileName="sample.tsx"
-				code="import { Alert } from '@essence-ui/components/ui/alert';"></CodeBlock>
+			<CodeBlock fileName="sample.tsx" code="import { Alert } from '@wp-essence-ui/components';"></CodeBlock>
 			<div className="text-2xl font-bold mt-8">Use the component</div>
 			<CodeBlock fileName="sample.tsx" code={textButtonCode} language="tsx"></CodeBlock>
 			<Button onClick={() => setShowAlert(true)}>Show Alert</Button>

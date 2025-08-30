@@ -3,9 +3,9 @@ import * as React from 'react';
 import { cn } from '../../../../lib/utils';
 import styles from './tile-container.module.css';
 import { useEffect } from 'react';
-import Clickable from '@essence-ui/components/core/clickable';
+import Clickable from '../../../core/clickable';
 
-export interface TileContainerProps extends React.ComponentProps<'div'> {
+interface TileContainerProps extends React.ComponentProps<'div'> {
 	frontTile: React.ReactNode;
 	backTile: React.ReactNode;
 	animationDuration?: number;
@@ -53,4 +53,4 @@ function TileContainer({
 	);
 }
 
-export { TileContainer };
+export { TileContainer, type TileContainerProps };

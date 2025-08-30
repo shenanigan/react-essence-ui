@@ -1,11 +1,11 @@
 import { CodeBlock } from '../../components/code-block/code-block';
 import { Link } from 'react-router-dom';
 import styles from './grid-page.module.css';
-import { Grid } from '@essence-ui/components/ui/grid';
-import { NotificationTile } from '@essence-ui/components/ui/tile/notification-tile';
-import type { GridTileProps } from '@essence-ui/components/ui/grid/grid-tile-container';
+import { Grid } from '@wp-essence-ui/components';
+import { NotificationTile } from '@wp-essence-ui/components';
 import { useState } from 'react';
-import { MailTile } from '@essence-ui/components/ui/tile/mail-tile';
+import { MailTile } from '@wp-essence-ui/components';
+import type { GridTileProps } from '@wp-essence-ui/components/dist/components/ui/grid/grid-tile-container';
 
 export const GridPage = () => {
 	const gridCode = `<Grid>
@@ -164,7 +164,7 @@ export const GridPage = () => {
 				tiles={tilesContainers}></Grid>
 
 			<div className="text-2xl font-bold mt-8">Import the component</div>
-			<CodeBlock fileName="sample.tsx" code="import { Tile } from '@essence-ui/components/ui/tile';"></CodeBlock>
+			<CodeBlock fileName="sample.tsx" code="import { Tile } from '@wp-essence-ui/components';"></CodeBlock>
 
 			<div className="text-2xl font-bold mt-8">Use the component</div>
 			<CodeBlock fileName="sample.tsx" code={gridCode} language="html"></CodeBlock>

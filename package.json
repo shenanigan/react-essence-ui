@@ -4,7 +4,7 @@
 	"scripts": {
 		"website": "npm run --prefix website dev",
 		"build": "npm run --prefix website build",
-		"pack": "npm --prefix @ess1ence-ui pack"
+		"pack": "npm --prefix @essence-ui pack"
 	},
 	"author": "Arjav Dave",
 	"license": "ISC",

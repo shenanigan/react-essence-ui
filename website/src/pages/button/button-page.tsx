@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { CodeBlock } from '../../components/code-block/code-block';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
-import { Button } from '@essence-ui/components/ui/button';
+import { Button } from '@wp-essence-ui/components';
 import styles from './button-page.module.css';
 import { Link } from 'react-router-dom';
 
@@ -22,9 +22,7 @@ export const ButtonPage = () => {
 			<Button className="mt-3">Hello World</Button>
 
 			<div className="text-2xl font-bold mt-8">Import the component</div>
-			<CodeBlock
-				fileName="sample.tsx"
-				code="import { Button } from '@essence-ui/components/ui/button';"></CodeBlock>
+			<CodeBlock fileName="sample.tsx" code="import { Button } from '@wp-essence-ui/components';"></CodeBlock>
 
 			<div className="text-2xl font-bold mt-8">Text Button</div>
 			<CodeBlock fileName="sample.tsx" code={textButtonCode} language="html"></CodeBlock>

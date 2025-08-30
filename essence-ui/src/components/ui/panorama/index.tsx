@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import Page from '../page';
+import { Page } from '../page';
 import { cn } from '@essence-ui/lib/utils';
 
 interface PanoramaItem {
@@ -13,7 +13,7 @@ interface PanoramaProps extends React.ComponentProps<'div'> {
 	panoramaItems: PanoramaItem[];
 	titleParallax?: boolean;
 }
-export default function Panorama({ title, panoramaItems, index, titleParallax = true, ...props }: PanoramaProps) {
+function Panorama({ title, panoramaItems, index, titleParallax = true, ...props }: PanoramaProps) {
 	const panoramaTitleRef = useRef<HTMLDivElement | null>(null);
 	const panoramaContainerRef = useRef<HTMLDivElement | null>(null);
 	const componentContainer = useRef<HTMLDivElement | null>(null);
@@ -104,3 +104,5 @@ export default function Panorama({ title, panoramaItems, index, titleParallax = 
 		</div>
 	);
 }
+
+export { Panorama, type PanoramaProps, type PanoramaItem };

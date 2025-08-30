@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Button } from '@essence-ui/components/ui/button';
-import { Switch } from '@essence-ui/components/ui/switch';
+import { Button } from '@wp-essence-ui/components';
+import { Switch } from '@wp-essence-ui/components';
 import styles from './header.module.css';
 
 export function Header() {

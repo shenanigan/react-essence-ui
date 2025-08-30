@@ -1,6 +1,6 @@
 import { CodeBlock } from '../../components/code-block/code-block';
 import { Link } from 'react-router-dom';
-import { ListPicker } from '@essence-ui/components/ui/list-picker';
+import { ListPicker } from '@wp-essence-ui/components';
 
 export const ListPickerPage = () => {
 	const options = [
@@ -116,9 +116,7 @@ export const ListPickerPage = () => {
 			<ListPicker className="mt-3" options={options} onOptionSelected={option => console.log(option)} />
 
 			<div className="text-2xl font-bold mt-8">Import the component</div>
-			<CodeBlock
-				fileName="sample.tsx"
-				code="import { ListPicker } from '@essence-ui/components/ui/list-picker';"></CodeBlock>
+			<CodeBlock fileName="sample.tsx" code="import { ListPicker } from '@wp-essence-ui/components';"></CodeBlock>
 
 			<div className="text-2xl font-bold mt-8">Use the component</div>
 			<CodeBlock

@@ -136,21 +136,21 @@ function DatePicker({ date, minDate, maxDate, onClose, onAccept, className, ...p
 	}, [_updateOptions, maxDateState, minDateState]);
 
 	useEffect(() => {
-		if (months.length && years.length) {
+		if (months.length > 0 && years.length > 0) {
 			_checkdate();
 		}
 	}, [months, years, _checkdate]);
 
 	useEffect(() => {
-		if (dates.length && dateOption.value !== dates[internalDate.getDate() - 1]?.value) {
+		if (dates.length > 0 && dateOption.value !== dates[internalDate.getDate() - 1]?.value) {
 			const date = dates[internalDate.getDate() - 1];
 			setDateOption(date);
 		}
-		if (months.length && monthOption.value !== months[internalDate.getMonth()]?.value) {
+		if (months.length > 0 && monthOption.value !== months[internalDate.getMonth()]?.value) {
 			setMonthOption(months[internalDate.getMonth()]);
 		}
 		if (
-			years.length &&
+			years.length > 0 &&
 			yearOption.value !== years[maxDateState.getFullYear() - internalDate.getFullYear()]?.value
 		) {
 			setYearOption(years[maxDateState.getFullYear() - internalDate.getFullYear()]);

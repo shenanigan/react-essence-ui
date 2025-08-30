@@ -1,5 +1,5 @@
 import { CodeBlock } from '../../components/code-block/code-block';
-import { Radio, RadioGroup } from '@essence-ui/components/ui/radio';
+import { Radio, RadioGroup } from '@wp-essence-ui/components';
 import { Link } from 'react-router-dom';
 
 export const RadioPage = () => {
@@ -23,9 +23,7 @@ export const RadioPage = () => {
 			</RadioGroup>
 
 			<div className="text-2xl font-bold mt-8">Import the component</div>
-			<CodeBlock
-				fileName="sample.tsx"
-				code="import { Radio } from '@essence-ui/components/ui/radio';"></CodeBlock>
+			<CodeBlock fileName="sample.tsx" code="import { Radio } from '@wp-essence-ui/components';"></CodeBlock>
 
 			<div className="text-2xl font-bold mt-8">Use the component</div>
 			<CodeBlock fileName="sample.tsx" code={radioCode} language="html"></CodeBlock>

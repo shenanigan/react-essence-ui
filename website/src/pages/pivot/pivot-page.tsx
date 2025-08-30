@@ -1,17 +1,17 @@
 import { CodeBlock } from '../../components/code-block/code-block';
-import Pivot from '@essence-ui/components/ui/pivot';
-import styles from './pivot-page.module.css';
+import { Pivot } from '@wp-essence-ui/components';
+// import styles from './pivot-page.module.css';
 
 export const PivotPage = () => {
-	const product = {
-		name: 'Essence',
-	};
-	const datePickerCode = `<DatePicker date={new Date()} onAccept={date => console.log(date)} />`;
-	const disabledDatePickerCode = `<DatePicker date={new Date()} onAccept={date => console.log(date)} disabled />`;
-	const customDatePickerCode = `<DatePicker date={new Date()} onAccept={date => console.log(date)} className={styles['custom-date-picker-theme']} />`;
-	const customStyle = `.custom-date-picker-theme {
-    --color-theme: green;
-}`;
+	// 	const product = {
+	// 		name: 'Essence',
+	// 	};
+	// 	const datePickerCode = `<DatePicker date={new Date()} onAccept={date => console.log(date)} />`;
+	// 	const disabledDatePickerCode = `<DatePicker date={new Date()} onAccept={date => console.log(date)} disabled />`;
+	// 	const customDatePickerCode = `<DatePicker date={new Date()} onAccept={date => console.log(date)} className={styles['custom-date-picker-theme']} />`;
+	// 	const customStyle = `.custom-date-picker-theme {
+	//     --color-theme: green;
+	// }`;
 	const pivotItems = [
 		{
 			title: 'Page 1',
@@ -57,9 +57,7 @@ export const PivotPage = () => {
 			</div>
 
 			<div className="text-2xl font-bold mt-8">Import the component</div>
-			<CodeBlock
-				fileName="sample.tsx"
-				code="import { Pivot } from '@essence-ui/components/ui/pivot';"></CodeBlock>
+			<CodeBlock fileName="sample.tsx" code="import { Pivot } from '@wp-essence-ui/components';"></CodeBlock>
 		</div>
 	);
 };

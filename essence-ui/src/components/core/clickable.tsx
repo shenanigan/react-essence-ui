@@ -1,7 +1,7 @@
-import { transformScale, transformRotation } from './util/transform.service.ts';
+import { transformScale, transformRotation } from './util/transform.service';
 import styles from './clickable.module.css';
 import React, { type PropsWithChildren } from 'react';
-import { cn } from '../../lib/utils.ts';
+import { cn } from '../../lib/utils';
 
 function Clickable({
 	onEnterOrSpaceKeyDown,

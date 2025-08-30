@@ -1,4 +1,4 @@
-import { cn } from '@essence-ui/lib/utils';
+import { cn } from '../../../../essence-ui/src/lib/utils';
 import styles from './props-table.module.css';
 
 export interface PropsTableItem {

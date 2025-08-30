@@ -1,5 +1,5 @@
 import { CodeBlock } from '../../components/code-block/code-block';
-import { DatePicker } from '@essence-ui/components/ui/date-picker';
+import { DatePicker } from '@wp-essence-ui/components';
 import { Link } from 'react-router-dom';
 import styles from './date-picker-page.module.css';
 
@@ -20,9 +20,7 @@ export const DatePickerPage = () => {
 			<DatePicker date={new Date()} onAccept={() => {}} className="mt-3" />
 
 			<div className="text-2xl font-bold mt-8">Import the component</div>
-			<CodeBlock
-				fileName="sample.tsx"
-				code="import { DatePicker } from '@essence-ui/components/ui/date-picker/date-picker';"></CodeBlock>
+			<CodeBlock fileName="sample.tsx" code="import { DatePicker } from '@wp-essence-ui/components';"></CodeBlock>
 
 			<div className="text-2xl font-bold mt-8">Use the component</div>
 			<CodeBlock fileName="sample.tsx" code={datePickerCode} language="tsx"></CodeBlock>

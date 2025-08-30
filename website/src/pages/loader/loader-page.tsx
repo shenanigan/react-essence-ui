@@ -1,5 +1,5 @@
 import { CodeBlock } from '../../components/code-block/code-block';
-import { Loader } from '@essence-ui/components/ui/loader';
+import { Loader } from '@wp-essence-ui/components';
 import { Link } from 'react-router-dom';
 import styles from './loader-page.module.css';
 
@@ -15,9 +15,7 @@ export const LoaderPage = () => {
 			<Loader className="mt-3" />
 
 			<div className="text-2xl font-bold mt-8">Import the component</div>
-			<CodeBlock
-				fileName="sample.tsx"
-				code="import { Loader } from '@essence-ui/components/ui/loader';"></CodeBlock>
+			<CodeBlock fileName="sample.tsx" code="import { Loader } from '@wp-essence-ui/components';"></CodeBlock>
 
 			<div className="text-2xl font-bold mt-8">Use the component</div>
 			<CodeBlock fileName="sample.tsx" code={loaderCode} language="html"></CodeBlock>

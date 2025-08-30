@@ -1,5 +1,5 @@
 import { CodeBlock } from '../../components/code-block/code-block';
-import { ProgressBar } from '@essence-ui/components/ui/progress-bar';
+import { ProgressBar } from '@wp-essence-ui/components';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './progress-bar-page.module.css';
@@ -30,7 +30,7 @@ export const ProgressBarPage = () => {
 			<div className="text-2xl font-bold mt-8">Import the component</div>
 			<CodeBlock
 				fileName="sample.tsx"
-				code="import { ProgressBar } from '@essence-ui/components/ui/progress-bar';"></CodeBlock>
+				code="import { ProgressBar } from '@wp-essence-ui/components';"></CodeBlock>
 
 			<div className="text-2xl font-bold mt-8">Use the component</div>
 			<CodeBlock fileName="sample.tsx" code={progressBarCode} language="html"></CodeBlock>

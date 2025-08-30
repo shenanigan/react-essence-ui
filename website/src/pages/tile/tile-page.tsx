@@ -1,7 +1,7 @@
 import { CodeBlock } from '../../components/code-block/code-block';
 import { Link } from 'react-router-dom';
 import styles from './tile-page.module.css';
-import { TileContainer } from '@essence-ui/components/ui/tile/tile-container';
+import { TileContainer } from '@wp-essence-ui/components';
 
 export const TilePage = () => {
 	const tileCode = `<Tile frontTile="Front Tile" backTile="Back Tile" />`;
@@ -30,7 +30,7 @@ export const TilePage = () => {
 			/>
 
 			<div className="text-2xl font-bold mt-8">Import the component</div>
-			<CodeBlock fileName="sample.tsx" code="import { Tile } from '@essence-ui/components/ui/tile';"></CodeBlock>
+			<CodeBlock fileName="sample.tsx" code="import { Tile } from '@wp-essence-ui/components';"></CodeBlock>
 
 			<div className="text-2xl font-bold mt-8">Use the component</div>
 			<CodeBlock fileName="sample.tsx" code={tileCode} language="html"></CodeBlock>

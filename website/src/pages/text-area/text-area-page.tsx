@@ -1,5 +1,5 @@
 import { CodeBlock } from '../../components/code-block/code-block';
-import { TextArea } from '@essence-ui/components/ui/text-area';
+import { TextArea } from '@wp-essence-ui/components';
 import { Link } from 'react-router-dom';
 import styles from './text-area-page.module.css';
 
@@ -18,9 +18,7 @@ export const TextAreaPage = () => {
 			<TextArea placeholder="sample placeholder" className="mt-3" />
 
 			<div className="text-2xl font-bold mt-8">Import the component</div>
-			<CodeBlock
-				fileName="sample.tsx"
-				code="import { TextArea } from '@essence-ui/components/ui/text-area';"></CodeBlock>
+			<CodeBlock fileName="sample.tsx" code="import { TextArea } from '@wp-essence-ui/components';"></CodeBlock>
 
 			<div className="text-2xl font-bold mt-8">Use the component</div>
 			<CodeBlock fileName="sample.tsx" code={inputCode} language="html"></CodeBlock>

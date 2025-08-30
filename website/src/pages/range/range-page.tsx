@@ -1,8 +1,8 @@
 import { CodeBlock } from '../../components/code-block/code-block';
-import { Range } from '@essence-ui/components/ui/range';
+import { Range } from '@wp-essence-ui/components';
 import { Link } from 'react-router-dom';
 import styles from './range-page.module.css';
-import { cn } from '@essence-ui/lib/utils';
+import { cn } from '../../../../essence-ui/src/lib/utils';
 
 export const RangePage = () => {
 	const product = {
@@ -21,9 +21,7 @@ export const RangePage = () => {
 			<Range className="w-1/2 mt-3" />
 
 			<div className="text-2xl font-bold mt-8">Import the component</div>
-			<CodeBlock
-				fileName="sample.tsx"
-				code="import { Range } from '@essence-ui/components/ui/range';"></CodeBlock>
+			<CodeBlock fileName="sample.tsx" code="import { Range } from '@wp-essence-ui/components';"></CodeBlock>
 
 			<div className="text-2xl font-bold mt-8">Use the component</div>
 			<CodeBlock fileName="sample.tsx" code={rangeCode} language="html"></CodeBlock>
