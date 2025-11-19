@@ -1,7 +1,7 @@
 .theme-dark {
 	--hex-bkg-color: 0, 0, 0;
 	--hex-primary-color: 255, 255, 255;
-	--hex-secondary-bkg-color: 255, 255, 255;
+	--hex-secondary-bkg-color: 55, 55, 55;
 	--color-primary: rgb(var(--hex-primary-color));
 	--bg-color-primary: rgb(var(--hex-bkg-color));
 	--bg-color-secondary: rgb(var(--hex-secondary-bkg-color));

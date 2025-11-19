@@ -1,6 +1,6 @@
 {
 	"name": "@wp-essence-ui/components",
-	"version": "0.0.14",
+	"version": "0.0.21",
 	"description": "Looking to quickly add Metro UI to your react project? This component library is the right choice for you.",
 	"keywords": [
 		"react",
@@ -12,7 +12,7 @@
 		"phone",
 		"windows phone"
 	],
-	"homepage": "https://essence.royalecheese.com/getting-started",
+	"homepage": "https://essence.royalecheese.com/getting-started?utm_source=npm&utm_medium=package&utm_campaign=essence-ui",
 	"bugs": {
 		"email": "arjav@royalecheese.com"
 	},

@@ -21,6 +21,7 @@ import { GridPage } from './pages/grid/grid-page';
 import { ListPickerPage } from './pages/list-picker/list-picker-page';
 import { StackPanelPage } from './pages/stack-panel/stack-panel-page';
 import { PagePage } from './pages/page/page-page';
+import { CountryCodePickerPage } from './pages/country-code-picker/country-code-picker-page';
 
 export default function AppRoutes() {
 	return (
@@ -40,6 +41,7 @@ export default function AppRoutes() {
 					<Route path="alert" element={<AlertPage />} />
 					<Route path="date-picker" element={<DatePickerPage />} />
 					<Route path="time-picker" element={<TimePickerPage />} />
+					<Route path="country-code-picker" element={<CountryCodePickerPage />} />
 					<Route path="panorama" element={<PanoramaPage />} />
 					<Route path="pivot" element={<PivotPage />} />
 					<Route path="tile" element={<TilePage />} />

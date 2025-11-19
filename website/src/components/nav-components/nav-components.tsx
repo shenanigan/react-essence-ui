@@ -56,6 +56,10 @@ export const NavComponents = () => {
 			name: 'Date Picker',
 		},
 		{
+			path: '/components/country-code-picker',
+			name: 'Country Code Picker',
+		},
+		{
 			path: '/components/page',
 			name: 'Page',
 		},

@@ -28,7 +28,7 @@ export const DatePickerPage = () => {
 
 			<div className="text-2xl font-bold mt-8">Disabled DatePicker</div>
 			<CodeBlock fileName="sample.tsx" code={disabledDatePickerCode} language="tsx"></CodeBlock>
-			<DatePicker date={new Date()} onAccept={() => {}} />
+			<DatePicker date={new Date()} onAccept={() => {}} disabled />
 
 			<div className="text-3xl font-bold mt-8">About</div>
 			<p className="mt-3">

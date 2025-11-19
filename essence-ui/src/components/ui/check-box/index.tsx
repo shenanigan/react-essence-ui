@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { cn } from '@essence-ui/lib/utils';
-import Clickable from '@essence-ui/components/core/clickable';
+import { Clickable } from '@essence-ui/components/core/clickable';
 
 interface CheckBoxProps extends React.ComponentProps<'button'> {
 	defaultChecked?: boolean;

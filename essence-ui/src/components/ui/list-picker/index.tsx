@@ -3,7 +3,7 @@ import { PickerOverlay } from '@essence-ui/components/core/picker-overlay/picker
 import { Input } from '@essence-ui/components/ui/input';
 import { cn } from '@essence-ui/lib/utils';
 import type { IPickerOption } from '@essence-ui/components/core/model/i-picker-option';
-import Clickable from '@essence-ui/components/core/clickable';
+import { Clickable } from '@essence-ui/components/core/clickable';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 

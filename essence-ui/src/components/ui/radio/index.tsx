@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, type ReactNode } from 'react';
 import { cn } from '@essence-ui/lib/utils';
-import Clickable from '@essence-ui/components/core/clickable';
+import { Clickable } from '@essence-ui/components/core/clickable';
 
 interface RadioProps extends React.ComponentProps<'button'> {
 	text?: string;

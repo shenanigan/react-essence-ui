@@ -1,7 +1,7 @@
 .theme-light {
 	--hex-bkg-color: 255, 255, 255;
 	--hex-primary-color: 0, 0, 0;
-	--hex-secondary-bkg-color: 0, 0, 0;
+	--hex-secondary-bkg-color: 200, 200, 200;
 	--color-primary: rgb(var(--hex-primary-color));
 	--bg-color-primary: rgb(var(--hex-bkg-color));
 	--bg-color-secondary: rgb(var(--hex-secondary-bkg-color));

@@ -1,5 +1,4 @@
 import { transformScale, transformRotation } from './util/transform.service';
-import styles from './clickable.module.css';
 import React, { type PropsWithChildren } from 'react';
 import { cn } from '../../lib/utils';
 
@@ -154,7 +153,7 @@ function Clickable({
 				data-slot="button"
 				tabIndex={props?.disabled ? -1 : 0}
 				onKeyDown={handleKeyDown}
-				className={cn(styles['clickable'], props?.disabled && styles['disabled'], props?.className)}>
+				className={cn('clickable', props?.disabled && 'disabled', props?.className)}>
 				{React.cloneElement(
 					props.children as React.ReactElement<{
 						onMouseUp?: (e: React.MouseEvent<HTMLElement>) => void;
@@ -181,4 +180,4 @@ function Clickable({
 	return props.children;
 }
 
-export default Clickable;
+export { Clickable };

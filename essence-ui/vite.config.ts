@@ -38,14 +38,13 @@ export default defineConfig({
 					}
 					return 'assets/[name][extname]';
 				},
-				preserveModules: true,
-				preserveModulesRoot: 'src',
+				// preserveModules: true,
+				// preserveModulesRoot: 'src',
 				entryFileNames: '[name].js',
 			},
 		},
 		cssCodeSplit: false,
-		sourcemap: true,
-		emptyOutDir: true,
+		sourcemap: false,
 	},
 	resolve: {
 		alias: {

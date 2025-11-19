@@ -1,5 +1,5 @@
 import { CodeBlock } from '../../components/code-block/code-block';
-import { Input } from '@wp-essence-ui/components';
+import { Input } from '../../../../essence-ui/src/components/ui/input';
 import { Link } from 'react-router-dom';
 import styles from './input-page.module.css';
 

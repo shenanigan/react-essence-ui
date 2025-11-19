@@ -3,7 +3,7 @@ import * as React from 'react';
 import { cn } from '../../../../lib/utils';
 import styles from './tile-container.module.css';
 import { useEffect } from 'react';
-import Clickable from '../../../core/clickable';
+import { Clickable } from '@essence-ui/components/core/clickable';
 
 interface TileContainerProps extends React.ComponentProps<'div'> {
 	frontTile: React.ReactNode;

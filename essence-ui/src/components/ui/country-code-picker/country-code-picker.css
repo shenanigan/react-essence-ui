@@ -1,0 +1,6 @@
+.country-code-picker-input {
+	text-align: center;
+	position: relative;
+	cursor: pointer;
+	max-width: 80px;
+}

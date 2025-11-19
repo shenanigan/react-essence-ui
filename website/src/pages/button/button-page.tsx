@@ -4,6 +4,7 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { Button } from '@wp-essence-ui/components';
 import styles from './button-page.module.css';
 import { Link } from 'react-router-dom';
+import { Clickable } from '@wp-essence-ui/components';
 
 export const ButtonPage = () => {
 	const product = {
@@ -20,7 +21,9 @@ export const ButtonPage = () => {
 		<div className="docs-markdown">
 			<div className="text-3xl font-bold">Demo</div>
 			<Button className="mt-3">Hello World</Button>
-
+			<Clickable>
+				<div className=" h6">Hello World</div>
+			</Clickable>
 			<div className="text-2xl font-bold mt-8">Import the component</div>
 			<CodeBlock fileName="sample.tsx" code="import { Button } from '@wp-essence-ui/components';"></CodeBlock>
 

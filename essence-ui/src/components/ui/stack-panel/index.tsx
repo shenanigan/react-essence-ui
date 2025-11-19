@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Input } from '@essence-ui/components/ui/input';
 import { cn } from '@essence-ui/lib/utils';
 import type { IPickerOption } from '@essence-ui/components/core/model/i-picker-option';
-import Clickable from '@essence-ui/components/core/clickable';
+import { Clickable } from '@essence-ui/components/core/clickable';
 
 interface StackPanelProps extends React.ComponentProps<typeof Input> {
 	options: IPickerOption[];

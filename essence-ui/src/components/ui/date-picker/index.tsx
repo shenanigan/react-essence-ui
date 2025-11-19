@@ -181,11 +181,11 @@ function DatePicker({ date, minDate, maxDate, onClose, onAccept, className, ...p
 	return (
 		<div className={cn(className)}>
 			<Input
+				{...props}
 				onFocus={openDatePicker}
 				value={currentDate.toISOString().replace(/T.*/, '').split('-').reverse().join('-')}
 				readOnly
 				inputMode="none"
-				{...props}
 			/>
 			{!hidePicker && (
 				<PickerOverlay onAccept={accept} onReject={reject}>
