@@ -7,7 +7,7 @@ function Clickable({
 	onLongPress,
 	...props
 }: PropsWithChildren<
-	React.ComponentProps<'button'> & {
+	React.ButtonHTMLAttributes<HTMLButtonElement> & {
 		onEnterOrSpaceKeyDown?: (e: React.KeyboardEvent<HTMLButtonElement>) => void;
 		onLongPress?: () => void;
 	}
@@ -148,8 +148,8 @@ function Clickable({
 	if (React.isValidElement(props.children)) {
 		return (
 			<button
-				ref={ref}
 				{...props}
+				ref={ref}
 				data-slot="button"
 				tabIndex={props?.disabled ? -1 : 0}
 				onKeyDown={handleKeyDown}

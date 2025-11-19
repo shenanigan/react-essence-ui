@@ -5,7 +5,7 @@ export interface AlertInfo {
 	show: boolean;
 	message: string;
 }
-export interface AlertProps extends React.ComponentProps<'button'> {
+export interface AlertProps extends React.HTMLAttributes<HTMLButtonElement> {
 	message: string;
 	okButton: string;
 	dismissButton?: string;

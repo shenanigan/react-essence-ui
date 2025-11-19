@@ -5,7 +5,7 @@ import styles from './tile-container.module.css';
 import { useEffect } from 'react';
 import { Clickable } from '@essence-ui/components/core/clickable';
 
-interface TileContainerProps extends React.ComponentProps<'div'> {
+interface TileContainerProps extends React.HTMLAttributes<HTMLDivElement> {
 	frontTile: React.ReactNode;
 	backTile: React.ReactNode;
 	animationDuration?: number;

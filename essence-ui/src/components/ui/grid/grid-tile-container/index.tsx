@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { cn } from '../../../../lib/utils';
 import styles from './grid-tile-container.module.css';
-import { useEffect, useLayoutEffect } from 'react';
+import { useEffect, useLayoutEffect, type Key } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -17,6 +17,7 @@ import { TileContainer, type TileContainerProps } from '../../tile/tile-containe
 import { useVariantContext } from '../../tile/context/variant-context';
 
 export interface GridTileProps extends TileContainerProps {
+	key: Key | null | undefined;
 	tileHeight?: number;
 	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
 	onMovePrevious?: () => void;

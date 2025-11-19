@@ -4,7 +4,7 @@ import { cn } from '../../../../lib/utils';
 import styles from './notification-tile.module.css';
 import { useVariantContext } from '../context/variant-context';
 
-export interface NotificationTileProps extends React.ComponentProps<'div'> {
+export interface NotificationTileProps extends React.HTMLAttributes<HTMLDivElement> {
 	badge: number | string;
 	title: string;
 	iconUrl: string;

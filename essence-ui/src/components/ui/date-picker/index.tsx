@@ -5,7 +5,7 @@ import type { IPickerOption } from '@essence-ui/components/core/model/i-picker-o
 import { Input } from '@essence-ui/components/ui/input';
 import { cn } from '@essence-ui/lib/utils';
 
-interface DatePickerProps extends React.ComponentProps<typeof Input> {
+interface DatePickerProps extends React.InputHTMLAttributes<HTMLInputElement> {
 	date: Date | string | undefined;
 	minDate?: Date;
 	maxDate?: Date;

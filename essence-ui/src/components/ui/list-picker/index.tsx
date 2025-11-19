@@ -7,7 +7,7 @@ import { Clickable } from '@essence-ui/components/core/clickable';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
-interface ListPickerProps extends React.ComponentProps<typeof Input> {
+interface ListPickerProps extends React.InputHTMLAttributes<HTMLInputElement> {
 	options: ListPickerOption[];
 	onOptionSelected(option: IPickerOption): void;
 }

@@ -5,7 +5,7 @@ interface PivotItem {
 	title: string;
 	child: React.ReactNode;
 }
-interface PivotProps extends React.ComponentProps<'div'> {
+interface PivotProps extends React.HTMLAttributes<HTMLDivElement> {
 	title: string;
 	index?: number;
 	pivotItems: PivotItem[];

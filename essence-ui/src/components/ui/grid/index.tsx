@@ -7,7 +7,7 @@ import { useCallback, useEffect, useMemo } from 'react';
 import type { Key } from 'react';
 import { VariantProvider } from '../tile/context/variant-provider';
 
-export interface GridProps extends React.ComponentProps<'div'> {
+export interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
 	tiles: GridTileProps[];
 	onTileSizeChanged?: (
 		key: Key | null | undefined,

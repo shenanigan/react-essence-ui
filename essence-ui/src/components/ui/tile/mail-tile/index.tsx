@@ -4,7 +4,7 @@ import { cn } from '../../../../lib/utils';
 import styles from './mail-tile.module.css';
 import { useVariantContext } from '../context/variant-context';
 
-export interface MailTileProps extends React.ComponentProps<'div'> {
+export interface MailTileProps extends React.HTMLAttributes<HTMLDivElement> {
 	badge?: number | string;
 	subject: string;
 	preview: string;

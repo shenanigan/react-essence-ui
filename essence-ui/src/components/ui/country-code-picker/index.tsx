@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react';
-import { cn, Input, PickerList, PickerOverlay } from '@wp-essence-ui/components';
-import type { IPickerOption } from '@wp-essence-ui/components';
+import { PickerList } from '../../core/picker-list/picker-list';
+import { PickerOverlay } from '../../core/picker-overlay/picker-overlay';
+import { Input } from '../input';
+import { cn } from '../../../lib/utils';
+import type { IPickerOption } from '../../core/model/i-picker-option';
 import React from 'react';
 
-interface Props extends React.ComponentProps<typeof Input> {
+interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
 	onClose?(): void;
 	onAccept(option: IPickerOption): void;
 	countryCodes: IPickerOption[];

@@ -1,6 +1,6 @@
 {
 	"name": "@wp-essence-ui/components",
-	"version": "0.0.21",
+	"version": "0.0.23",
 	"description": "Looking to quickly add Metro UI to your react project? This component library is the right choice for you.",
 	"keywords": [
 		"react",

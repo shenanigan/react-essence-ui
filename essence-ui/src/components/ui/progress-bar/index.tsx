@@ -1,6 +1,6 @@
 import { cn } from '@essence-ui/lib/utils';
 
-interface ProgressBarProps extends React.ComponentProps<'div'> {
+interface ProgressBarProps extends React.HTMLAttributes<HTMLDivElement> {
 	value: number;
 }
 

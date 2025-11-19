@@ -7,7 +7,7 @@ interface PanoramaItem {
 	child: React.ReactNode;
 	grow?: number;
 }
-interface PanoramaProps extends React.ComponentProps<'div'> {
+interface PanoramaProps extends React.HTMLAttributes<HTMLDivElement> {
 	title: string;
 	index?: number;
 	panoramaItems: PanoramaItem[];

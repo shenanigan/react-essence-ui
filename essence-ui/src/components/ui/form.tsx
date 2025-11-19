@@ -65,7 +65,7 @@ type FormItemContextValue = {
 
 const FormItemContext = React.createContext<FormItemContextValue>({} as FormItemContextValue);
 
-function FormItem({ className, ...props }: React.ComponentProps<'div'>) {
+function FormItem({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
 	const id = React.useId();
 
 	return (
@@ -75,7 +75,7 @@ function FormItem({ className, ...props }: React.ComponentProps<'div'>) {
 	);
 }
 
-function FormLabel({ className, ...props }: React.ComponentProps<'label'>) {
+function FormLabel({ className, ...props }: React.LabelHTMLAttributes<HTMLLabelElement>) {
 	const { error, formItemId } = useFormField();
 
 	return (
@@ -83,13 +83,13 @@ function FormLabel({ className, ...props }: React.ComponentProps<'label'>) {
 			data-slot="form-label"
 			data-error={!!error}
 			className={cn('data-[error=true]:text-destructive', className)}
-			htmlFor={formItemId}
+			htmlFor={props.htmlFor ?? formItemId}
 			{...props}
 		/>
 	);
 }
 
-function FormControl({ ...props }: React.ComponentProps<'div'>) {
+function FormControl({ ...props }: React.HTMLAttributes<HTMLDivElement>) {
 	const { error, formItemId, formDescriptionId, formMessageId } = useFormField();
 
 	return (
@@ -103,7 +103,7 @@ function FormControl({ ...props }: React.ComponentProps<'div'>) {
 	);
 }
 
-function FormDescription({ className, ...props }: React.ComponentProps<'p'>) {
+function FormDescription({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) {
 	const { formDescriptionId } = useFormField();
 
 	return (
@@ -116,7 +116,7 @@ function FormDescription({ className, ...props }: React.ComponentProps<'p'>) {
 	);
 }
 
-function FormMessage({ className, ...props }: React.ComponentProps<'p'>) {
+function FormMessage({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) {
 	const { error, formMessageId } = useFormField();
 	const body = error ? String(error?.message ?? '') : props.children;
 

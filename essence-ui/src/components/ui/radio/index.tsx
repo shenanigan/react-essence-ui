@@ -2,7 +2,7 @@ import { createContext, useContext, useState, type ReactNode } from 'react';
 import { cn } from '@essence-ui/lib/utils';
 import { Clickable } from '@essence-ui/components/core/clickable';
 
-interface RadioProps extends React.ComponentProps<'button'> {
+interface RadioProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	text?: string;
 	value: string;
 }
@@ -46,7 +46,7 @@ type RadioGroupProps = {
 	name: string;
 	defaultValue?: string;
 	children: ReactNode;
-} & React.ComponentProps<'div'>;
+} & React.HTMLAttributes<HTMLDivElement>;
 
 const RadioGroup = ({ name, defaultValue, children, ...props }: RadioGroupProps) => {
 	const [selected, setSelected] = useState<string | null>(defaultValue ?? null);

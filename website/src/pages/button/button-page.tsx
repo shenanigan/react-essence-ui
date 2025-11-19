@@ -4,7 +4,6 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { Button } from '@wp-essence-ui/components';
 import styles from './button-page.module.css';
 import { Link } from 'react-router-dom';
-import { Clickable } from '@wp-essence-ui/components';
 
 export const ButtonPage = () => {
 	const product = {
@@ -19,19 +18,16 @@ export const ButtonPage = () => {
 }`;
 	return (
 		<div className="docs-markdown">
-			<div className="text-3xl font-bold">Demo</div>
+			<h1 className="h4">Demo</h1>
 			<Button className="mt-3">Hello World</Button>
-			<Clickable>
-				<div className=" h6">Hello World</div>
-			</Clickable>
-			<div className="text-2xl font-bold mt-8">Import the component</div>
+			<h2 className="h4 mt-8">Import the component</h2>
 			<CodeBlock fileName="sample.tsx" code="import { Button } from '@wp-essence-ui/components';"></CodeBlock>
 
-			<div className="text-2xl font-bold mt-8">Text Button</div>
+			<h2 className="h4 mt-8">Text Button</h2>
 			<CodeBlock fileName="sample.tsx" code={textButtonCode} language="html"></CodeBlock>
 			<Button>Hello World</Button>
 
-			<div className="text-3xl font-bold mt-8">Props</div>
+			<h2 className="h4 mt-8">Props</h2>
 			<p className="mt-3">
 				Button component accepts all the props of{' '}
 				<a
@@ -42,11 +38,11 @@ export const ButtonPage = () => {
 				</a>
 			</p>
 
-			<div className="text-2xl font-bold mt-8">Disabled Button</div>
+			<h2 className="h4 mt-8">Disabled Button</h2>
 			<CodeBlock fileName="sample.tsx" code={disabledButtonCode} language="html"></CodeBlock>
 			<Button disabled>Hello World</Button>
 
-			<div className="text-2xl font-bold mt-8">Icon Button</div>
+			<h2 className="h4 mt-8">Icon Button</h2>
 
 			<CodeBlock fileName="sample.tsx" code={iconButtonCode} language="html"></CodeBlock>
 			<Button>
@@ -54,7 +50,7 @@ export const ButtonPage = () => {
 				Hello World
 			</Button>
 
-			<div className="text-3xl font-bold mt-8">About</div>
+			<h2 className="h4 mt-8">About</h2>
 			<p className="mt-3">
 				{product.name} buttons are native <code>&lt;button&gt;</code> elements enhanced with {product.name}{' '}
 				Design styling. Native <code>&lt;button&gt;</code> elements are always used in order to provide the most
@@ -62,7 +58,7 @@ export const ButtonPage = () => {
 				used whenever some action is performed.
 			</p>
 
-			<div className="text-3xl font-bold mt-8">Capitalization</div>
+			<h2 className="h4 mt-8">Capitalization</h2>
 
 			<p className="mt-3">
 				According to the {product.name} design specification, the button text has to be in lower case. So the
@@ -70,7 +66,7 @@ export const ButtonPage = () => {
 				update the <code>text-transform</code> property as per the requirement.
 			</p>
 
-			<div className="text-3xl font-bold mt-8">Theming</div>
+			<h2 className="h4 mt-8">Theming</h2>
 
 			<p className="mt-3">To change the color of the button on hover apply a custom class as below.</p>
 
@@ -83,7 +79,7 @@ export const ButtonPage = () => {
 				For changing the overall theme for all elements, check the <Link to="/theme">Theme</Link> section.
 			</p>
 
-			<div className="text-3xl font-bold mt-8">Accessiblity</div>
+			<h2 className="h4 mt-8">Accessiblity</h2>
 			<p className="mt-3">
 				{product.name} uses native <code>&lt;button&gt;</code> elements to ensure an accessible experience by
 				default. All standard accessibility best practices for buttons apply to <code>Button</code>.

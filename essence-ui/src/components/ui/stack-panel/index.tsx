@@ -4,7 +4,7 @@ import { cn } from '@essence-ui/lib/utils';
 import type { IPickerOption } from '@essence-ui/components/core/model/i-picker-option';
 import { Clickable } from '@essence-ui/components/core/clickable';
 
-interface StackPanelProps extends React.ComponentProps<typeof Input> {
+interface StackPanelProps extends React.InputHTMLAttributes<HTMLInputElement> {
 	options: IPickerOption[];
 	onOptionSelected(option: IPickerOption): void;
 }

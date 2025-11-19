@@ -67,6 +67,7 @@ export function Header() {
 						text={isLightTheme ? 'Light' : 'Dark'}
 						defaultChecked={isLightTheme}
 						onCheckedChange={toggleTheme}
+						aria-label="Switch Theme"
 					/>
 				</div>
 			</div>
